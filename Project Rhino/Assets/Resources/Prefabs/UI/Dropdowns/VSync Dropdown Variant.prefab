@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1376863195493379578
+--- !u!1001 &1884246692707183720
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,31 +9,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 943781386277927282, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_Text
-      value: Anti-Aliasing
+      value: VSync
       objectReference: {fileID: 0}
     - target: {fileID: 1928950412389724166, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_Name
-      value: AA Dropdown Variant
+      value: VSync Dropdown
       objectReference: {fileID: 0}
     - target: {fileID: 2926621242523367335, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_Text
-      value: None
+      value: Don't Sync
       objectReference: {fileID: 0}
     - target: {fileID: 3368397215195045745, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_Options.m_Options.Array.data[0].m_Text
-      value: None
+      value: Don't Sync
       objectReference: {fileID: 0}
     - target: {fileID: 3368397215195045745, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_Options.m_Options.Array.data[1].m_Text
-      value: Medium
+      value: Every V Blank
       objectReference: {fileID: 0}
     - target: {fileID: 3368397215195045745, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_Options.m_Options.Array.data[2].m_Text
-      value: High
+      value: Every Second V Blank
       objectReference: {fileID: 0}
     - target: {fileID: 4609043693212525709, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_Name
-      value: AA Dropdown
+      value: VSync Dropdown
       objectReference: {fileID: 0}
     - target: {fileID: 5614270594924540623, guid: ab5de7b47051b32499e18aeda1fad824, type: 3}
       propertyPath: m_LocalPosition.x

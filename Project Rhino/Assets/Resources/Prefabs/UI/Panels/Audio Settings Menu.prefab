@@ -230,6 +230,7 @@ GameObject:
   - component: {fileID: 7955114021745162487}
   - component: {fileID: 7955114021745162481}
   - component: {fileID: 7955114021745162486}
+  - component: {fileID: 3480425922665810246}
   m_Layer: 5
   m_Name: Audio Settings Menu
   m_TagString: Untagged
@@ -297,6 +298,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3480425922665810246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7955114021745162484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e91d46ef7176a846a83861b3222d477, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterVolumeSlider: {fileID: 1455014013738356931}
+  musicVolumeSlider: {fileID: 2973362940974829326}
+  fxVolumeSlider: {fileID: 4668635903579206903}
+  backAudioSettingsButton: {fileID: 280013710829092769}
+  saveAudioSettingsButton: {fileID: 8684857254976436367}
 --- !u!1 &7955114021787284470
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +510,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8640874577952538749, guid: ebf24af267e73534e90dc082ef3a9f66, type: 3}
   m_PrefabInstance: {fileID: 1111335831660443891}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8684857254976436367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8640874577952538748, guid: ebf24af267e73534e90dc082ef3a9f66, type: 3}
+  m_PrefabInstance: {fileID: 1111335831660443891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3921839311118108412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -591,6 +620,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Music Volume Slider Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8497363010823396841, guid: cd37aa912a66e5947ad5eabafc09d03e, type: 3}
+      propertyPath: m_Name
+      value: Music Slider
+      objectReference: {fileID: 0}
     - target: {fileID: 9097847194923079238, guid: cd37aa912a66e5947ad5eabafc09d03e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -602,6 +635,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6846394059443064889, guid: cd37aa912a66e5947ad5eabafc09d03e, type: 3}
   m_PrefabInstance: {fileID: 3921839311118108412}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2973362940974829326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2246924322507983346, guid: cd37aa912a66e5947ad5eabafc09d03e, type: 3}
+  m_PrefabInstance: {fileID: 3921839311118108412}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5491564958173528049
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -697,6 +741,10 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7367248812105621277, guid: 76414970f2451d64e9e79ed6ed0075f1, type: 3}
+      propertyPath: m_Name
+      value: FX Slider
+      objectReference: {fileID: 0}
     - target: {fileID: 7895655342807831730, guid: 76414970f2451d64e9e79ed6ed0075f1, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -712,6 +760,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5535570997579059917, guid: 76414970f2451d64e9e79ed6ed0075f1, type: 3}
   m_PrefabInstance: {fileID: 5491564958173528049}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4668635903579206903 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 936650477441075974, guid: 76414970f2451d64e9e79ed6ed0075f1, type: 3}
+  m_PrefabInstance: {fileID: 5491564958173528049}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7655335951915709356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -722,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 906951410637385697, guid: f09ad987df8f1ce4f89fc1af7fe450df, type: 3}
       propertyPath: m_Name
       value: Master Volume Slider Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499161646655567732, guid: f09ad987df8f1ce4f89fc1af7fe450df, type: 3}
+      propertyPath: m_Name
+      value: Master Slider
       objectReference: {fileID: 0}
     - target: {fileID: 2260999299838770395, guid: f09ad987df8f1ce4f89fc1af7fe450df, type: 3}
       propertyPath: m_AnchorMax.y
@@ -822,6 +885,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4477108198676216484, guid: f09ad987df8f1ce4f89fc1af7fe450df, type: 3}
   m_PrefabInstance: {fileID: 7655335951915709356}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1455014013738356931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9082644393808192367, guid: f09ad987df8f1ce4f89fc1af7fe450df, type: 3}
+  m_PrefabInstance: {fileID: 7655335951915709356}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7757317912886161747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -984,3 +1058,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7513492325187604211, guid: fa9374a6b565c7a4a9b509c2e9143063, type: 3}
   m_PrefabInstance: {fileID: 7757317912886161747}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &280013710829092769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7513492325187604210, guid: fa9374a6b565c7a4a9b509c2e9143063, type: 3}
+  m_PrefabInstance: {fileID: 7757317912886161747}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

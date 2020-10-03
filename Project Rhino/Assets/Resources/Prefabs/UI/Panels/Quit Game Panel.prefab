@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 6574211250353519798}
   - component: {fileID: 6574211250353519800}
   - component: {fileID: 6574211250353519799}
+  - component: {fileID: 5968287706374220534}
   m_Layer: 5
   m_Name: Quit Game Panel
   m_TagString: Untagged
@@ -220,6 +221,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5968287706374220534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574211250353519797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b0a87986d8ac8e41959f5ca00d5b703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  confirmButton: {fileID: 7213595320603834730}
 --- !u!1001 &6574211248701601731
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -350,6 +364,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4550778524616527528, guid: a699bf55dec37a148b9c1185f446bbff, type: 3}
   m_PrefabInstance: {fileID: 6574211248701601731}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7213595320603834730 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4550778524616527529, guid: a699bf55dec37a148b9c1185f446bbff, type: 3}
+  m_PrefabInstance: {fileID: 6574211248701601731}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6574211250266502737
 PrefabInstance:
   m_ObjectHideFlags: 0
