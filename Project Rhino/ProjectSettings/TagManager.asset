@@ -52,6 +52,9 @@ TagManager:
   - name: Player
     uniqueID: 463713735
     locked: 0
+  - name: Interactable
+    uniqueID: 742504657
+    locked: 0
   - name: Traps
     uniqueID: 3589539755
     locked: 0

@@ -11,9 +11,8 @@ public class PlayerController : MonoBehaviour
     bool jump = false;
     bool canJump = true;
 
-    #region Pause
-
-    #endregion
+    public delegate void OnInteractionAvailable();
+    public OnInteractionAvailable interactionDelegate;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +30,7 @@ public class PlayerController : MonoBehaviour
     {
         PauseGame();
         moveInput = GetInput();
+        interactionDelegate?.Invoke();
         bool isGrounded = characterController.IsGrounded();
         animator.SetFloat("isRunning", Mathf.Abs(moveInput.x));
         if(moveInput.y > 0)
