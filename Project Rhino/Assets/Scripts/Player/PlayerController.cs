@@ -3,17 +3,24 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    GameManager gameManager;
     [SerializeField] CharacterController2D characterController;
     [SerializeField] CinemachineVirtualCamera virtualCam;
     [SerializeField] Animator animator;
     Vector2 moveInput;
     bool jump = false;
     bool canJump = true;
+
+    #region Pause
+
+    #endregion
+
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameManager.instance;
         SetCinemachineCam();
-        if(!animator)
+        if (!animator)
         {
             animator = GetComponentInChildren<Animator>();
         }
@@ -22,6 +29,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PauseGame();
         moveInput = GetInput();
         bool isGrounded = characterController.IsGrounded();
         animator.SetFloat("isRunning", Mathf.Abs(moveInput.x));
@@ -57,5 +65,13 @@ public class PlayerController : MonoBehaviour
         Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         input.Normalize();
         return input;
+    }
+
+    void PauseGame()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            gameManager.PauseGameToggle();
+        }
     }
 }

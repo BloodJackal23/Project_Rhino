@@ -15,9 +15,18 @@ public class GameManager : Singleton<GameManager>
     public GameMusic gameMusic { get; private set; }
     public GameSoundEffects soundEffects { get; private set; }
     #endregion
+
+    public delegate void OnGamePaused();
+    public OnGamePaused gamePausedDelegate;
+
+    public delegate void OnGameResumed();
+    public OnGamePaused gameResumedDelegate;
+    public bool gamePaused { get; private set; }
+
     protected override void Awake()
     {
         dontDestroyOnLoad = true;
+        gamePaused = false;
         base.Awake();
     }
 
@@ -244,6 +253,23 @@ public class GameManager : Singleton<GameManager>
             audioMixer.SetFloat(_channel.ToString(), dbVal);
         }
         return _value;
+    }
+    #endregion
+
+    #region Game Pause
+    public void PauseGameToggle()
+    {
+        gamePaused = !gamePaused;
+        if (gamePaused)
+        {
+            Time.timeScale = 0;
+            gamePausedDelegate?.Invoke();
+        }
+        else
+        {
+            Time.timeScale = 1;
+            gameResumedDelegate?.Invoke();
+        }
     }
     #endregion
 }
