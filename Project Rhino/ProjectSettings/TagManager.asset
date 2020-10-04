@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - CM PlayerCam
   layers:
   - Default
   - TransparentFX
@@ -43,6 +44,12 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2296367387
+    locked: 0
+  - name: Player
+    uniqueID: 463713735
+    locked: 0
+  - name: Traps
+    uniqueID: 3589539755
     locked: 0
   - name: Foreground
     uniqueID: 920188967
