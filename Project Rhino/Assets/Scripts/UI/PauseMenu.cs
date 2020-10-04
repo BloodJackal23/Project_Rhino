@@ -25,7 +25,9 @@ public class PauseMenu : MonoBehaviour
         GameManager gameManager = GameManager.instance;
         gameManager.gamePausedDelegate += OnGamePaused;
         gameManager.gameResumedDelegate += OnGameResumed;
+        
         AddToResumegameButton(gameManager);
+        AddToBackToMainMenu(gameManager);
         gameObject.SetActive(gameManager.gamePaused);
     }
 
@@ -34,7 +36,6 @@ public class PauseMenu : MonoBehaviour
         GameManager gameManager = GameManager.instance;
         gameManager.gamePausedDelegate = null;
         gameManager.gameResumedDelegate = null;
-        //resumeGameButton.onClick.RemoveAllListeners();
     }
 
     public void OnGamePaused()
@@ -55,5 +56,11 @@ public class PauseMenu : MonoBehaviour
     {
         resumeGameButton.onClick.AddListener(delegate { OnGameResumed(); });
         resumeGameButton.onClick.AddListener(delegate { _gameManager.PauseGameToggle(); });
+    }
+
+    void AddToBackToMainMenu(GameManager _gameManager)
+    {
+        backToMainButton.onClick.AddListener(delegate { _gameManager.LoadMainMenuScene(); });
+        backToMainButton.onClick.AddListener(delegate { _gameManager.PauseGameToggle(); });
     }
 }

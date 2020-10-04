@@ -2,17 +2,11 @@
 
 public class PlayerHazard : MonoBehaviour
 {
-    [SerializeField] Transform playerSpawn;
-    [SerializeField] GameObject[] objectsToHide;
-    [SerializeField] GameObject[] objectsToShow;
+    [SerializeField] protected Transform playerSpawn;
+    [SerializeField] protected GameObject[] objectsToHide;
+    [SerializeField] protected GameObject[] objectsToShow;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Player") 
         {
@@ -23,6 +17,13 @@ public class PlayerHazard : MonoBehaviour
         }
     }
 
+    public void SetHazard(Transform _spawn, GameObject[] _hide, GameObject[] _show)
+    {
+        playerSpawn = _spawn;
+        objectsToHide = _hide;
+        objectsToShow = _show;
+    }
+
     void SendPlayerToNewSpawn(Transform _playerTransform)
     {
         _playerTransform.position = playerSpawn.position;
@@ -30,17 +31,29 @@ public class PlayerHazard : MonoBehaviour
 
     void HideObjects()
     {
-        foreach(GameObject gameObject in objectsToHide)
+        if(objectsToHide.Length > 0)
         {
-            gameObject.SetActive(false);
+            foreach (GameObject _gameObject in objectsToHide)
+            {
+                if(_gameObject)
+                {
+                    _gameObject.SetActive(false);
+                }
+            }
         }
     }
 
     void ShowObjects()
     {
-        foreach (GameObject gameObject in objectsToShow)
+        if(objectsToShow.Length > 0)
         {
-            gameObject.SetActive(true);
+            foreach (GameObject _gameObject in objectsToShow)
+            {
+                if(_gameObject)
+                {
+                    _gameObject.SetActive(true);
+                }
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -45,6 +45,9 @@ TagManager:
     locked: 0
   - name: Background
     uniqueID: 2296367387
+    locked: 0
+  - name: Spawn
+    uniqueID: 1472745351
     locked: 0
   - name: Player
     uniqueID: 463713735

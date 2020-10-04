@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6639635044656777917}
   - component: {fileID: 6639635044656777915}
   - component: {fileID: 6639635044656777916}
+  - component: {fileID: 5445385291653096170}
   m_Layer: 5
   m_Name: Main Menu Panel
   m_TagString: Untagged
@@ -76,6 +77,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5445385291653096170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6639635044656777918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02d19429bc2b8244aabf060d5308f8ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newGame: {fileID: 4846830242284964715}
 --- !u!1 &6639635044850057660
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,6 +286,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2263022021841721829, guid: f8c3f239f93b40c41b2c3d025430488a, type: 3}
   m_PrefabInstance: {fileID: 6639635044552348303}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4846830242284964715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2263022021841721828, guid: f8c3f239f93b40c41b2c3d025430488a, type: 3}
+  m_PrefabInstance: {fileID: 6639635044552348303}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6639635044670127119
 PrefabInstance:
   m_ObjectHideFlags: 0
