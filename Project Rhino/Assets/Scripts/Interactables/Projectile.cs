@@ -22,7 +22,7 @@ public class Projectile : PlayerHazard
         //Do something on destruction
     }
 
-    public void Init()
+    public void Init() //Initialized by the gun that fires this projectile
     {
         Destroy(gameObject, lifeSpan);
         if(!rigidbody)

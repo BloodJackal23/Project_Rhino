@@ -2,19 +2,14 @@
 
 public class Gate : MonoBehaviour
 {
-    [SerializeField] Animator animator;
+    [SerializeField] Animator[] doorAnimators;
     [SerializeField] Collider2D collider;
     [SerializeField] ToggleSwitch activatingSwitch;
-    bool isOpened = false;
+    [SerializeField] bool isOpened = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        if(!animator)
-        {
-            animator = GetComponent<Animator>();
-        }
-
         if(!collider)
         {
             collider = GetComponent<Collider2D>();
@@ -27,7 +22,10 @@ public class Gate : MonoBehaviour
     public void ToggleGate()
     {
         isOpened = !isOpened;
-        collider.isTrigger = isOpened;
-        animator.SetBool("opened", isOpened);
+        collider.enabled = !isOpened;
+        foreach(Animator animator in doorAnimators)
+        {
+            animator.SetBool("opened", isOpened);
+        }
     }
 }

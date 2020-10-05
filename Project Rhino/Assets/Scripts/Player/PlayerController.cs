@@ -29,8 +29,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         PauseGame();
-        moveInput = GetInput();
-        interactionDelegate?.Invoke();
+        if(!gameManager.gamePaused)
+        {
+            moveInput = GetInput();
+            interactionDelegate?.Invoke();
+        }
         bool isGrounded = characterController.IsGrounded();
         animator.SetFloat("isRunning", Mathf.Abs(moveInput.x));
         if(moveInput.y > 0)

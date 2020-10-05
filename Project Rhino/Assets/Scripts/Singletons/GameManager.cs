@@ -36,7 +36,7 @@ public class GameManager : Singleton<GameManager>
         GetAudioObjects();
     }
 
-    void LoadScene(int _index)
+    public void LoadScene(int _index)
     {
         SceneManager.LoadScene(_index);
     }
@@ -46,7 +46,7 @@ public class GameManager : Singleton<GameManager>
         LoadScene(0);
     }
 
-    public void LoadGameScene()
+    public void LoadFirstLevel()
     {
         LoadScene(1);
     }

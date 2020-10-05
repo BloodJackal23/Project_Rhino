@@ -4,16 +4,16 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 5364206304317701448
-    second: industrial.v2_0
+    second: Fence_1
   - first:
       213: -1984680435718074591
-    second: industrial.v2_1
+    second: Fence_2
   - first:
       213: 5268736628789989399
-    second: industrial.v2_2
+    second: Fence_3
   - first:
       213: -7010727643856686229
-    second: industrial.v2_3
+    second: Fence_4
   - first:
       213: 2406155308840283555
     second: industrial.v2_4
@@ -40,16 +40,16 @@ TextureImporter:
     second: industrial.v2_11
   - first:
       213: 7480935784841358449
-    second: industrial.v2_12
+    second: SteelBlock_1
   - first:
       213: -8980317638019128391
-    second: industrial.v2_13
+    second: SteelBlock_2
   - first:
       213: 4530339591520445474
-    second: industrial.v2_14
+    second: SteelBlock_3
   - first:
       213: 721665523875345466
-    second: industrial.v2_15
+    second: SteelBlock_4
   - first:
       213: 1134067944201417698
     second: industrial.v2_16
@@ -73,10 +73,10 @@ TextureImporter:
     second: industrial.v2_22
   - first:
       213: -682342428194479098
-    second: industrial.v2_23
+    second: SewerDrain2_1
   - first:
       213: 2560718755664963872
-    second: industrial.v2_24
+    second: SewerDrain2_2
   - first:
       213: -2094710021874238713
     second: industrial.v2_25
@@ -142,19 +142,19 @@ TextureImporter:
     second: industrial.v2_45
   - first:
       213: 2116559796527337840
-    second: industrial.v2_46
+    second: SewerDrain2_3
   - first:
       213: -7049888902465273627
-    second: industrial.v2_47
+    second: SewerDrain2_4
   - first:
       213: -921997585626578070
     second: industrial.v2_48
   - first:
       213: 3106309005643651700
-    second: industrial.v2_49
+    second: SewerDrain1_1
   - first:
       213: 3764238389840488996
-    second: industrial.v2_50
+    second: SewerDrain1_2
   - first:
       213: -5832524382093023520
     second: industrial.v2_51
@@ -220,10 +220,10 @@ TextureImporter:
     second: industrial.v2_71
   - first:
       213: 2290181208158859108
-    second: industrial.v2_72
+    second: SewerDrain1_3
   - first:
       213: -7950384904869567602
-    second: industrial.v2_73
+    second: SewerDrain1_4
   - first:
       213: 6607041139711812972
     second: industrial.v2_74
@@ -394,34 +394,34 @@ TextureImporter:
     second: industrial.v2_129
   - first:
       213: 6286574355521609021
-    second: industrial.v2_130
+    second: Gate_1
   - first:
       213: -8005474971753821374
-    second: industrial.v2_131
+    second: Gate_2
   - first:
       213: 199513961880204433
-    second: industrial.v2_132
+    second: Gate_3
   - first:
       213: -7029536673709833197
-    second: industrial.v2_133
+    second: Gate_4
   - first:
       213: -7144606459380904475
-    second: industrial.v2_134
+    second: Bulkhead_1
   - first:
       213: -5507162747130418911
-    second: industrial.v2_135
+    second: Bulkhead_2
   - first:
       213: 8441226579691271160
-    second: industrial.v2_136
+    second: Bulkhead_3
   - first:
       213: -778785056175107673
-    second: industrial.v2_137
+    second: Bulkhead_4
   - first:
       213: 4789262365495962449
-    second: industrial.v2_138
+    second: Bulkhead_5
   - first:
       213: -5068863096234824861
-    second: industrial.v2_139
+    second: Bulkhead_6
   - first:
       213: 1656978915511251357
     second: industrial.v2_140
@@ -466,22 +466,22 @@ TextureImporter:
     second: industrial.v2_153
   - first:
       213: 3690806126441725213
-    second: industrial.v2_154
+    second: Bulkhead_7
   - first:
       213: 6241860165154129683
-    second: industrial.v2_155
+    second: Bulkhead_8
   - first:
       213: 8058159957962614275
-    second: industrial.v2_156
+    second: Bulkhead_9
   - first:
       213: 1162311100085769506
-    second: industrial.v2_157
+    second: Bulkhead_10
   - first:
       213: -3032263668236175900
-    second: industrial.v2_158
+    second: Bulkhead_11
   - first:
       213: -2760206595491184534
-    second: industrial.v2_159
+    second: Bulkhead_12
   - first:
       213: 2223231202061341428
     second: industrial.v2_160
@@ -538,19 +538,19 @@ TextureImporter:
     second: industrial.v2_177
   - first:
       213: -3531518065328127210
-    second: industrial.v2_178
+    second: Lever_1
   - first:
       213: 1325557426079105368
-    second: industrial.v2_179
+    second: Lever_2
   - first:
       213: 3220634739211650880
-    second: industrial.v2_180
+    second: Lever_3
   - first:
       213: 3553833924753935888
-    second: industrial.v2_181
+    second: Lever_4
   - first:
       213: -5661046025703818728
-    second: industrial.v2_182
+    second: Lever_5
   - first:
       213: 6267600477642258002
     second: industrial.v2_183
@@ -640,28 +640,28 @@ TextureImporter:
     second: industrial.v2_211
   - first:
       213: 6155266437376682040
-    second: industrial.v2_212
+    second: GoalPost_1
   - first:
       213: 4995853684974544024
-    second: industrial.v2_213
+    second: GoalPost_2
   - first:
       213: 8419512926977481510
-    second: industrial.v2_214
+    second: GoalPost_3
   - first:
       213: -3529344627355960193
-    second: industrial.v2_215
+    second: GoalPost_4
   - first:
       213: -99610223361719848
-    second: industrial.v2_216
+    second: GoalPost_5
   - first:
       213: 3755151319777697274
-    second: industrial.v2_217
+    second: GoalPost_6
   - first:
       213: 2527508070213691193
-    second: industrial.v2_218
+    second: GoalPost_7
   - first:
       213: 5963013883217210512
-    second: industrial.v2_219
+    second: GoalPost_8
   - first:
       213: 1949070996112676732
     second: industrial.v2_220
@@ -922,28 +922,28 @@ TextureImporter:
     second: industrial.v2_305
   - first:
       213: 5898855533378483856
-    second: industrial.v2_306
+    second: PlayerJump_1
   - first:
       213: 3724249428552016925
-    second: industrial.v2_307
+    second: PlayerJump_2
   - first:
       213: 1613970849602992203
-    second: industrial.v2_308
+    second: PlayerJump_3
   - first:
       213: 8545313845773048610
-    second: industrial.v2_309
+    second: PlayerJump_4
   - first:
       213: -4037874518873438609
-    second: industrial.v2_310
+    second: PlayerJump_5
   - first:
       213: 8212941561311886795
-    second: industrial.v2_311
+    second: PlayerJump_6
   - first:
       213: -2823618474227548781
-    second: industrial.v2_312
+    second: PlayerJump_7
   - first:
       213: -2781702268353175434
-    second: industrial.v2_313
+    second: PlayerJump_8
   - first:
       213: 2799176243118337963
     second: industrial.v2_314
@@ -970,28 +970,28 @@ TextureImporter:
     second: industrial.v2_321
   - first:
       213: -3462072200117815647
-    second: industrial.v2_322
+    second: PlayerRun_1
   - first:
       213: -7724158785669943810
-    second: industrial.v2_323
+    second: PlayerRun_2
   - first:
       213: 6221892521786120227
-    second: industrial.v2_324
+    second: PlayerRun_3
   - first:
       213: -1924771977290879105
-    second: industrial.v2_325
+    second: PlayerRun_4
   - first:
       213: -5503899205989867098
-    second: industrial.v2_326
+    second: PlayerRun_5
   - first:
       213: -1597260647349791468
-    second: industrial.v2_327
+    second: PlayerRun_6
   - first:
       213: 7078289432103389154
-    second: industrial.v2_328
+    second: PlayerRun_7
   - first:
       213: -7423317013113470651
-    second: industrial.v2_329
+    second: PlayerRun_8
   - first:
       213: -99084954969263829
     second: industrial.v2_330
@@ -1346,7 +1346,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: industrial.v2_0
+      name: Fence_1
       rect:
         serializedVersion: 2
         x: 0
@@ -1367,7 +1367,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_1
+      name: Fence_2
       rect:
         serializedVersion: 2
         x: 16
@@ -1388,7 +1388,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_2
+      name: Fence_3
       rect:
         serializedVersion: 2
         x: 32
@@ -1409,7 +1409,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_3
+      name: Fence_4
       rect:
         serializedVersion: 2
         x: 48
@@ -1598,7 +1598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_12
+      name: SteelBlock_1
       rect:
         serializedVersion: 2
         x: 192
@@ -1619,7 +1619,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_13
+      name: SteelBlock_2
       rect:
         serializedVersion: 2
         x: 208
@@ -1640,7 +1640,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_14
+      name: SteelBlock_3
       rect:
         serializedVersion: 2
         x: 224
@@ -1661,7 +1661,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_15
+      name: SteelBlock_4
       rect:
         serializedVersion: 2
         x: 240
@@ -1829,7 +1829,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_23
+      name: SewerDrain2_1
       rect:
         serializedVersion: 2
         x: 368
@@ -1850,7 +1850,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_24
+      name: SewerDrain2_2
       rect:
         serializedVersion: 2
         x: 384
@@ -2312,7 +2312,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_46
+      name: SewerDrain2_3
       rect:
         serializedVersion: 2
         x: 368
@@ -2333,7 +2333,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_47
+      name: SewerDrain2_4
       rect:
         serializedVersion: 2
         x: 384
@@ -2375,7 +2375,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_49
+      name: SewerDrain1_1
       rect:
         serializedVersion: 2
         x: 16
@@ -2396,7 +2396,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_50
+      name: SewerDrain1_2
       rect:
         serializedVersion: 2
         x: 32
@@ -2858,7 +2858,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_72
+      name: SewerDrain1_3
       rect:
         serializedVersion: 2
         x: 16
@@ -2879,7 +2879,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_73
+      name: SewerDrain1_4
       rect:
         serializedVersion: 2
         x: 32
@@ -4076,7 +4076,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_130
+      name: Gate_1
       rect:
         serializedVersion: 2
         x: 0
@@ -4097,7 +4097,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_131
+      name: Gate_2
       rect:
         serializedVersion: 2
         x: 16
@@ -4118,7 +4118,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_132
+      name: Gate_3
       rect:
         serializedVersion: 2
         x: 32
@@ -4139,7 +4139,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_133
+      name: Gate_4
       rect:
         serializedVersion: 2
         x: 48
@@ -4160,7 +4160,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_134
+      name: Bulkhead_1
       rect:
         serializedVersion: 2
         x: 64
@@ -4181,7 +4181,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_135
+      name: Bulkhead_2
       rect:
         serializedVersion: 2
         x: 80
@@ -4202,7 +4202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_136
+      name: Bulkhead_3
       rect:
         serializedVersion: 2
         x: 96
@@ -4223,7 +4223,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_137
+      name: Bulkhead_4
       rect:
         serializedVersion: 2
         x: 112
@@ -4244,7 +4244,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_138
+      name: Bulkhead_5
       rect:
         serializedVersion: 2
         x: 128
@@ -4265,7 +4265,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_139
+      name: Bulkhead_6
       rect:
         serializedVersion: 2
         x: 144
@@ -4580,7 +4580,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_154
+      name: Bulkhead_7
       rect:
         serializedVersion: 2
         x: 64
@@ -4601,7 +4601,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_155
+      name: Bulkhead_8
       rect:
         serializedVersion: 2
         x: 80
@@ -4622,7 +4622,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_156
+      name: Bulkhead_9
       rect:
         serializedVersion: 2
         x: 96
@@ -4643,7 +4643,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_157
+      name: Bulkhead_10
       rect:
         serializedVersion: 2
         x: 112
@@ -4664,7 +4664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_158
+      name: Bulkhead_11
       rect:
         serializedVersion: 2
         x: 128
@@ -4685,7 +4685,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_159
+      name: Bulkhead_12
       rect:
         serializedVersion: 2
         x: 144
@@ -5084,7 +5084,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_178
+      name: Lever_1
       rect:
         serializedVersion: 2
         x: 80
@@ -5105,7 +5105,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_179
+      name: Lever_2
       rect:
         serializedVersion: 2
         x: 96
@@ -5126,7 +5126,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_180
+      name: Lever_3
       rect:
         serializedVersion: 2
         x: 112
@@ -5147,7 +5147,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_181
+      name: Lever_4
       rect:
         serializedVersion: 2
         x: 128
@@ -5168,7 +5168,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_182
+      name: Lever_5
       rect:
         serializedVersion: 2
         x: 144
@@ -5798,7 +5798,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_212
+      name: GoalPost_1
       rect:
         serializedVersion: 2
         x: 336
@@ -5819,7 +5819,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_213
+      name: GoalPost_2
       rect:
         serializedVersion: 2
         x: 352
@@ -5840,7 +5840,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_214
+      name: GoalPost_3
       rect:
         serializedVersion: 2
         x: 368
@@ -5861,7 +5861,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_215
+      name: GoalPost_4
       rect:
         serializedVersion: 2
         x: 384
@@ -5882,7 +5882,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_216
+      name: GoalPost_5
       rect:
         serializedVersion: 2
         x: 400
@@ -5903,7 +5903,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_217
+      name: GoalPost_6
       rect:
         serializedVersion: 2
         x: 416
@@ -5924,7 +5924,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_218
+      name: GoalPost_7
       rect:
         serializedVersion: 2
         x: 432
@@ -5945,7 +5945,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_219
+      name: GoalPost_8
       rect:
         serializedVersion: 2
         x: 448
@@ -7772,7 +7772,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_306
+      name: PlayerJump_1
       rect:
         serializedVersion: 2
         x: 0
@@ -7793,7 +7793,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_307
+      name: PlayerJump_2
       rect:
         serializedVersion: 2
         x: 16
@@ -7814,7 +7814,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_308
+      name: PlayerJump_3
       rect:
         serializedVersion: 2
         x: 32
@@ -7835,7 +7835,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_309
+      name: PlayerJump_4
       rect:
         serializedVersion: 2
         x: 48
@@ -7856,7 +7856,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_310
+      name: PlayerJump_5
       rect:
         serializedVersion: 2
         x: 64
@@ -7877,7 +7877,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_311
+      name: PlayerJump_6
       rect:
         serializedVersion: 2
         x: 80
@@ -7898,7 +7898,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_312
+      name: PlayerJump_7
       rect:
         serializedVersion: 2
         x: 96
@@ -7919,7 +7919,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_313
+      name: PlayerJump_8
       rect:
         serializedVersion: 2
         x: 112
@@ -8108,7 +8108,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_322
+      name: PlayerRun_1
       rect:
         serializedVersion: 2
         x: 0
@@ -8129,7 +8129,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_323
+      name: PlayerRun_2
       rect:
         serializedVersion: 2
         x: 16
@@ -8150,7 +8150,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_324
+      name: PlayerRun_3
       rect:
         serializedVersion: 2
         x: 32
@@ -8171,7 +8171,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_325
+      name: PlayerRun_4
       rect:
         serializedVersion: 2
         x: 48
@@ -8192,7 +8192,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_326
+      name: PlayerRun_5
       rect:
         serializedVersion: 2
         x: 64
@@ -8213,7 +8213,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_327
+      name: PlayerRun_6
       rect:
         serializedVersion: 2
         x: 80
@@ -8234,7 +8234,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_328
+      name: PlayerRun_7
       rect:
         serializedVersion: 2
         x: 96
@@ -8255,7 +8255,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_329
+      name: PlayerRun_8
       rect:
         serializedVersion: 2
         x: 112

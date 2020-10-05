@@ -7,6 +7,6 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        newGame.onClick.AddListener(delegate { GameManager.instance.LoadGameScene(); });
+        newGame.onClick.AddListener(delegate { GameManager.instance.LoadFirstLevel(); });
     }
 }
