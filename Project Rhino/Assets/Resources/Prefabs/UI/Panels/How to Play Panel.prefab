@@ -220,10 +220,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6685214dac24cba43a6cd0414323ea7a, type: 3}
-    m_FontSize: 22
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
@@ -236,6 +236,12 @@ MonoBehaviour:
     Dying in this game is not the end. You will need to "Kill
     yourself" to reach different parts of the level. Beware that dying from certain
     traps can reveal new traps
+
+    Controls:
+
+    A and D to move, W to jump, E
+    to interact with objects and Esc to pause
+
 
     Have fun!'
 --- !u!1001 &5843185545776516792

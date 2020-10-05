@@ -11,7 +11,7 @@ public class GameMusic : Singleton<GameMusic>
 
     protected override void Awake()
     {
-        dontDestroyOnLoad = false;
+        dontDestroyOnLoad = true;
         base.Awake();
         audioSource = GetComponent<AudioSource>();
         PlayMusic(musicIndex);

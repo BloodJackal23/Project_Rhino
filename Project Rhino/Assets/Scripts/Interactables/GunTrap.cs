@@ -31,4 +31,9 @@ public class GunTrap : MonoBehaviour
         hazardData.SetupHazard(projectile);
         projectile.AddForce(emitter.right, force);
     }
+
+    void Shoot()
+    {
+        CreateProjectile();
+    }
 }
