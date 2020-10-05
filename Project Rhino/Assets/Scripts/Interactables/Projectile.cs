@@ -17,11 +17,6 @@ public class Projectile : PlayerHazard
         }
     }
 
-    private void OnDestroy()
-    {
-        //Do something on destruction
-    }
-
     public void Init() //Initialized by the gun that fires this projectile
     {
         Destroy(gameObject, lifeSpan);

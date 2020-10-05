@@ -9,7 +9,6 @@ public class GunTrap : MonoBehaviour
     Projectile projectile;
     [SerializeField] bool gunActive = true;
     [SerializeField] float force = 5f;
-    float timeCounter = 0;
 
     [Serializable]
     public class HazardData
@@ -31,10 +30,5 @@ public class GunTrap : MonoBehaviour
         projectile.Init();
         hazardData.SetupHazard(projectile);
         projectile.AddForce(emitter.right, force);
-    }
-
-    void Shoot() //used by the animator controller
-    {
-        CreateProjectile();
     }
 }

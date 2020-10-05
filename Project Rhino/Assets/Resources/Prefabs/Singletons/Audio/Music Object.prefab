@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901f3a1e73d44d241928963d19d3ff64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTheme: {fileID: 8300000, guid: 63afcdeda3d21ea4dbe775184ea4ae36, type: 3}
+  music:
+  - {fileID: 8300000, guid: e5b1dcf2af9010949af6a7629ded9c04, type: 3}
+  musicIndex: 0
 --- !u!82 &1908892427480575090
 AudioSource:
   m_ObjectHideFlags: 0

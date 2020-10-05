@@ -232,7 +232,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1903463747890753533}
   m_Direction: 0
   m_MinValue: 0.1
-  m_MaxValue: 8
+  m_MaxValue: 6
   m_WholeNumbers: 0
   m_Value: 0.1
   m_OnValueChanged:
@@ -454,11 +454,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 18
+    m_Font: {fileID: 12800000, guid: 6685214dac24cba43a6cd0414323ea7a, type: 3}
+    m_FontSize: 24
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0

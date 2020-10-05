@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4548745185740518018}
   - component: {fileID: 4548745185740518029}
   - component: {fileID: 4548745185740518028}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Lever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 742504657
-  m_SortingLayer: 4
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 3220634739211650880, guid: e73b1efc75560f54cab63f674a03c285, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

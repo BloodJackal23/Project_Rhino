@@ -17,15 +17,22 @@ public class Gate : MonoBehaviour
 
         activatingSwitch.turnedOnDelegate += ToggleGate;
         activatingSwitch.turnedOffDelegate += ToggleGate;
+
+        OperateGate();
+    }
+
+    void OperateGate()
+    {
+        collider.enabled = !isOpened;
+        foreach (Animator animator in doorAnimators)
+        {
+            animator.SetBool("opened", isOpened);
+        }
     }
 
     public void ToggleGate()
     {
         isOpened = !isOpened;
-        collider.enabled = !isOpened;
-        foreach(Animator animator in doorAnimators)
-        {
-            animator.SetBool("opened", isOpened);
-        }
+        OperateGate();
     }
 }

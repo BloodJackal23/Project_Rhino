@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameMusic : Singleton<GameMusic>
 {
     AudioSource audioSource;
     #region Chapters Music
-    [SerializeField] AudioClip mainTheme;
+    [SerializeField] AudioClip[] music;
+    [SerializeField] int musicIndex = 0;
     #endregion
 
     protected override void Awake()
@@ -14,15 +14,12 @@ public class GameMusic : Singleton<GameMusic>
         dontDestroyOnLoad = false;
         base.Awake();
         audioSource = GetComponent<AudioSource>();
-        PlayMainTheme();
+        PlayMusic(musicIndex);
     }
 
-    public void PlayMainTheme()
+    void PlayMusic(int _index)
     {
-        if(SceneManager.GetActiveScene().buildIndex == 0)
-        {
-            audioSource.clip = mainTheme;
-            audioSource.Play();
-        }
+        audioSource.clip = music[_index];
+        audioSource.Play();
     }
 }

@@ -52,10 +52,10 @@ TextureImporter:
     second: SteelBlock_4
   - first:
       213: 1134067944201417698
-    second: industrial.v2_16
+    second: Wall_1
   - first:
       213: -819564815026172540
-    second: industrial.v2_17
+    second: Wall_2
   - first:
       213: -7667316678140872721
     second: industrial.v2_18
@@ -178,10 +178,10 @@ TextureImporter:
     second: industrial.v2_57
   - first:
       213: -7000980468379537274
-    second: industrial.v2_58
+    second: Wall_3
   - first:
       213: -8222464725025986711
-    second: industrial.v2_59
+    second: Wall_4
   - first:
       213: 424292755093386505
     second: industrial.v2_60
@@ -1682,7 +1682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_16
+      name: Wall_1
       rect:
         serializedVersion: 2
         x: 256
@@ -1703,7 +1703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_17
+      name: Wall_2
       rect:
         serializedVersion: 2
         x: 272
@@ -2564,7 +2564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_58
+      name: Wall_3
       rect:
         serializedVersion: 2
         x: 208
@@ -2585,7 +2585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_59
+      name: Wall_4
       rect:
         serializedVersion: 2
         x: 224
