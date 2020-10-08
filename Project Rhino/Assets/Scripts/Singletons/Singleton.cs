@@ -22,8 +22,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else
         {
-            Destroy(instance.gameObject);
-            instance = FindObjectOfType<T>();
+            Destroy(gameObject);
             Debug.LogWarning("More than one instance for object of type " + typeof(T).ToString() + " are present in this scene! Duplicates destroyed!" + "Dont destroy = " + _dontDestroyOnLoad);
         }
     }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CM PlayerCam
   - PauseMenu
+  - Music Source
+  - FX Source
   layers:
   - Default
   - TransparentFX

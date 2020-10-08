@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2511291656059051047}
   m_Layer: 0
   m_Name: FX Source
-  m_TagString: Untagged
+  m_TagString: FX Source
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -176,6 +176,7 @@ MonoBehaviour:
   musicLibrary: {fileID: 11400000, guid: 160a3cf180911db4a97d864b8403ed4b, type: 2}
   musicSource: {fileID: 7880225917000193026}
   FX_Source: {fileID: 2511291656059051047}
+  sceneMusic: {fileID: 0}
 --- !u!1 &9144167938845902077
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,7 +189,7 @@ GameObject:
   - component: {fileID: 7880225917000193026}
   m_Layer: 0
   m_Name: Music Source
-  m_TagString: Untagged
+  m_TagString: Music Source
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

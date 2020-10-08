@@ -29,14 +29,25 @@ public class GameManager : Singleton<GameManager>
     {
         dontDestroyOnLoad = true;
         gamePaused = false;
-        SceneManager.sceneLoaded += OnSceneLoaded;
         base.Awake();
+    }
+
+    private void OnEnable()
+    {
+        Debug.Log("OnEnable Called!");
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Start()
     {
+        Debug.Log("Start Called!");
         GetSceneMusic();
         InitGameSettings();
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     #region Scene Management
@@ -57,7 +68,7 @@ public class GameManager : Singleton<GameManager>
 
     void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
     {
-        Debug.Log("new scene loaded");
+        Debug.Log("New scene loaded");
         GetSceneMusic();
         if (sceneMusic.playNewTrack)
         {
