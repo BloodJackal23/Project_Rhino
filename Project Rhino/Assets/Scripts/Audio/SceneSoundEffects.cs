@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class GameSoundEffects : Singleton<GameSoundEffects>
+public class SceneSoundEffects : Singleton<SceneSoundEffects>
 {
     AudioSource audioSource;
     #region FX

@@ -4867,6 +4867,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1512410486, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
+      propertyPath: soundTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: e5b1dcf2af9010949af6a7629ded9c04, type: 3}
+    - target: {fileID: 1512410486, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
+      propertyPath: playNewTrack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512410486, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
+      propertyPath: soundtrack
+      value: 
+      objectReference: {fileID: 8300000, guid: e5b1dcf2af9010949af6a7629ded9c04, type: 3}
     - target: {fileID: 1908892427480575091, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4917,7 +4929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1908892427480575092, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}

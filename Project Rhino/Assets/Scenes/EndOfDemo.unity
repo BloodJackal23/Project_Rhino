@@ -537,6 +537,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FX Object
       objectReference: {fileID: 0}
+    - target: {fileID: 3235480390266970734, guid: a9ea9661989e5734993b28b4d8d05477, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a9ea9661989e5734993b28b4d8d05477, type: 3}
 --- !u!1 &773031659
@@ -858,6 +862,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1512410486, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
+      propertyPath: soundtrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 49e403355ded4f148b73cf2147e556b1, type: 3}
     - target: {fileID: 1908892427480575091, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -908,7 +916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1908892427480575092, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fff69c04b4d851445b91d0ae3ef7af88, type: 3}

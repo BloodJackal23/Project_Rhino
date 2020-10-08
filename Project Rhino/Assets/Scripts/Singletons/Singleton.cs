@@ -11,6 +11,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 
     void Init(bool _dontDestroyOnLoad)
     {
+        Debug.LogWarning("An instance of the singleton " + typeof(T).ToString() + " has been created. " + "Dont destroy = " + _dontDestroyOnLoad);
         if (!instance)
         {
             instance = FindObjectOfType<T>();
@@ -21,7 +22,8 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            Destroy(instance.gameObject);
+            instance = FindObjectOfType<T>();
             Debug.LogWarning("More than one instance for object of type " + typeof(T).ToString() + " are present in this scene! Duplicates destroyed!" + "Dont destroy = " + _dontDestroyOnLoad);
         }
     }

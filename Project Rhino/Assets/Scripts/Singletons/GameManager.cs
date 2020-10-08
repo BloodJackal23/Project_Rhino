@@ -11,9 +11,11 @@ public class GameManager : Singleton<GameManager>
 
     #region Audio Variables
     [SerializeField] AudioMixer audioMixer;
+    [SerializeField] MusicLibrary musicLibrary;
+    [SerializeField] AudioSource musicSource, FX_Source;
+
+    [SerializeField] SceneMusic sceneMusic;
     public enum AudioChannels { MasterVol, MusicVol, FX_Vol }
-    public GameMusic gameMusic { get; private set; }
-    public GameSoundEffects soundEffects { get; private set; }
     #endregion
 
     public delegate void OnGamePaused();
@@ -27,15 +29,17 @@ public class GameManager : Singleton<GameManager>
     {
         dontDestroyOnLoad = true;
         gamePaused = false;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         base.Awake();
     }
 
     private void Start()
     {
+        GetSceneMusic();
         InitGameSettings();
-        GetAudioObjects();
     }
 
+    #region Scene Management
     public void LoadScene(int _index)
     {
         SceneManager.LoadScene(_index);
@@ -50,6 +54,17 @@ public class GameManager : Singleton<GameManager>
     {
         LoadScene(1);
     }
+
+    void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
+    {
+        Debug.Log("new scene loaded");
+        GetSceneMusic();
+        if (sceneMusic.playNewTrack)
+        {
+            InitSceneSoundtrack();
+        }
+    }
+    #endregion
 
     public void QuitGame()
     {
@@ -164,10 +179,17 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     #region Audio Settings Methods
-    void GetAudioObjects()
+
+    void GetSceneMusic()
     {
-        gameMusic = GameMusic.instance;
-        soundEffects = GameSoundEffects.instance;
+        sceneMusic = SceneMusic.instance;
+    }
+
+    void InitSceneSoundtrack()
+    {
+        musicSource.clip = sceneMusic.soundtrack;
+        musicSource.loop = true;
+        musicSource.Play();
     }
 
     public void InitAudioSettings(GameSettings _gameSettings)
