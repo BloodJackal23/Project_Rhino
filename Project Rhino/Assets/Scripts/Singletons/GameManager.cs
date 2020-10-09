@@ -56,6 +56,11 @@ public class GameManager : Singleton<GameManager>
         SceneManager.LoadScene(_index);
     }
 
+    public void LoadScene(string _name)
+    {
+        SceneManager.LoadScene(_name);
+    }
+
     public void LoadMainMenuScene()
     {
         LoadScene(0);
