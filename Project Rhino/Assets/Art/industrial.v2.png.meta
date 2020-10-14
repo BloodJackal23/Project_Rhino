@@ -178,10 +178,10 @@ TextureImporter:
     second: industrial.v2_57
   - first:
       213: -7000980468379537274
-    second: Wall_3
+    second: SteelFrame_5
   - first:
       213: -8222464725025986711
-    second: Wall_4
+    second: SteelFrame_6
   - first:
       213: 424292755093386505
     second: industrial.v2_60
@@ -211,10 +211,10 @@ TextureImporter:
     second: industrial.v2_68
   - first:
       213: 1729263455549154648
-    second: industrial.v2_69
+    second: SteelFrame_3
   - first:
       213: 5425497558533553835
-    second: industrial.v2_70
+    second: SteelFrame_4
   - first:
       213: -1134694738104719225
     second: industrial.v2_71
@@ -274,10 +274,10 @@ TextureImporter:
     second: industrial.v2_89
   - first:
       213: 6523130266571535907
-    second: industrial.v2_90
+    second: SteelFrame_1
   - first:
       213: -388676333898565520
-    second: industrial.v2_91
+    second: SteelFrame_2
   - first:
       213: 1673205286945473809
     second: industrial.v2_92
@@ -721,10 +721,10 @@ TextureImporter:
     second: industrial.v2_238
   - first:
       213: 7911833115380201786
-    second: industrial.v2_239
+    second: Spawn_1
   - first:
       213: 8410195114324506236
-    second: industrial.v2_240
+    second: Spawn_2
   - first:
       213: -1095149715683543481
     second: industrial.v2_241
@@ -964,10 +964,10 @@ TextureImporter:
     second: industrial.v2_319
   - first:
       213: -8643838181310838176
-    second: industrial.v2_320
+    second: CircleQuadrant_1
   - first:
       213: 1756479058731496076
-    second: industrial.v2_321
+    second: CircleQuadrant_2
   - first:
       213: -3462072200117815647
     second: PlayerRun_1
@@ -994,10 +994,10 @@ TextureImporter:
     second: PlayerRun_8
   - first:
       213: -99084954969263829
-    second: industrial.v2_330
+    second: CircleQuadrant_3
   - first:
       213: 9004157608920434868
-    second: industrial.v2_331
+    second: CircleQuadrant_4
   - first:
       213: 7089089495600456735
     second: industrial.v2_332
@@ -2564,7 +2564,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall_3
+      name: SteelFrame_5
       rect:
         serializedVersion: 2
         x: 208
@@ -2585,7 +2585,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall_4
+      name: SteelFrame_6
       rect:
         serializedVersion: 2
         x: 224
@@ -2795,7 +2795,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_69
+      name: SteelFrame_3
       rect:
         serializedVersion: 2
         x: 384
@@ -2816,7 +2816,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_70
+      name: SteelFrame_4
       rect:
         serializedVersion: 2
         x: 400
@@ -3236,7 +3236,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_90
+      name: SteelFrame_1
       rect:
         serializedVersion: 2
         x: 352
@@ -3257,7 +3257,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_91
+      name: SteelFrame_2
       rect:
         serializedVersion: 2
         x: 368
@@ -6365,7 +6365,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_239
+      name: Spawn_1
       rect:
         serializedVersion: 2
         x: 336
@@ -6386,7 +6386,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_240
+      name: Spawn_2
       rect:
         serializedVersion: 2
         x: 352
@@ -8066,7 +8066,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_320
+      name: CircleQuadrant_1
       rect:
         serializedVersion: 2
         x: 224
@@ -8087,7 +8087,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_321
+      name: CircleQuadrant_2
       rect:
         serializedVersion: 2
         x: 240
@@ -8276,7 +8276,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_330
+      name: CircleQuadrant_3
       rect:
         serializedVersion: 2
         x: 224
@@ -8297,7 +8297,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_331
+      name: CircleQuadrant_4
       rect:
         serializedVersion: 2
         x: 240
