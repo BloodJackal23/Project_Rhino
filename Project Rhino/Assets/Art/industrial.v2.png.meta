@@ -1213,16 +1213,16 @@ TextureImporter:
     second: industrial.v2_402
   - first:
       213: -3983076736774994601
-    second: industrial.v2_403
+    second: Robot3_1
   - first:
       213: -2930675591516762329
-    second: industrial.v2_404
+    second: Robot3_2
   - first:
       213: -4145790042017178700
-    second: industrial.v2_405
+    second: Robot3_3
   - first:
       213: -1119331148411342346
-    second: industrial.v2_406
+    second: Robot3_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -9809,7 +9809,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_403
+      name: Robot3_1
       rect:
         serializedVersion: 2
         x: 0
@@ -9830,7 +9830,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_404
+      name: Robot3_2
       rect:
         serializedVersion: 2
         x: 16
@@ -9851,7 +9851,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_405
+      name: Robot3_3
       rect:
         serializedVersion: 2
         x: 32
@@ -9872,7 +9872,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_406
+      name: Robot3_4
       rect:
         serializedVersion: 2
         x: 48

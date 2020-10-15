@@ -9,6 +9,6 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         newGame.onClick.AddListener(delegate { GameManager.instance.LoadScene("Level_01"); });
-        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene("Tutorial"); });
+        //howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene("Tutorial"); }); //TODO: Make a tutorial level
     }
 }
