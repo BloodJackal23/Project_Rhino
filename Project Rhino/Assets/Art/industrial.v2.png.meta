@@ -1126,40 +1126,40 @@ TextureImporter:
     second: industrial.v2_373
   - first:
       213: -8914185817584622055
-    second: industrial.v2_374
+    second: TutBot_1
   - first:
       213: 8207621393481700765
-    second: industrial.v2_375
+    second: TutBot_2
   - first:
       213: 4768537616125822346
-    second: industrial.v2_376
+    second: TutBot_3
   - first:
       213: 6002496815537067772
-    second: industrial.v2_377
+    second: TutBot_4
   - first:
       213: 2812463911010868154
-    second: industrial.v2_378
+    second: TutBot_5
   - first:
       213: -2727784642421900265
-    second: industrial.v2_379
+    second: TutBot_6
   - first:
       213: -6013415631166143386
-    second: industrial.v2_380
+    second: TutBot_7
   - first:
       213: -6515539420723906552
-    second: industrial.v2_381
+    second: TutBot_8
   - first:
       213: 59908242722465098
-    second: industrial.v2_382
+    second: TutBot_9
   - first:
       213: -2815807211264909175
-    second: industrial.v2_383
+    second: TutBot_10
   - first:
       213: -7675006282511375031
-    second: industrial.v2_384
+    second: TutBot_11
   - first:
       213: 589148168504179421
-    second: industrial.v2_385
+    second: TutBot_12
   - first:
       213: 1467375786042038032
     second: industrial.v2_386
@@ -9200,7 +9200,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_374
+      name: TutBot_1
       rect:
         serializedVersion: 2
         x: 0
@@ -9221,7 +9221,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_375
+      name: TutBot_2
       rect:
         serializedVersion: 2
         x: 16
@@ -9242,7 +9242,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_376
+      name: TutBot_3
       rect:
         serializedVersion: 2
         x: 32
@@ -9263,7 +9263,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_377
+      name: TutBot_4
       rect:
         serializedVersion: 2
         x: 48
@@ -9284,7 +9284,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_378
+      name: TutBot_5
       rect:
         serializedVersion: 2
         x: 64
@@ -9305,7 +9305,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_379
+      name: TutBot_6
       rect:
         serializedVersion: 2
         x: 80
@@ -9326,7 +9326,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_380
+      name: TutBot_7
       rect:
         serializedVersion: 2
         x: 112
@@ -9347,7 +9347,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_381
+      name: TutBot_8
       rect:
         serializedVersion: 2
         x: 128
@@ -9368,7 +9368,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_382
+      name: TutBot_9
       rect:
         serializedVersion: 2
         x: 144
@@ -9389,7 +9389,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_383
+      name: TutBot_10
       rect:
         serializedVersion: 2
         x: 160
@@ -9410,7 +9410,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_384
+      name: TutBot_11
       rect:
         serializedVersion: 2
         x: 176
@@ -9431,7 +9431,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_385
+      name: TutBot_12
       rect:
         serializedVersion: 2
         x: 192

@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public static class TypeEffect
 {
-    static float timer;
+    static float timer = 0;
+    public static bool pause = false;
 
     public static void ResetTimer()
     {
@@ -36,7 +38,7 @@ public static class TypeEffect
         return currentString;
     }
 
-    public static bool StringComplete(string _currentString, string _fullString)
+    public static bool IsFinishedTyping(string _currentString, string _fullString)
     {
         if (_currentString.Length < _fullString.Length)
             return false; //Hasn't finished typing yet
