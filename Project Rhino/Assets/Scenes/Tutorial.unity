@@ -2298,13 +2298,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 583945164393063915, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 583945164393063915, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 583945164393063915, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 583945164393063915, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 583945164393063915, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1076313729761182016, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4993546784611689817, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
       propertyPath: m_Name
       value: TutBot
-      objectReference: {fileID: 0}
-    - target: {fileID: 4993546784611689817, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
-      propertyPath: m_Layer
-      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 4993546784611689819, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2349,6 +2369,13 @@ PrefabInstance:
     - target: {fileID: 4993546784611689819, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7957555402288036494, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
+      propertyPath: message
+      value: 'Hello there! I am Tutbot
+
+        You can use A and D to move left
+        and right and press W to jump'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afc9c1e1bcf26d24caaf3f17e7777183, type: 3}
