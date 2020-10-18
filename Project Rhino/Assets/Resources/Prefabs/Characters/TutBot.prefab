@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6711007738461943293
 Transform:
   m_ObjectHideFlags: 0
@@ -69,8 +69,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1907436905
-  m_SortingLayer: 4
+  m_SortingLayerID: 1928333015
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 6264317942531583897, guid: 300504e1f7369934bbbc11e3cd798e2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -117,8 +117,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.3289, y: 0.2674}
-  m_SizeDelta: {x: 4.3616, y: 2.0803463}
+  m_AnchoredPosition: {x: -0.315, y: 0.2807}
+  m_SizeDelta: {x: 5, y: 1.5984001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &6808674221480232270
 MeshRenderer:
@@ -157,8 +157,8 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1907436905
-  m_SortingLayer: 4
+  m_SortingLayerID: 1928333015
+  m_SortingLayer: 8
   m_SortingOrder: 2
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &3949161849916427528
@@ -250,7 +250,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_renderer: {fileID: 6808674221480232270}
   m_maskType: 0
-  _SortingLayerID: -1907436905
+  _SortingLayerID: 1928333015
   _SortingOrder: 2
 --- !u!1 &4993546784611689817
 GameObject:
@@ -370,7 +370,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 1.25}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -381,7 +381,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 2}
+  m_Size: {x: 6, y: 3.5}
   m_EdgeRadius: 0
 --- !u!114 &7957555402288036494
 MonoBehaviour:
@@ -399,4 +399,4 @@ MonoBehaviour:
   textMesh: {fileID: 3949161849916427528}
   message: Hello there! I am Tutbot
   typeSpeed: 15
-  timer: 0
+  displayMessageOnce: 0

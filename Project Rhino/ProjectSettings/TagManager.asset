@@ -54,6 +54,9 @@ TagManager:
   - name: Interactable
     uniqueID: 742504657
     locked: 0
+  - name: SpeechBubble
+    uniqueID: 1928333015
+    locked: 0
   - name: Character
     uniqueID: 2387530391
     locked: 0
