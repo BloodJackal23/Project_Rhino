@@ -36,7 +36,8 @@ public class PhysicsObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        targetVelocity = Vector2.zero;
+        ComputeVelocity();
     }
 
     private void FixedUpdate()
@@ -89,5 +90,10 @@ public class PhysicsObject : MonoBehaviour
             }
         }
         rigidbody.position += _move.normalized * dist;
+    }
+
+    protected virtual void ComputeVelocity()
+    {
+
     }
 }

@@ -3281,7 +3281,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb8abf291db9384c9099e2b53923def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  rigidbody: {fileID: 0}
+  gravityModifier: 2
+  maxSpeed: 7
+  jumpTakeOffSpeed: 10
 --- !u!4 &2074521826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2562799911357560565, guid: c7f84b44fb4b50649b3985ff632321ae, type: 3}
@@ -3591,6 +3594,10 @@ PrefabInstance:
     - target: {fileID: 2562799911357560565, guid: c7f84b44fb4b50649b3985ff632321ae, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2562799911357560566, guid: c7f84b44fb4b50649b3985ff632321ae, type: 3}
+      propertyPath: m_BodyType
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2562799911357560567, guid: c7f84b44fb4b50649b3985ff632321ae, type: 3}
       propertyPath: m_Name
