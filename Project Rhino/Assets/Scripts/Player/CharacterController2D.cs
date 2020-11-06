@@ -74,7 +74,7 @@ public class CharacterController2D : MonoBehaviour
 		return speed;
     }
 
-	public void Move(float _move, bool _crouch, bool _jump, bool _instantJump)
+	public void Move(float _move, bool _crouch, bool _jump)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!_crouch)
@@ -136,26 +136,7 @@ public class CharacterController2D : MonoBehaviour
 				FlipSprite(); //Changed from Flip() to FlipSprite (ABU)
 			}
 		}
-		// If the player should jump...
-
-		if(_jump)
-        {
-			if(m_Grounded)
-            {
-				if (_instantJump)
-				{
-					AddJumpForceInstant();
-				}
-				else
-                {
-					AddJumpForceCont(_jump);
-                }
-			}
-			else
-            {
-
-            }
-        }
+		AddJumpForceCont(_jump); //This adds vertical movement (aka jumping) for as long as the player is holding the jump button (ABU)
 	}
 
 	public bool IsGrounded()
@@ -170,18 +151,22 @@ public class CharacterController2D : MonoBehaviour
 		m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 	}
 
-	private void AddJumpForceCont(bool _jump)
+	private void AddJumpForceCont(bool _jump) //(ABU)
     {
-		if(_jump)
-        {
-			jumpTimer += Time.deltaTime;
+		if (_jump) //Is the player jumping at the moment?
+		{
+			if (jumpTimer < m_JumpTime)
+			{
+				m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpSpeed);
+				jumpTimer += Time.deltaTime;
+			}
 		}
-		
-		if(jumpTimer > 0)
-        {
-			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpSpeed);
-        }
-    }
+		else
+		{
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_Rigidbody2D.velocity.y);
+			jumpTimer = 0;
+		}
+	}
 
 
 	private void Flip()

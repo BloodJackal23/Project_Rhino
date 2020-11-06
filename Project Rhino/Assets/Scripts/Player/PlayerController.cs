@@ -44,17 +44,21 @@ public class PlayerController : MonoBehaviour
                 canJump = false;
             }
         }
-        else if(isGrounded)
+        else
         {
-            canJump = true;
+            jump = false;
+            if (isGrounded)
+            {
+                canJump = true;
+            }
         }
+        
         animator.SetBool("isJumping", !isGrounded);
     }
 
     private void FixedUpdate()
     {
-        characterController.Move(moveInput.x * characterController.GetSpeed() * Time.fixedDeltaTime, false, jump, true);
-        jump = false;
+        characterController.Move(moveInput.x * characterController.GetSpeed() * Time.fixedDeltaTime, false, jump);
     }
 
     void SetCinemachineCam()
