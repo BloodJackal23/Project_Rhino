@@ -69,12 +69,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2562799911357560565}
-  - component: {fileID: 2562799911357560564}
-  - component: {fileID: 2562799911357560562}
+  - component: {fileID: 1973194183}
   - component: {fileID: 2562799911357560566}
   - component: {fileID: 2562799911357560563}
   - component: {fileID: 6556101309915330683}
   - component: {fileID: 2150711251201598397}
+  - component: {fileID: 2562799911357560564}
+  - component: {fileID: 2562799911357560562}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -98,50 +99,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2562799911357560564
+--- !u!114 &1973194183
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2562799911357560567}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67aef9a03dce6c04eb36cf66cabc6743, type: 3}
+  m_Script: {fileID: 11500000, guid: ffb8abf291db9384c9099e2b53923def, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
-  m_JumpForce: 600
-  m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0.05
-  m_AirControl: 1
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 1025
-  m_GroundCheck: {fileID: 2562799910317055759}
-  m_CeilingCheck: {fileID: 2562799910657529492}
-  m_CrouchDisableCollider: {fileID: 0}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2562799911357560562
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2562799911357560567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05505caf4d4b730409cb8a65569a8dd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterController: {fileID: 2562799911357560564}
-  virtualCam: {fileID: 0}
+  rigidbody: {fileID: 2562799911357560566}
+  gravityModifier: 2
+  maxSpeed: 7
+  jumpTakeOffSpeed: 10
+  spriteRenderer: {fileID: 6556101309915330683}
   animator: {fileID: 2150711251201598397}
+  virtualCam: {fileID: 0}
 --- !u!50 &2562799911357560566
 Rigidbody2D:
   serializedVersion: 4
@@ -217,7 +193,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 463713735
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 3724249428552016925, guid: e73b1efc75560f54cab63f674a03c285, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -249,3 +225,47 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2562799911357560564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562799911357560567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67aef9a03dce6c04eb36cf66cabc6743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 40
+  m_JumpForce: 600
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 1025
+  m_GroundCheck: {fileID: 2562799910317055759}
+  m_CeilingCheck: {fileID: 2562799910657529492}
+  m_CrouchDisableCollider: {fileID: 0}
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &2562799911357560562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2562799911357560567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05505caf4d4b730409cb8a65569a8dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterController: {fileID: 2562799911357560564}
+  virtualCam: {fileID: 0}
+  animator: {fileID: 2150711251201598397}

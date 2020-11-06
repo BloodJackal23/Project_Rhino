@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Cinemachine;
+using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerPlatformerController : PhysicsObject
@@ -9,7 +10,12 @@ public class PlayerPlatformerController : PhysicsObject
 
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] Animator animator;
-    // Start is called before the first frame update
+
+    [SerializeField] CinemachineVirtualCamera virtualCam;
+
+    public delegate void OnInteractionAvailable();
+    public OnInteractionAvailable interactionDelegate;
+
     void Awake()
     {
         if(!spriteRenderer)
@@ -21,6 +27,23 @@ public class PlayerPlatformerController : PhysicsObject
         {
             animator = GetComponent<Animator>();
         }
+        gameManager = GameManager.instance;
+        SetCinemachineCam();
+    }
+
+    protected override void Update()
+    {
+        PauseGame();
+        base.Update();
+        if(!gameManager.gamePaused)
+        {
+            interactionDelegate?.Invoke();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        interactionDelegate = null;
     }
 
     protected override void ComputeVelocity()
@@ -47,18 +70,6 @@ public class PlayerPlatformerController : PhysicsObject
                 canJump = true;
             }
         }
-        /*
-        if(Input.GetButtonDown("Jump") && grounded)
-        {
-            velocity.y = jumpTakeOffSpeed;
-        }
-        else if(Input.GetButtonUp("Jump"))
-        {
-            if(velocity.y > 0)
-            {
-                velocity.y *= .5f;
-            }
-        }*/
 
         if (moveInput.x > 0)
         {
@@ -97,5 +108,19 @@ public class PlayerPlatformerController : PhysicsObject
         {
             return Input.GetAxis("Vertical");
         }
+    }
+
+    void PauseGame()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            gameManager.PauseGameToggle();
+        }
+    }
+
+    void SetCinemachineCam()
+    {
+        virtualCam = GameObject.FindGameObjectWithTag("CM PlayerCam").GetComponent<CinemachineVirtualCamera>();
+        virtualCam.m_Follow = transform;
     }
 }

@@ -17,12 +17,15 @@ public class PhysicsObject : MonoBehaviour
     protected List<RaycastHit2D> hitBufferList = new List<RaycastHit2D>(16);
     protected ContactFilter2D contactFilter;
 
+    protected GameManager gameManager;
+
     private void OnEnable()
     {
         if (!rigidbody)
         {
             rigidbody = GetComponent<Rigidbody2D>();
         }
+        
     }
 
     // Start is called before the first frame update
@@ -31,13 +34,17 @@ public class PhysicsObject : MonoBehaviour
         contactFilter.useTriggers = false;
         contactFilter.SetLayerMask(Physics2D.GetLayerCollisionMask(gameObject.layer));
         contactFilter.useLayerMask = true;
+        gameManager = GameManager.instance;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         targetVelocity = Vector2.zero;
-        ComputeVelocity();
+        if(!gameManager.gamePaused)
+        {
+            ComputeVelocity();
+        }
     }
 
     private void FixedUpdate()

@@ -24,6 +24,7 @@ public class ToggleSwitch : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().interactionDelegate += Interact;
+            //collision.gameObject.GetComponent<PlayerPlatformerController>().interactionDelegate += Interact;
         }
     }
 
@@ -32,6 +33,7 @@ public class ToggleSwitch : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().interactionDelegate = null;
+            //collision.gameObject.GetComponent<PlayerPlatformerController>().interactionDelegate = null;
         }
     }
 
