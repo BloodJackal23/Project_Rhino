@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] CharacterController2D characterController;
     [SerializeField] CinemachineVirtualCamera virtualCam;
     [SerializeField] Animator animator;
-    Vector2 moveInput;
+    Vector2 moveInput = Vector2.zero;
     bool jump = false;
     bool canJump = true;
 
@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         PauseGame();
         if(!gameManager.gamePaused)
         {
-            moveInput = GetInput();
+            moveInput = new Vector2(GetHorInput(), GetVerInput());
             interactionDelegate?.Invoke();
         }
         bool isGrounded = characterController.IsGrounded();
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
                 canJump = false;
             }
         }
-        else
+        else if(isGrounded)
         {
             canJump = true;
         }
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        characterController.Move(moveInput.x * characterController.GetSpeed() * Time.fixedDeltaTime, false, jump);
+        characterController.Move(moveInput.x * characterController.GetSpeed() * Time.fixedDeltaTime, false, jump, true);
         jump = false;
     }
 
@@ -63,11 +63,14 @@ public class PlayerController : MonoBehaviour
         virtualCam.m_Follow = transform;
     }
 
-    Vector2 GetInput()
+    float GetHorInput()
     {
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        input.Normalize();
-        return input;
+        return Input.GetAxisRaw("Horizontal");
+    }
+
+    float GetVerInput()
+    {
+        return Input.GetAxisRaw("Vertical");
     }
 
     void PauseGame()

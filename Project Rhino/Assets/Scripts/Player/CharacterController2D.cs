@@ -4,14 +4,18 @@ using UnityEngine.Events;
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] float speed = 10;
-	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
+	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
+	[SerializeField] private float m_JumpSpeed = 2;								// The jump speed of the player as they're holding the jump button
+	[SerializeField] private float m_JumpTime = .6f;                             //The maximum amount of time the player can stay airborne while holding the jump button (ABU)
+	private float jumpTimer = 0;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							// Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;							// A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;							// A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							// A position marking where to check for ceilings
-	[SerializeField] private Collider2D m_CrouchDisableCollider;				// A collider that will be disabled when crouching
+	[SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
+	[SerializeField] private SpriteRenderer m_SpriteRenderer;					//The sprite renderer attached to the actor (ABU)
 
 	const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
 	private bool m_Grounded;            // Whether or not the player is grounded.
@@ -34,6 +38,10 @@ public class CharacterController2D : MonoBehaviour
 	private void Awake()
 	{
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
+		if(!m_SpriteRenderer)
+        {
+			m_SpriteRenderer = GetComponent<SpriteRenderer>();
+		}
 
 		if (OnLandEvent == null)
 			OnLandEvent = new UnityEvent();
@@ -66,7 +74,7 @@ public class CharacterController2D : MonoBehaviour
 		return speed;
     }
 
-	public void Move(float _move, bool _crouch, bool _jump)
+	public void Move(float _move, bool _crouch, bool _jump, bool _instantJump)
 	{
 		// If crouching, check to see if the character can stand up
 		if (!_crouch)
@@ -119,27 +127,60 @@ public class CharacterController2D : MonoBehaviour
 			if (_move > 0 && !m_FacingRight)
 			{
 				// ... flip the player.
-				Flip();
+				FlipSprite(); //Changed from Flip() to FlipSprite (ABU)
 			}
 			// Otherwise if the input is moving the player left and the player is facing right...
 			else if (_move < 0 && m_FacingRight)
 			{
 				// ... flip the player.
-				Flip();
+				FlipSprite(); //Changed from Flip() to FlipSprite (ABU)
 			}
 		}
 		// If the player should jump...
-		if (m_Grounded && _jump)
-		{
-			// Add a vertical force to the player.
-			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-		}
+
+		if(_jump)
+        {
+			if(m_Grounded)
+            {
+				if (_instantJump)
+				{
+					AddJumpForceInstant();
+				}
+				else
+                {
+					AddJumpForceCont(_jump);
+                }
+			}
+			else
+            {
+
+            }
+        }
 	}
 
 	public bool IsGrounded()
     {
 		return m_Grounded;
+    }
+
+	private void AddJumpForceInstant()
+    {
+		// Add a vertical force to the player.
+		m_Grounded = false;
+		m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+	}
+
+	private void AddJumpForceCont(bool _jump)
+    {
+		if(_jump)
+        {
+			jumpTimer += Time.deltaTime;
+		}
+		
+		if(jumpTimer > 0)
+        {
+			m_Rigidbody2D.velocity = new Vector2(m_Rigidbody2D.velocity.x, m_JumpSpeed);
+        }
     }
 
 
@@ -152,5 +193,14 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	private void FlipSprite() //(ABU)
+    {
+		// Switch the way the player is labelled as facing.
+		m_FacingRight = !m_FacingRight;
+
+		//Flips the sprite renderer when the actor is facing the opposite direction
+		m_SpriteRenderer.flipX = !m_FacingRight;
 	}
 }
