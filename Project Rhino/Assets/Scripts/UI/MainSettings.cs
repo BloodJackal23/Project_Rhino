@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class MainSettings : MonoBehaviour
+public class MainSettings : UI_Panel
 {
     GameManager gameManager;
     #region Main Settings Menu
@@ -13,6 +13,11 @@ public class MainSettings : MonoBehaviour
 
     [SerializeField] VideoSettings videoSettings;
     [SerializeField] AudioSettings audioSettings;
+
+    protected override void OnValidate()
+    {
+        base.OnValidate();
+    }
 
     private void Start()
     {

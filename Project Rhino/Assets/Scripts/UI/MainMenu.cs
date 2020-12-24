@@ -1,14 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class MainMenu : MonoBehaviour
+public class MainMenu : UI_Panel
 {
     [SerializeField] Button newGame;
     [SerializeField] Button howToPlay;
 
-    void OnValidate()
+    protected override void OnValidate()
     {
+        base.OnValidate();
         newGame.onClick.AddListener(delegate { GameManager.instance.LoadScene("Level_01"); });
-        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene("Tutorial"); }); //TODO: Make a tutorial level
+        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene("Tutorial"); });
     }
 }

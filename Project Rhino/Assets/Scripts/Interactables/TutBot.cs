@@ -58,7 +58,6 @@ public class TutBot : MonoBehaviour
             textMesh.text = "";
             timer = 0;
             StopAllCoroutines();
-            //StopCoroutine(TypeMessage(message));
             speechBubble.SetActive(false);
         }
     }

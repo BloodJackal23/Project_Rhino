@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 140219293864885347}
   - component: {fileID: 5315317781223855455}
   - component: {fileID: 7504054915467245608}
+  - component: {fileID: 6866035188820257285}
   m_Layer: 5
   m_Name: Pause Menu Panel
   m_TagString: PauseMenu
@@ -91,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106aca16491b1eb43a8397b1a1f722ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Animator: {fileID: 6866035188820257285}
   resumeGameButton: {fileID: 8156797826126281547}
   settingsButton: {fileID: 2581503010537845417}
   backToMainButton: {fileID: 4397096062259291959}
@@ -111,6 +113,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &6866035188820257285
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140219293864885345}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52b2316d26b53ae41be045e6fbe45ee4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &140219294058133347
 GameObject:
   m_ObjectHideFlags: 0

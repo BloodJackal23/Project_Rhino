@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : UI_Panel
 {
     #region Buttons
     [Header("Buttons")]
@@ -19,6 +19,11 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] VideoSettings videoSettings;
     [SerializeField] QuitConfirmation quitConfirmation;
     #endregion
+
+    protected override void OnValidate()
+    {
+        base.OnValidate();
+    }
 
     private void Start()
     {

@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class QuitConfirmation : MonoBehaviour
+public class QuitConfirmation : UI_Panel
 {
     GameManager gameManager;
     [SerializeField] Button confirmButton;
+
+    protected override void OnValidate()
+    {
+        base.OnValidate();
+    }
 
     private void Start()
     {

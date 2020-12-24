@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class VideoSettings : MonoBehaviour
+public class VideoSettings : UI_Panel
 {
     #region Video Elements
     [Header("Video Settings UI Components")]
@@ -12,6 +12,11 @@ public class VideoSettings : MonoBehaviour
 
     public Resolution[] resolutionOptions;
     #endregion
+
+    protected override void OnValidate()
+    {
+        base.OnValidate();
+    }
 
     #region Video Settings Methods
     public void InitVideoSettings(GameManager _gameManager)

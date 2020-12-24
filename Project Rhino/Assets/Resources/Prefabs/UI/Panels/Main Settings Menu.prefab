@@ -233,6 +233,7 @@ GameObject:
   - component: {fileID: 8150797413159883383}
   - component: {fileID: 1726371908199393204}
   - component: {fileID: 4309113467717716575}
+  - component: {fileID: 2302041711964455543}
   m_Layer: 5
   m_Name: Main Settings Menu
   m_TagString: Untagged
@@ -311,6 +312,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c178f6d5324a0489b8503f8e8fd23f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Animator: {fileID: 2302041711964455543}
   videoSettingsButton: {fileID: 2830493871097796770}
   audioSettingsButton: {fileID: 3123656316650517719}
   backButton: {fileID: 5007020495500404587}
@@ -328,6 +330,25 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!95 &2302041711964455543
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8150797413159883381}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6a8d4298bec048646a61fa8f28e06074, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &3258860014118366335
 PrefabInstance:
   m_ObjectHideFlags: 0

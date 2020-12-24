@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class AudioSettings : MonoBehaviour
+public class AudioSettings : UI_Panel
 {
     #region Audio Elements
     [Header("Audio Settings UI Components")]
@@ -11,6 +11,11 @@ public class AudioSettings : MonoBehaviour
     [SerializeField] Button backAudioSettingsButton;
     [SerializeField] Button saveAudioSettingsButton;
     #endregion
+
+    protected override void OnValidate()
+    {
+        base.OnValidate();
+    }
 
     #region Audio Settings Methods
     public void InitAudioSettings(GameManager _gameManager)

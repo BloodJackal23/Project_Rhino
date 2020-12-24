@@ -9,13 +9,13 @@ public class ToggleSwitch : MonoBehaviour
     public delegate void OnTurnedOff();
     public OnTurnedOff turnedOffDelegate;
 
-    [SerializeField] Animator animator;
+    [SerializeField] Animator m_Animator;
 
     private void Start()
     {
-        if(!animator)
+        if(!m_Animator)
         {
-            animator = GetComponent<Animator>();
+            m_Animator = GetComponent<Animator>();
         }
     }
 
@@ -24,7 +24,6 @@ public class ToggleSwitch : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().interactionDelegate += Interact;
-            //collision.gameObject.GetComponent<PlayerPlatformerController>().interactionDelegate += Interact;
         }
     }
 
@@ -33,7 +32,6 @@ public class ToggleSwitch : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerController>().interactionDelegate = null;
-            //collision.gameObject.GetComponent<PlayerPlatformerController>().interactionDelegate = null;
         }
     }
 
@@ -42,7 +40,7 @@ public class ToggleSwitch : MonoBehaviour
         if (Input.GetButtonDown("Interact"))
         {
             isOn = !isOn;
-            animator.SetBool("isOn", isOn);
+            m_Animator.SetBool("isOn", isOn);
             if(isOn)
             {
                 turnedOnDelegate?.Invoke();
