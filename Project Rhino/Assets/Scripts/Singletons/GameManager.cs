@@ -112,7 +112,7 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
-            gameSettings = new GameSettings(false, 0, 0, 0, 1, 7, 5, 5);
+            gameSettings = new GameSettings(false, 0, 0, 1, 7, 5, 5);
             SaveGameSettings();
         }
     }
@@ -124,7 +124,6 @@ public class GameManager : Singleton<GameManager>
         SetFullScreen(_gameSettings);
         SetResolution(_gameSettings);
         SetTextureQuality(_gameSettings);
-        SetAntiAliasing(_gameSettings);
         SetVSync(_gameSettings);
     }
 
@@ -166,19 +165,6 @@ public class GameManager : Singleton<GameManager>
     {
         QualitySettings.masterTextureLimit = gameSettings.textureQuality = _value;
         return QualitySettings.masterTextureLimit;
-    }
-
-    public int SetAntiAliasing(GameSettings _gameSettings) //Gets value from Game Settings
-    {
-        QualitySettings.antiAliasing = (int)Mathf.Pow(2, _gameSettings.antiAliasing);
-        return QualitySettings.antiAliasing;
-    }
-
-    public int SetAntiAliasing(int _value) //Gets value from external source
-    {
-        gameSettings.antiAliasing = _value;
-        QualitySettings.antiAliasing = (int)Mathf.Pow(2, _value);
-        return QualitySettings.antiAliasing;
     }
 
     public int SetVSync(GameSettings _gameSettings) //Gets value from Game Settings

@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class VideoSettings : UI_Panel
 {
     #region Video Elements
     [Header("Video Settings UI Components")]
     [SerializeField] Toggle fullScreenToggle;
-    [SerializeField] Dropdown resolutionDropDown, textureQualityDropdown, antiAliasingDropdown, vSyncDropdown;
+    [SerializeField] TMP_Dropdown resolutionDropDown, textureQualityDropdown, vSyncDropdown;
     [SerializeField] Button backVideoSettingsButton;
     [SerializeField] Button saveVideoSettingsButton;
 
@@ -27,7 +28,6 @@ public class VideoSettings : UI_Panel
         SetResolutionDropdown();
         resolutionDropDown.value = _gameManager.SetResolution(gameSettings);
         textureQualityDropdown.value = _gameManager.SetTextureQuality(gameSettings);
-        antiAliasingDropdown.value = _gameManager .SetAntiAliasing(gameSettings);
         vSyncDropdown.value = _gameManager .SetVSync(gameSettings);
         AddListenersToVideoToggles(_gameManager);
         AddListenersToVideoDropdowns(_gameManager);
@@ -48,7 +48,7 @@ public class VideoSettings : UI_Panel
     {
         foreach(Resolution resolution in resolutionOptions)
         {
-            Dropdown.OptionData newOption = new Dropdown.OptionData(resolution.ToString());
+            TMP_Dropdown.OptionData newOption = new TMP_Dropdown.OptionData(resolution.ToString());
             resolutionDropDown.options.Add(newOption);
         }
     }
@@ -61,11 +61,6 @@ public class VideoSettings : UI_Panel
     void OnTextureQualityChanged(GameManager _gameManager)
     {
         _gameManager.SetTextureQuality(textureQualityDropdown.value);
-    }
-
-    void OnAntiAliasingChanged(GameManager _gameManager)
-    {
-        _gameManager.SetAntiAliasing(antiAliasingDropdown.value);
     }
 
     void OnVSyncChanged(GameManager _gameManager)
@@ -82,7 +77,6 @@ public class VideoSettings : UI_Panel
     {
         resolutionDropDown.onValueChanged.AddListener(delegate { OnResoltuionChanged(_gameManager); });
         textureQualityDropdown.onValueChanged.AddListener(delegate { OnTextureQualityChanged(_gameManager); });
-        antiAliasingDropdown.onValueChanged.AddListener(delegate { OnAntiAliasingChanged(_gameManager); });
         vSyncDropdown.onValueChanged.AddListener(delegate { OnVSyncChanged(_gameManager); });
     }
     #endregion
