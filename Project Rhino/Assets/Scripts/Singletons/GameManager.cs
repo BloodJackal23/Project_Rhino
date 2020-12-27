@@ -13,16 +13,19 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] MusicLibrary musicLibrary;
     [SerializeField] AudioSource musicSource, FX_Source;
-
-    [SerializeField] SceneMusic sceneMusic;
     public enum AudioChannels { MasterVol, MusicVol, FX_Vol }
     #endregion
 
+    SceneSettings sceneSettings;
+
+    public delegate void OnPauseCommand();
+    public OnGamePaused onPauseCommand;
+
     public delegate void OnGamePaused();
-    public OnGamePaused gamePausedDelegate;
+    public OnGamePaused onGamePaused;
 
     public delegate void OnGameResumed();
-    public OnGamePaused gameResumedDelegate;
+    public OnGamePaused onGameResumed;
     public bool gamePaused { get; private set; }
 
     protected override void Awake()
@@ -41,8 +44,13 @@ public class GameManager : Singleton<GameManager>
     private void Start()
     {
         Debug.Log("Start Called!");
-        GetSceneMusic();
+        InitSceneSettings();
         InitGameSettings();
+    }
+
+    private void Update()
+    {
+        onPauseCommand?.Invoke();
     }
 
     private void OnDestroy()
@@ -74,12 +82,13 @@ public class GameManager : Singleton<GameManager>
     void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
     {
         Debug.Log("New scene loaded");
-        GetSceneMusic();
-        if (sceneMusic.playNewTrack)
+        InitSceneSettings();
+        if (sceneSettings.playNewTrack)
         {
             InitSceneSoundtrack();
         }
     }
+   
     #endregion
 
     public void QuitGame()
@@ -181,15 +190,23 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     #region Audio Settings Methods
-
-    void GetSceneMusic()
+    void InitSceneSettings()
     {
-        sceneMusic = SceneMusic.instance;
+        sceneSettings = SceneSettings.instance;
+        if(sceneSettings.CanPause)
+        {
+            onPauseCommand += PauseCommand;
+        }
+        else
+        {
+            onPauseCommand = null;
+        }
+        Cursor.lockState = sceneSettings.CursorLockMode;
     }
 
     void InitSceneSoundtrack()
     {
-        musicSource.clip = sceneMusic.soundtrack;
+        musicSource.clip = sceneSettings.soundtrack;
         musicSource.loop = true;
         musicSource.Play();
     }
@@ -287,12 +304,24 @@ public class GameManager : Singleton<GameManager>
         if (gamePaused)
         {
             Time.timeScale = 0;
-            gamePausedDelegate?.Invoke();
+            Debug.Log("Game Paused!");
+            Cursor.lockState = CursorLockMode.None;
+            onGamePaused?.Invoke();
         }
         else
         {
             Time.timeScale = 1;
-            gameResumedDelegate?.Invoke();
+            Debug.Log("Game Resumed!");
+            Cursor.lockState = sceneSettings.CursorLockMode;
+            onGameResumed?.Invoke();
+        }
+    }
+
+    void PauseCommand()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            PauseGameToggle();
         }
     }
     #endregion

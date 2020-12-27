@@ -28,8 +28,8 @@ public class PauseMenu : UI_Panel
     private void Start()
     {
         GameManager gameManager = GameManager.instance;
-        gameManager.gamePausedDelegate += OnGamePaused;
-        gameManager.gameResumedDelegate += OnGameResumed;
+        gameManager.onGamePaused += OnGamePaused;
+        gameManager.onGameResumed += OnGameResumed;
         
         AddToResumegameButton(gameManager);
         AddToBackToMainMenu(gameManager);
@@ -39,8 +39,8 @@ public class PauseMenu : UI_Panel
     private void OnDestroy()
     {
         GameManager gameManager = GameManager.instance;
-        gameManager.gamePausedDelegate = null;
-        gameManager.gameResumedDelegate = null;
+        gameManager.onGamePaused = null;
+        gameManager.onGameResumed = null;
     }
 
     public void OnGamePaused()

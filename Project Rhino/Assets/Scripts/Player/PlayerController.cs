@@ -28,8 +28,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        PauseGame();
-        if(!gameManager.gamePaused)
+        if (!gameManager.gamePaused)
         {
             moveInput = new Vector2(GetHorInput(), GetVerInput());
             interactionDelegate?.Invoke();
@@ -75,13 +74,5 @@ public class PlayerController : MonoBehaviour
     float GetVerInput()
     {
         return Input.GetAxisRaw("Vertical");
-    }
-
-    void PauseGame()
-    {
-        if (Input.GetButtonDown("Cancel"))
-        {
-            gameManager.PauseGameToggle();
-        }
     }
 }

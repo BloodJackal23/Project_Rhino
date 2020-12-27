@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1908892427480575091}
   - component: {fileID: 1512410486}
   m_Layer: 0
-  m_Name: Music Object
+  m_Name: Scene Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 901f3a1e73d44d241928963d19d3ff64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundTrack: {fileID: 0}
+  canPause: 1
+  playNewTrack: 1
+  soundtrack: {fileID: 0}
