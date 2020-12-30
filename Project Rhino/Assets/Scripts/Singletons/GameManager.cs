@@ -11,7 +11,6 @@ public class GameManager : Singleton<GameManager>
 
     #region Audio Variables
     [SerializeField] AudioMixer audioMixer;
-    [SerializeField] MusicLibrary musicLibrary;
     [SerializeField] AudioSource musicSource, FX_Source;
     public enum AudioChannels { MasterVol, MusicVol, FX_Vol }
     #endregion
@@ -105,11 +104,22 @@ public class GameManager : Singleton<GameManager>
         InitAudioSettings(gameSettings);
     }
 
+    public void SetToDefaultSettings()
+    {
+        gameSettings = GameSettings.DefaultSettings;
+        InitVideoSettings(gameSettings);
+        InitAudioSettings(gameSettings);
+        SaveGameSettings();
+    }
+
     public void SaveGameSettings()
     {
         string jsonData = JsonUtility.ToJson(gameSettings, true);
         File.WriteAllText(Application.persistentDataPath + "/GameSettings.json", jsonData);
         Debug.Log("Game Settings saved at " + Application.persistentDataPath + "/GameSettings.json");
+        Debug.Log("Game Settings are set at FScrn = " + gameSettings.fullScreen + "/TexQ = " + gameSettings.textureQuality
+            + "/VSync = " + gameSettings.vSync + "/ResInd = " + gameSettings.resolutionIndex + "/MasVol = " + gameSettings.masterVolume
+            + "/MusVol = " + gameSettings.musicVolume + "/FxVol = " + gameSettings.fxVolume);
     }
 
     void LoadGameSettings()
@@ -121,8 +131,7 @@ public class GameManager : Singleton<GameManager>
         }
         else
         {
-            gameSettings = new GameSettings(false, 0, 0, 1, 7, 5, 5);
-            SaveGameSettings();
+            SetToDefaultSettings();
         }
     }
     #endregion
@@ -130,15 +139,14 @@ public class GameManager : Singleton<GameManager>
     #region Video Settings Methods
     public void InitVideoSettings(GameSettings _gameSettings)
     {
-        SetFullScreen(_gameSettings);
-        SetResolution(_gameSettings);
-        SetTextureQuality(_gameSettings);
-        SetVSync(_gameSettings);
+        SetFullScreen(GetFullScreen(_gameSettings));
+        SetResolution(GetResolution(_gameSettings));
+        SetTextureQuality(GetTextureQuality(_gameSettings));
+        SetVSync(GetVSync(_gameSettings));
     }
 
-    public bool SetFullScreen(GameSettings _gameSettings) //Gets value from Game Settings
+    public bool GetFullScreen(GameSettings _gameSettings) //Gets value from Game Settings
     {
-        Screen.fullScreen = _gameSettings.fullScreen;
         return _gameSettings.fullScreen;
     }
 
@@ -148,12 +156,9 @@ public class GameManager : Singleton<GameManager>
         return Screen.fullScreen;
     }
 
-    public int SetResolution(GameSettings _gameSettings) //Gets value from Game Settings
+    public int GetResolution(GameSettings _gameSettings) //Gets value from Game Settings
     {
-        Resolution[] resolutions = Screen.resolutions;
-        int index = _gameSettings.resolutionIndex;
-        Screen.SetResolution(resolutions[index].width, resolutions[index].height, Screen.fullScreen);
-        return index;
+        return _gameSettings.resolutionIndex;
     }
 
     public int SetResolution(int _index) //Gets value from external source
@@ -164,10 +169,9 @@ public class GameManager : Singleton<GameManager>
         return _index;
     }
 
-    public int SetTextureQuality(GameSettings _gameSettings) //Gets value from Game Settings
+    public int GetTextureQuality(GameSettings _gameSettings) //Gets value from Game Settings
     {
-        QualitySettings.masterTextureLimit = _gameSettings.textureQuality;
-        return QualitySettings.masterTextureLimit;
+        return _gameSettings.textureQuality;
     }
 
     public int SetTextureQuality(int _value) //Gets value from external source
@@ -176,10 +180,9 @@ public class GameManager : Singleton<GameManager>
         return QualitySettings.masterTextureLimit;
     }
 
-    public int SetVSync(GameSettings _gameSettings) //Gets value from Game Settings
+    public int GetVSync(GameSettings _gameSettings) //Gets value from Game Settings
     {
-        QualitySettings.vSyncCount = _gameSettings.vSync;
-        return QualitySettings.vSyncCount;
+        return _gameSettings.vSync;
     }
 
     public int SetVSync(int _value) //Gets value from external source
@@ -213,9 +216,9 @@ public class GameManager : Singleton<GameManager>
 
     public void InitAudioSettings(GameSettings _gameSettings)
     {
-        SetMasterVolume(_gameSettings);
-        SetMusicVolume(_gameSettings);
-        SetFXVolume(_gameSettings);
+        SetMasterVolume(GetMasterVolume(_gameSettings));
+        SetMusicVolume(GetMusicVolume(_gameSettings));
+        SetFXVolume(GetFXVolume(_gameSettings));
     }
 
     /// <summary>
@@ -223,9 +226,9 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     /// <param name="_gameSettings"></param>
     /// <returns></returns>
-    public float SetMasterVolume(GameSettings _gameSettings)
+    public float GetMasterVolume(GameSettings _gameSettings)
     {
-        return SetVolume(AudioChannels.MasterVol, _gameSettings.masterVolume);
+        return _gameSettings.masterVolume;
     }
 
     /// <summary>
@@ -244,9 +247,9 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     /// <param name="_gameSettings"></param>
     /// <returns></returns>
-    public float SetMusicVolume(GameSettings _gameSettings)
+    public float GetMusicVolume(GameSettings _gameSettings)
     {
-        return SetVolume(AudioChannels.MusicVol, _gameSettings.musicVolume);
+        return _gameSettings.musicVolume;
     }
 
     /// <summary>
@@ -265,9 +268,9 @@ public class GameManager : Singleton<GameManager>
     /// </summary>
     /// <param name="_gameSettings"></param>
     /// <returns></returns>
-    public float SetFXVolume(GameSettings _gameSettings)
+    public float GetFXVolume(GameSettings _gameSettings)
     {
-        return SetVolume(AudioChannels.FX_Vol, _gameSettings.fxVolume);
+        return _gameSettings.fxVolume;
     }
 
     /// <summary>
