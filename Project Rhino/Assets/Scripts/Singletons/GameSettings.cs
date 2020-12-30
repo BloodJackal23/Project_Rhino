@@ -57,7 +57,7 @@ public class GameSettings
     {
         get
         {
-            return new GameSettings(false, 1, 0, 0, 6f, 6f, 6f);
+            return new GameSettings(false, 1, 0, 0, .5f, 1f, 1f);
         }
     }
 
@@ -65,7 +65,7 @@ public class GameSettings
     {
         get
         {
-            return new GameSettings(6f, 6f, 6f);
+            return new GameSettings(.5f, 1f, 1f);
         }
     }
 

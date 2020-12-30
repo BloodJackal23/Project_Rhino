@@ -65,7 +65,8 @@ public class VideoSettings : UI_Panel
     {
         foreach(Resolution resolution in resolutionOptions)
         {
-            TMP_Dropdown.OptionData newOption = new TMP_Dropdown.OptionData(resolution.ToString());
+            string optText = resolution.width.ToString() + " X " + resolution.height.ToString();
+            TMP_Dropdown.OptionData newOption = new TMP_Dropdown.OptionData(optText);
             resolutionDropDown.options.Add(newOption);
         }
     }

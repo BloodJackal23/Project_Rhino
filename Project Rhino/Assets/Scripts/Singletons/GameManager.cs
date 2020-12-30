@@ -285,18 +285,16 @@ public class GameManager : Singleton<GameManager>
         return SetVolume(AudioChannels.FX_Vol, _value);
     }
 
+
+    /// <summary>
+    /// Sets a volume mixer channel's value. Make sure that the corresponding slider is clamped between 0.0001 and 1
+    /// </summary>
+    /// <param name="_channel"></param>
+    /// <param name="_value"></param>
+    /// <returns></returns>
     float SetVolume(AudioChannels _channel, float _value)
     {
-        if (_value < 0.1)
-        {
-            audioMixer.SetFloat(_channel.ToString(), -80);
-        }
-        else
-        {
-            float dbVal = Mathf.Log10(_value);
-            dbVal = (100f * dbVal) - 80f;
-            audioMixer.SetFloat(_channel.ToString(), dbVal);
-        }
+        audioMixer.SetFloat(_channel.ToString(), Mathf.Log10(_value) * 20);
         return _value;
     }
     #endregion
