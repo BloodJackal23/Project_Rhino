@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
 
     #region Audio Variables
     [SerializeField] AudioMixer audioMixer;
-    [SerializeField] AudioSource musicSource, FX_Source;
+    [SerializeField] AudioSource musicSource;
     public enum AudioChannels { MasterVol, MusicVol, FX_Vol }
     #endregion
 
@@ -55,6 +55,7 @@ public class GameManager : Singleton<GameManager>
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+        onPauseCommand = null;
     }
 
     #region Scene Management
