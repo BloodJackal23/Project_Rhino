@@ -4,12 +4,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     GameManager gameManager;
-    [SerializeField] CharacterController2D characterController;
+
     [SerializeField] CinemachineVirtualCamera virtualCam;
-    [SerializeField] Animator animator;
+    [SerializeField] CharacterController2D m_CharacterController;
+    [SerializeField] Animator m_Animator;
     Vector2 moveInput = Vector2.zero;
     bool jump = false;
     bool canJump = true;
+
+    [SerializeField] AudioSource jumpAudio;
 
     public delegate void OnInteractionAvailable();
     public OnInteractionAvailable interactionDelegate;
@@ -19,9 +22,9 @@ public class PlayerController : MonoBehaviour
     {
         gameManager = GameManager.instance;
         SetCinemachineCam();
-        if (!animator)
+        if (!m_Animator)
         {
-            animator = GetComponentInChildren<Animator>();
+            m_Animator = GetComponent<Animator>();
         }
     }
 
@@ -33,14 +36,18 @@ public class PlayerController : MonoBehaviour
             moveInput = new Vector2(GetHorInput(), GetVerInput());
             interactionDelegate?.Invoke();
         }
-        bool isGrounded = characterController.IsGrounded();
-        animator.SetFloat("isRunning", Mathf.Abs(moveInput.x));
+        bool isGrounded = m_CharacterController.IsGrounded();
+        m_Animator.SetFloat("isRunning", Mathf.Abs(moveInput.x));
         if(moveInput.y > 0)
         {
             if(isGrounded && canJump)
             {
                 jump = true;
                 canJump = false;
+                if(jumpAudio)
+                {
+                    jumpAudio.Play();
+                }
             }
         }
         else
@@ -52,12 +59,12 @@ public class PlayerController : MonoBehaviour
             }
         }
         
-        animator.SetBool("isJumping", !isGrounded);
+        m_Animator.SetBool("isJumping", !isGrounded);
     }
 
     private void FixedUpdate()
     {
-        characterController.Move(moveInput.x * characterController.GetSpeed() * Time.fixedDeltaTime, false, jump);
+        m_CharacterController.Move(moveInput.x * m_CharacterController.GetSpeed() * Time.fixedDeltaTime, false, jump);
     }
 
     void SetCinemachineCam()
