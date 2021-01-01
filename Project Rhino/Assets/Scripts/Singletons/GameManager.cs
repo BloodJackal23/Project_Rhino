@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections;
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,19 @@ public class GameManager : Singleton<GameManager>
     public GameSettings gameSettings { get; private set; }
     #endregion
 
+    #region Loading
+    [Header("Loading Elements")]
+    [SerializeField] string loadingSceneName = "LoadingScene";
+    [SerializeField] GameObject loadingScreenCanvas; //Should be a child object to the game manager
+    [SerializeField] LoadingBar loadingBar;
+    #endregion
+
     #region Audio Variables
+    [Header("Audio")]
     [SerializeField] AudioMixer audioMixer;
     [SerializeField] AudioSource musicSource;
     public enum AudioChannels { MasterVol, MusicVol, FX_Vol }
+    [Space]
     #endregion
 
     SceneSettings sceneSettings;
@@ -61,12 +71,13 @@ public class GameManager : Singleton<GameManager>
     #region Scene Management
     public void LoadScene(int _index)
     {
-        SceneManager.LoadScene(_index);
+             
+        StartCoroutine(WhileSceneLoading(_index));
     }
 
     public void LoadScene(string _name)
     {
-        SceneManager.LoadScene(_name);
+        StartCoroutine(WhileSceneLoading(_name));
     }
 
     public void LoadMainMenuScene()
@@ -74,9 +85,34 @@ public class GameManager : Singleton<GameManager>
         LoadScene(0);
     }
 
-    public void LoadFirstLevel()
+    IEnumerator WhileSceneLoading(int _index)
     {
-        LoadScene(1);
+        AsyncOperation operation = SceneManager.LoadSceneAsync(_index);
+        float progress = 0;
+        loadingScreenCanvas.SetActive(true);
+        while (!operation.isDone)
+        {
+            progress = Mathf.Clamp01(operation.progress / .9f);
+            loadingBar.UpdateBar(progress);
+            yield return null;
+        }
+        loadingBar.ResetBar();
+        loadingScreenCanvas.SetActive(false);
+    }
+
+    IEnumerator WhileSceneLoading(string _name)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(_name);
+        float progress = 0;
+        loadingScreenCanvas.SetActive(true);
+        while (!operation.isDone)
+        {
+            progress = Mathf.Clamp01(operation.progress / .9f);
+            loadingBar.UpdateBar(progress);
+            yield return null;
+        }
+        loadingBar.ResetBar();
+        loadingScreenCanvas.SetActive(false);
     }
 
     void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
