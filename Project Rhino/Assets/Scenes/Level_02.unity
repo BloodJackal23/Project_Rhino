@@ -4717,6 +4717,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 628965179}
     m_Modifications:
     - target: {fileID: 1940445631474815368, guid: ca626a8f357f70146860c29f99e3c37a, type: 3}
+      propertyPath: newScene
+      value: Level_03
+      objectReference: {fileID: 0}
+    - target: {fileID: 1940445631474815368, guid: ca626a8f357f70146860c29f99e3c37a, type: 3}
       propertyPath: newSceneIndex
       value: 3
       objectReference: {fileID: 0}

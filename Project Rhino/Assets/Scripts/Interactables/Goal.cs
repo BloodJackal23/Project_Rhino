@@ -3,7 +3,7 @@
 public class Goal : MonoBehaviour
 {
     GameManager gameManager;
-    [SerializeField] int newSceneIndex = 0;
+    [SerializeField] string newScene;
 
     private void Start()
     {
@@ -14,8 +14,7 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player Hit!");
-            gameManager.LoadScene(newSceneIndex);
+            gameManager.LoadScene(newScene);
         }
     }
 }

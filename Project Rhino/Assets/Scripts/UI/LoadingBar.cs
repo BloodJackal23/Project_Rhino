@@ -2,7 +2,6 @@
 
 public class LoadingBar : MonoBehaviour
 {
-    [SerializeField] [Range(0, 1)] float debugProgressValue = 0; //Used for debugging only
     [SerializeField] RectTransform[] ticks;
     [SerializeField] float tickInactiveHeight = 10f, tickActiveHeight = 30f;
 
