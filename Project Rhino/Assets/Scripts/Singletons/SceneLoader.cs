@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 
 public class SceneLoader : Singleton<SceneLoader>
 {
@@ -11,27 +9,21 @@ public class SceneLoader : Singleton<SceneLoader>
         base.Awake();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartScene();
     }
 
-    IEnumerator LoadNextScene(AsyncOperation _operation)
+    private void OnDisable()
     {
-        float progress = 0;
-        while (!_operation.isDone)
-        {
-            progress = Mathf.Clamp01(_operation.progress / .9f);
-            loadingBar.UpdateBar(progress);
-            yield return null;
-        }
-        loadingBar.ResetBar();
+        LoadingSystem.whileLoading -= loadingBar.UpdateBar;
+        LoadingSystem.onLoadEnd -= loadingBar.ResetBar;
     }
 
     void StartScene()
     {
         GameManager gameManager = GameManager.instance;
-        AsyncOperation operation = SceneManager.LoadSceneAsync(gameManager.nextScene);
-        StartCoroutine(LoadNextScene(operation));
+        LoadingSystem.whileLoading += loadingBar.UpdateBar;
+        LoadingSystem.onLoadEnd += loadingBar.ResetBar;
     }
 }

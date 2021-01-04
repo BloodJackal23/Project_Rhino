@@ -9,7 +9,7 @@ public class MainMenu : UI_Panel
     protected override void OnValidate()
     {
         base.OnValidate();
-        newGame.onClick.AddListener(delegate { GameManager.instance.LoadScene("Level_01"); });
-        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene("Tutorial"); });
+        newGame.onClick.AddListener(delegate { GameManager.instance.LoadScene(LoadingSystem.Scenes.Level_01); });
+        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene(LoadingSystem.Scenes.Tutorial); });
     }
 }

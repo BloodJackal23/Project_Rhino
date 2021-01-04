@@ -18,7 +18,6 @@ public class GameManager : Singleton<GameManager>
     #endregion
 
     SceneSettings sceneSettings;
-    public string nextScene { get; private set; }
 
     public delegate void OnPauseCommand();
     public OnGamePaused onPauseCommand;
@@ -62,15 +61,16 @@ public class GameManager : Singleton<GameManager>
     }
 
     #region Scene Management
-    public void LoadScene(string _name)
-    {
-        nextScene = _name;
-        SceneManager.LoadScene("LoadingScene");
+    public void LoadScene(LoadingSystem.Scenes _scene)
+    {      
+        SceneManager.LoadSceneAsync(LoadingSystem.Scenes.LoadingScene.ToString());
+        AsyncOperation operation = SceneManager.LoadSceneAsync(_scene.ToString());
+        StartCoroutine(LoadingSystem.LoadNextScene(operation));
     }
 
     public void LoadMainMenuScene()
     {
-        LoadScene("MainMenu");
+        LoadScene(LoadingSystem.Scenes.MainMenu);
     }
 
     void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
