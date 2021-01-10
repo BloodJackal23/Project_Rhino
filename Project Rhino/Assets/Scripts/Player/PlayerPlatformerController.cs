@@ -33,6 +33,7 @@ public class PlayerPlatformerController : PhysicsObject
 
     protected override void Update()
     {
+        PauseGame();
         base.Update();
         if(!gameManager.gamePaused)
         {
@@ -106,6 +107,14 @@ public class PlayerPlatformerController : PhysicsObject
         else
         {
             return Input.GetAxis("Vertical");
+        }
+    }
+
+    void PauseGame()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+            gameManager.PauseGameToggle();
         }
     }
 

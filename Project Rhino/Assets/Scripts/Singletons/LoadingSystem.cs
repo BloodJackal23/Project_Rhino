@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class LoadingSystem
@@ -6,6 +8,7 @@ public static class LoadingSystem
     public enum Scenes 
     { 
         MainMenu, 
+        LoadingScene,
         Tutorial,
         Level_01,
         Level_02,
@@ -24,7 +27,6 @@ public static class LoadingSystem
 
     public static IEnumerator LoadNextScene(AsyncOperation _operation)
     {
-        onLoadStart?.Invoke();
         float progress = 0;
         while (!_operation.isDone)
         {

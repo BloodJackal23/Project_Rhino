@@ -19,13 +19,6 @@ public class GameManager : Singleton<GameManager>
 
     SceneSettings sceneSettings;
 
-    #region Loading System
-    [Header("Loading System")]
-    [SerializeField] private GameObject loadingScreenCanvas;
-    [SerializeField] private LoadingBar loadingBar;
-    #endregion
-
-    #region Pause System
     public delegate void OnPauseCommand();
     public OnGamePaused onPauseCommand;
 
@@ -35,22 +28,18 @@ public class GameManager : Singleton<GameManager>
     public delegate void OnGameResumed();
     public OnGamePaused onGameResumed;
     public bool gamePaused { get; private set; }
-    #endregion
 
     protected override void Awake()
     {
         dontDestroyOnLoad = true;
         gamePaused = false;
-        base.Awake();      
+        base.Awake();
     }
 
     private void OnEnable()
     {
         Debug.Log("OnEnable Called!");
         SceneManager.sceneLoaded += OnSceneLoaded;
-        LoadingSystem.onLoadStart += ActivateLoadingScreen;
-        LoadingSystem.onLoadStart += loadingBar.ResetBar;
-        LoadingSystem.whileLoading += loadingBar.UpdateBar;        
     }
 
     private void Start()
@@ -67,26 +56,14 @@ public class GameManager : Singleton<GameManager>
 
     private void OnDestroy()
     {
-        onPauseCommand = null;
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        LoadingSystem.onLoadStart -= ActivateLoadingScreen;
-        LoadingSystem.onLoadStart -= loadingBar.ResetBar;
-        LoadingSystem.whileLoading -= loadingBar.UpdateBar;        
-    }
-
-    void ActivateLoadingScreen()
-    {
-        loadingScreenCanvas.SetActive(true);
-    }
-
-    void DeactivateLoadingScreen()
-    {
-        loadingScreenCanvas.SetActive(false);
+        onPauseCommand = null;
     }
 
     #region Scene Management
     public void LoadScene(LoadingSystem.Scenes _scene)
     {      
+        SceneManager.LoadSceneAsync(LoadingSystem.Scenes.LoadingScene.ToString());
         AsyncOperation operation = SceneManager.LoadSceneAsync(_scene.ToString());
         StartCoroutine(LoadingSystem.LoadNextScene(operation));
     }
@@ -99,7 +76,6 @@ public class GameManager : Singleton<GameManager>
     void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
     {
         Debug.Log("New scene loaded");
-        DeactivateLoadingScreen();
         InitSceneSettings();
         if (sceneSettings.playNewTrack)
         {
@@ -215,10 +191,13 @@ public class GameManager : Singleton<GameManager>
     void InitSceneSettings()
     {
         sceneSettings = SceneSettings.instance;
-        onPauseCommand = null;
-        if (sceneSettings.CanPause)
+        if(sceneSettings.CanPause)
         {
             onPauseCommand += PauseCommand;
+        }
+        else
+        {
+            onPauseCommand = null;
         }
         Cursor.lockState = sceneSettings.CursorLockMode;
     }
