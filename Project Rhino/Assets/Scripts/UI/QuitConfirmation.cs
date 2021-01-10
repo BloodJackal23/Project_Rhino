@@ -6,13 +6,9 @@ public class QuitConfirmation : UI_Panel
     GameManager gameManager;
     [SerializeField] Button confirmButton;
 
-    protected override void OnValidate()
+    protected override void Start()
     {
-        base.OnValidate();
-    }
-
-    private void Start()
-    {
+        base.Start();
         gameManager = GameManager.instance;
         confirmButton.onClick.AddListener(delegate { gameManager.QuitGame(); });
     }

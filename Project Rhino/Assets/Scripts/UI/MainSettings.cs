@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class MainSettings : UI_Panel
 {
-    protected override void OnValidate()
+    protected override void Start()
     {
-        base.OnValidate();
+        base.Start();
     }
 }

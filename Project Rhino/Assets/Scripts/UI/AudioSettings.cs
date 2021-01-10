@@ -12,9 +12,9 @@ public class AudioSettings : UI_Panel
     [SerializeField] Button defaultAudioSettingsButton;
     #endregion
 
-    protected override void OnValidate()
+    protected override void Start()
     {
-        base.OnValidate();
+        base.Start();
     }
 
     private void OnEnable()

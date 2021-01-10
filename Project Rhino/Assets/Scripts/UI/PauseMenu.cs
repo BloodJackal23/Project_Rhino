@@ -20,13 +20,9 @@ public class PauseMenu : UI_Panel
     [SerializeField] QuitConfirmation quitConfirmation;
     #endregion
 
-    protected override void OnValidate()
+    protected override void Start()
     {
-        base.OnValidate();
-    }
-
-    private void Start()
-    {
+        base.Start();
         GameManager gameManager = GameManager.instance;
         gameManager.onGamePaused += OnGamePaused;
         gameManager.onGameResumed += OnGameResumed;

@@ -14,9 +14,9 @@ public class VideoSettings : UI_Panel
     public Resolution[] resolutionOptions;
     #endregion
 
-    protected override void OnValidate()
+    protected override void Start()
     {
-        base.OnValidate();
+        base.Start();
     }
 
     private void OnEnable()

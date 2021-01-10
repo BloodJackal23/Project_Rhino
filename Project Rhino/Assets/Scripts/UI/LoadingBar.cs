@@ -5,11 +5,6 @@ public class LoadingBar : MonoBehaviour
     [SerializeField] RectTransform[] ticks;
     [SerializeField] float tickInactiveHeight = 10f, tickActiveHeight = 30f;
 
-    private void OnValidate()
-    {
-        InitBar();
-    }
-
     void InitBar()
     {
         ticks = BarTicks();
