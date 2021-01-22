@@ -11,6 +11,8 @@ public class PlayerHazard : MonoBehaviour
         if(collision.gameObject.tag == "Player") 
         {
             Debug.Log("Player Hit!");
+            PlayerController playerController = collision.GetComponent<PlayerController>();
+            playerController.onDeath?.Invoke();
             SendPlayerToNewSpawn(collision.transform);
             HideObjects();
             ShowObjects();

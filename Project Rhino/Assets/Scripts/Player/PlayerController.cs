@@ -13,9 +13,13 @@ public class PlayerController : MonoBehaviour
     bool canJump = true;
 
     [SerializeField] AudioSource jumpAudio;
+    [SerializeField] private AudioSource deathAudio;
 
     public delegate void OnInteractionAvailable();
-    public OnInteractionAvailable interactionDelegate;
+    public OnInteractionAvailable onInteraction;
+
+    public delegate void OnDeath();
+    public OnDeath onDeath;
 
     // Start is called before the first frame update
     void Start()
@@ -28,13 +32,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        onDeath += PlayDeathAudio;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!gameManager.gamePaused)
         {
             moveInput = new Vector2(GetHorInput(), GetVerInput());
-            interactionDelegate?.Invoke();
+            onInteraction?.Invoke();
         }
         bool isGrounded = m_CharacterController.IsGrounded();
         m_Animator.SetFloat("isRunning", Mathf.Abs(moveInput.x));
@@ -67,6 +76,11 @@ public class PlayerController : MonoBehaviour
         m_CharacterController.Move(moveInput.x * m_CharacterController.GetSpeed() * Time.fixedDeltaTime, false, jump);
     }
 
+    private void OnDestroy()
+    {
+        onDeath -= PlayDeathAudio;
+    }
+
     void SetCinemachineCam()
     {
         virtualCam = GameObject.FindGameObjectWithTag("CM PlayerCam").GetComponent<CinemachineVirtualCamera>();
@@ -81,5 +95,10 @@ public class PlayerController : MonoBehaviour
     float GetVerInput()
     {
         return Input.GetAxisRaw("Vertical");
+    }
+
+    private void PlayDeathAudio()
+    {
+        deathAudio.Play();
     }
 }
