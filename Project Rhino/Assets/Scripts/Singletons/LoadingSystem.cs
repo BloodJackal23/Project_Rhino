@@ -10,6 +10,7 @@ public static class LoadingSystem
         Level_01,
         Level_02,
         Level_03,
+        Level_04,
         EndOfDemo
     }
 
