@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour
 {
 	[SerializeField] float speed = 10;
@@ -72,6 +73,11 @@ public class CharacterController2D : MonoBehaviour
 	public float GetSpeed()
     {
 		return speed;
+    }
+
+	public LayerMask GetGroundMask()
+    {
+		return m_WhatIsGround;
     }
 
 	public void Move(float _move, bool _crouch, bool _jump)

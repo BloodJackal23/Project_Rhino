@@ -1192,25 +1192,25 @@ TextureImporter:
     second: industrial.v2_395
   - first:
       213: -7412531682080824255
-    second: industrial.v2_396
+    second: Monster_1
   - first:
       213: -1112843736100572179
-    second: industrial.v2_397
+    second: Monster_2
   - first:
       213: -4031491953166851687
-    second: industrial.v2_398
+    second: Monster_3
   - first:
       213: 6156990502628993483
-    second: industrial.v2_399
+    second: Monster_4
   - first:
       213: 2241811373147713460
-    second: industrial.v2_400
+    second: Monster_5
   - first:
       213: 6922710549251231259
-    second: industrial.v2_401
+    second: Monster_6
   - first:
       213: -4082762830959704994
-    second: industrial.v2_402
+    second: Monster_7
   - first:
       213: -3983076736774994601
     second: Robot3_1
@@ -1276,6 +1276,8 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
@@ -9662,7 +9664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_396
+      name: Monster_1
       rect:
         serializedVersion: 2
         x: 0
@@ -9683,7 +9685,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_397
+      name: Monster_2
       rect:
         serializedVersion: 2
         x: 16
@@ -9704,7 +9706,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_398
+      name: Monster_3
       rect:
         serializedVersion: 2
         x: 32
@@ -9725,7 +9727,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_399
+      name: Monster_4
       rect:
         serializedVersion: 2
         x: 48
@@ -9746,7 +9748,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_400
+      name: Monster_5
       rect:
         serializedVersion: 2
         x: 64
@@ -9767,7 +9769,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_401
+      name: Monster_6
       rect:
         serializedVersion: 2
         x: 80
@@ -9788,7 +9790,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_402
+      name: Monster_7
       rect:
         serializedVersion: 2
         x: 96
