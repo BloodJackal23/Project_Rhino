@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7437165410855709197}
   - component: {fileID: 8160530693520717970}
+  - component: {fileID: 5187591056944827769}
   m_Layer: 12
   m_Name: Damage Box
   m_TagString: Untagged
@@ -41,7 +42,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.071226224}
@@ -57,6 +58,51 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85, y: 0.7575476}
   m_EdgeRadius: 0
+--- !u!114 &5187591056944827769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393000275612318907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77fec5715d7cb034489deebcf58be2d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpawn: {fileID: 0}
+  objectsToHide: []
+  objectsToShow: []
+--- !u!1 &1701446046954745953
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8183493440869692532}
+  m_Layer: 12
+  m_Name: Right Wall Check
+  m_TagString: Untagged
+  m_Icon: {fileID: -5938655980376293919, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8183493440869692532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701446046954745953}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2670335842088467282}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2879532342265450746
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +134,8 @@ Transform:
   - {fileID: 4416276025038965534}
   - {fileID: 5211394151241393799}
   - {fileID: 1233513147035150970}
+  - {fileID: 8183493440869692532}
+  - {fileID: 3942358401686185442}
   m_Father: {fileID: 3802324923179816097}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -262,14 +310,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CharacterController: {fileID: 6641295998510781830}
-  isMovingRight: 1
+  startWithRightDirection: 1
+  wallCheckThreshold: 0.5
   targetWallMask:
     serializedVersion: 2
     m_Bits: 1025
-  wallCheckThreshold: 0.5
   rightGapCheck: {fileID: 5211394151241393799}
   leftGapCheck: {fileID: 1233513147035150970}
-  gapThreshold: 2
+  gapThreshold: 4
 --- !u!95 &3802324923179816101
 Animator:
   serializedVersion: 3
@@ -318,6 +366,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2670335842088467282}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6713455644252681834
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3942358401686185442}
+  m_Layer: 12
+  m_Name: Left Wall Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3942358401686185442
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6713455644252681834}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2670335842088467282}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6801947498268364484
 GameObject:

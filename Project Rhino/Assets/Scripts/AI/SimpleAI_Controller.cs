@@ -4,18 +4,30 @@ public class SimpleAI_Controller : MonoBehaviour
 {
     [SerializeField] private CharacterController2D m_CharacterController;
 
+    #region Move Direction
+    [Header("Move Direction")]
+    public bool startWithRightDirection = true;
+    public bool isMovingRight { get; private set; }
     private enum MoveDirection { Right, Left}
     private Vector2 currentMoveDirection;
-    [SerializeField] private bool isMovingRight = true;
+    [Space]
+    #endregion
 
-    public LayerMask targetWallMask;
+    #region Wall Checks
+    [Header("Wall Checks")]
     [SerializeField] private float wallCheckThreshold = .5f;
+    public LayerMask targetWallMask;
+    [Space]
+    #endregion
 
+    #region Gap Checks
+    [Header("Gap Checks")]
     [SerializeField] private Transform rightGapCheck;
     [SerializeField] private Transform leftGapCheck;
     [SerializeField] private float gapThreshold = .5f; //Anything beyond that is considered a gap
     private Transform activeGapCheck;
     private LayerMask groundMask;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +37,7 @@ public class SimpleAI_Controller : MonoBehaviour
             m_CharacterController = GetComponent<CharacterController2D>();
         }
         groundMask = m_CharacterController.GetGroundMask();
+        isMovingRight = startWithRightDirection;
         InitNewDirection(isMovingRight);
     }
 
