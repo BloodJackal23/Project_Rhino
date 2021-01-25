@@ -4,6 +4,9 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Rigidbody2D))]
 public class CharacterController2D : MonoBehaviour
 {
+	public bool IsGrounded { get => m_Grounded; }
+	public float MaxJumpTime { get => m_JumpTime; }
+
 	[SerializeField] float speed = 10;
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
 	[SerializeField] private float m_JumpSpeed = 2;								// The jump speed of the player as they're holding the jump button
@@ -144,11 +147,6 @@ public class CharacterController2D : MonoBehaviour
 		}
 		AddJumpForceCont(_jump); //This adds vertical movement (aka jumping) for as long as the player is holding the jump button (ABU)
 	}
-
-	public bool IsGrounded()
-    {
-		return m_Grounded;
-    }
 
 	public void AddJumpForceInstant(float _jumpForce)
     {

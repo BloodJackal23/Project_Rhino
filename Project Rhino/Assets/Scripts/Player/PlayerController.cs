@@ -1,18 +1,19 @@
 ﻿using Cinemachine;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    GameManager gameManager;
+    private GameManager gameManager;
 
-    [SerializeField] CinemachineVirtualCamera virtualCam;
-    [SerializeField] CharacterController2D m_CharacterController;
-    [SerializeField] Animator m_Animator;
-    Vector2 moveInput = Vector2.zero;
-    bool jump = false;
-    bool canJump = true;
+    [SerializeField] private CinemachineVirtualCamera virtualCam;
+    [SerializeField] private CharacterController2D m_CharacterController;
+    [SerializeField] private Animator m_Animator;
+    private Vector2 moveInput = Vector2.zero;
+    private bool isJumping = false;
+    private bool canJump = true;
 
-    [SerializeField] AudioSource jumpAudio;
+    [SerializeField] private AudioSource jumpAudio;
     [SerializeField] private AudioSource deathAudio;
 
     public delegate void OnInteractionAvailable();
@@ -45,35 +46,25 @@ public class PlayerController : MonoBehaviour
             moveInput = new Vector2(GetHorInput(), GetVerInput());
             onInteraction?.Invoke();
         }
-        bool isGrounded = m_CharacterController.IsGrounded();
         m_Animator.SetFloat("isRunning", Mathf.Abs(moveInput.x));
-        if(moveInput.y > 0)
+        bool isGrounded = m_CharacterController.IsGrounded;
+        m_Animator.SetBool("isGrounded", isGrounded);
+        if (canJump)
         {
-            if(isGrounded && canJump)
-            {
-                jump = true;
-                canJump = false;
-                if(jumpAudio)
-                {
-                    jumpAudio.Play();
-                }
-            }
+            PlayerJump(moveInput.y);
         }
         else
         {
-            jump = false;
-            if (isGrounded)
+            if(isGrounded && moveInput.y <= 0)
             {
                 canJump = true;
             }
         }
-        
-        m_Animator.SetBool("isJumping", !isGrounded);
     }
 
     private void FixedUpdate()
     {
-        m_CharacterController.Move(moveInput.x * m_CharacterController.GetSpeed() * Time.fixedDeltaTime, false, jump);
+        m_CharacterController.Move(moveInput.x * m_CharacterController.GetSpeed() * Time.fixedDeltaTime, false, isJumping);
     }
 
     private void OnDestroy()
@@ -95,6 +86,37 @@ public class PlayerController : MonoBehaviour
     float GetVerInput()
     {
         return Input.GetAxisRaw("Vertical");
+    }
+
+    private void PlayerJump(float _jumpInput)
+    {
+        if(_jumpInput > 0)
+        {
+            canJump = false;
+            jumpAudio.Play();
+            StartCoroutine(RunJumpAction(m_CharacterController.MaxJumpTime));
+        }
+    }
+
+    private IEnumerator RunJumpAction(float _jumpTime)
+    {
+        float timer = 0;
+        isJumping = true;
+        m_Animator.SetBool("isJumping", isJumping);
+        while (timer < _jumpTime)
+        {
+            if(moveInput.y > 0)
+            {
+                timer += Time.deltaTime;
+                yield return null;
+            }
+            else
+            {
+                break;
+            }
+        }
+        isJumping = false;
+        m_Animator.SetBool("isJumping", isJumping);
     }
 
     private void PlayDeathAudio()
