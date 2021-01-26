@@ -176,8 +176,9 @@ MonoBehaviour:
   doorAnimators:
   - {fileID: 7053933849978851425}
   - {fileID: 3064374652672625097}
-  collider: {fileID: 0}
+  collider: {fileID: 6645752579016827501}
   activatingSwitch: {fileID: 0}
+  isOpened: 0
 --- !u!1 &7531980984663477248
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,10 +52,10 @@ TextureImporter:
     second: SteelBlock_4
   - first:
       213: 1134067944201417698
-    second: Wall_1
+    second: Column_1
   - first:
       213: -819564815026172540
-    second: Wall_2
+    second: Column_2
   - first:
       213: -7667316678140872721
     second: industrial.v2_18
@@ -1684,7 +1684,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall_1
+      name: Column_1
       rect:
         serializedVersion: 2
         x: 256
@@ -1705,7 +1705,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wall_2
+      name: Column_2
       rect:
         serializedVersion: 2
         x: 272
