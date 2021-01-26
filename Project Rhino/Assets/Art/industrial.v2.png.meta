@@ -490,19 +490,19 @@ TextureImporter:
     second: industrial.v2_161
   - first:
       213: -2528080830003945106
-    second: industrial.v2_162
+    second: Pipe_1
   - first:
       213: 7609768141099077307
-    second: industrial.v2_163
+    second: PipeCorner_1
   - first:
       213: -7101951022167989523
-    second: industrial.v2_164
+    second: PipeCross_1
   - first:
       213: -4299892966925167179
-    second: industrial.v2_165
+    second: SmallPipeCorner_1
   - first:
       213: 6774600767128277571
-    second: industrial.v2_166
+    second: SmallPipeEnd_3
   - first:
       213: -1088322712441220275
     second: industrial.v2_167
@@ -553,22 +553,22 @@ TextureImporter:
     second: Lever_5
   - first:
       213: 6267600477642258002
-    second: industrial.v2_183
+    second: PipeCorner_3
   - first:
       213: -8785027827480846195
-    second: industrial.v2_184
+    second: PipeTee_1
   - first:
       213: -8709769958313483200
-    second: industrial.v2_185
+    second: PipeCorner_2
   - first:
       213: -4012300782824505621
-    second: industrial.v2_186
+    second: PipeEnd_3
   - first:
       213: 5698476922350779025
-    second: industrial.v2_187
+    second: SmallPipeEnd_1
   - first:
       213: 7414870714024972627
-    second: industrial.v2_188
+    second: SmallPipeEnd_2
   - first:
       213: 5441323623420629377
     second: industrial.v2_189
@@ -622,22 +622,22 @@ TextureImporter:
     second: industrial.v2_205
   - first:
       213: -5509808183721826347
-    second: industrial.v2_206
+    second: PipeCorner_4
   - first:
       213: -8366134085095701089
-    second: industrial.v2_207
+    second: PipeTee_2
   - first:
       213: -2168006652431609233
-    second: industrial.v2_208
+    second: PipeEnd_1
   - first:
       213: -9063571746208846108
-    second: industrial.v2_209
+    second: PipeTee_3
   - first:
       213: 1569733406966085331
     second: industrial.v2_210
   - first:
       213: 5833913548284374485
-    second: industrial.v2_211
+    second: SmallPipeCorner_2
   - first:
       213: 6155266437376682040
     second: GoalPost_1
@@ -703,10 +703,10 @@ TextureImporter:
     second: industrial.v2_232
   - first:
       213: -5362753075105383432
-    second: industrial.v2_233
+    second: PipeTee_4
   - first:
       213: -10850518730185132
-    second: industrial.v2_234
+    second: PipeValve_1
   - first:
       213: 2357991127004659226
     second: industrial.v2_235
@@ -766,13 +766,13 @@ TextureImporter:
     second: industrial.v2_253
   - first:
       213: 6778076683863737560
-    second: industrial.v2_254
+    second: Pipe_2
   - first:
       213: 2620491280504063256
-    second: industrial.v2_255
+    second: PipeValve_2
   - first:
       213: 8310107659185713379
-    second: industrial.v2_256
+    second: SmallPipe_1
   - first:
       213: -3934803404653324191
     second: industrial.v2_257
@@ -826,10 +826,10 @@ TextureImporter:
     second: industrial.v2_273
   - first:
       213: -5394016003607751731
-    second: industrial.v2_274
+    second: PipeEnd_2
   - first:
       213: -2481669191153895105
-    second: industrial.v2_275
+    second: SmallPipeTee_1
   - first:
       213: -8085296918380161491
     second: industrial.v2_276
@@ -4750,7 +4750,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_162
+      name: Pipe_1
       rect:
         serializedVersion: 2
         x: 192
@@ -4771,7 +4771,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_163
+      name: PipeCorner_1
       rect:
         serializedVersion: 2
         x: 208
@@ -4792,7 +4792,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_164
+      name: PipeCross_1
       rect:
         serializedVersion: 2
         x: 224
@@ -4813,7 +4813,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_165
+      name: SmallPipeCorner_1
       rect:
         serializedVersion: 2
         x: 240
@@ -4834,7 +4834,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_166
+      name: SmallPipeEnd_3
       rect:
         serializedVersion: 2
         x: 256
@@ -5191,7 +5191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_183
+      name: PipeCorner_3
       rect:
         serializedVersion: 2
         x: 176
@@ -5212,7 +5212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_184
+      name: PipeTee_1
       rect:
         serializedVersion: 2
         x: 192
@@ -5233,7 +5233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_185
+      name: PipeCorner_2
       rect:
         serializedVersion: 2
         x: 208
@@ -5254,7 +5254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_186
+      name: PipeEnd_3
       rect:
         serializedVersion: 2
         x: 224
@@ -5275,7 +5275,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_187
+      name: SmallPipeEnd_1
       rect:
         serializedVersion: 2
         x: 240
@@ -5296,7 +5296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_188
+      name: SmallPipeEnd_2
       rect:
         serializedVersion: 2
         x: 256
@@ -5674,7 +5674,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_206
+      name: PipeCorner_4
       rect:
         serializedVersion: 2
         x: 176
@@ -5695,7 +5695,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_207
+      name: PipeTee_2
       rect:
         serializedVersion: 2
         x: 192
@@ -5716,7 +5716,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_208
+      name: PipeEnd_1
       rect:
         serializedVersion: 2
         x: 208
@@ -5737,7 +5737,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_209
+      name: PipeTee_3
       rect:
         serializedVersion: 2
         x: 224
@@ -5779,7 +5779,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_211
+      name: SmallPipeCorner_2
       rect:
         serializedVersion: 2
         x: 256
@@ -6241,7 +6241,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_233
+      name: PipeTee_4
       rect:
         serializedVersion: 2
         x: 224
@@ -6262,7 +6262,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_234
+      name: PipeValve_1
       rect:
         serializedVersion: 2
         x: 240
@@ -6682,7 +6682,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_254
+      name: Pipe_2
       rect:
         serializedVersion: 2
         x: 224
@@ -6703,7 +6703,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_255
+      name: PipeValve_2
       rect:
         serializedVersion: 2
         x: 240
@@ -6724,7 +6724,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_256
+      name: SmallPipe_1
       rect:
         serializedVersion: 2
         x: 256
@@ -7102,7 +7102,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_274
+      name: PipeEnd_2
       rect:
         serializedVersion: 2
         x: 224
@@ -7123,7 +7123,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_275
+      name: SmallPipeTee_1
       rect:
         serializedVersion: 2
         x: 256

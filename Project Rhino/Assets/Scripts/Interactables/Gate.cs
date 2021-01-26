@@ -4,7 +4,7 @@ public class Gate : MonoBehaviour
 {
     [SerializeField] Animator[] doorAnimators;
     [SerializeField] Collider2D collider;
-    [SerializeField] ToggleSwitch activatingSwitch;
+    [SerializeField] ToggleSwitch[] switches;
     [SerializeField] bool isOpened = false;
 
     // Start is called before the first frame update
@@ -15,10 +15,25 @@ public class Gate : MonoBehaviour
             collider = GetComponent<Collider2D>();
         }
 
-        activatingSwitch.turnedOnDelegate += ToggleGate;
-        activatingSwitch.turnedOffDelegate += ToggleGate;
+        if(switches.Length > 0)
+        {
+            SubscribeToSwitches();
+        }
+        else
+        {
+            Debug.LogError(gameObject.name + "is not subscribed to any switches! This means that this interactable can't be controlled");
+        }
 
         OperateGate();
+    }
+
+    private void SubscribeToSwitches()
+    {
+        foreach(ToggleSwitch _switch in switches)
+        {
+            _switch.turnedOnDelegate += ToggleGate;
+            _switch.turnedOffDelegate += ToggleGate;
+        }
     }
 
     void OperateGate()
