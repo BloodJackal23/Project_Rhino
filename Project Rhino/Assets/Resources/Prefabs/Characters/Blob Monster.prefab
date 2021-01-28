@@ -227,10 +227,10 @@ GameObject:
   - component: {fileID: 1503725033429388305}
   - component: {fileID: 3802324923179816096}
   - component: {fileID: 6641295998510781830}
-  - component: {fileID: 4444602034915829212}
+  - component: {fileID: 773284324402869541}
   - component: {fileID: 3802324923179816101}
   m_Layer: 12
-  m_Name: Monster
+  m_Name: Blob Monster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ MonoBehaviour:
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &4444602034915829212
+--- !u!114 &773284324402869541
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3802324923179816098}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff17d86dafc307c4384c2d9cd6ec886f, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c8da28543bd92e47beef842ba4eabdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_CharacterController: {fileID: 6641295998510781830}
@@ -394,6 +394,13 @@ MonoBehaviour:
   rightGapCheck: {fileID: 5211394151241393799}
   leftGapCheck: {fileID: 1233513147035150970}
   gapThreshold: 2
+  stompHitbox: {fileID: 2036523423746685846}
+  damageBox: {fileID: 5187591056944827769}
+  hitAudioPrefab: {fileID: 1269935984702871542, guid: a71a85b4251453a4b80cb2674d569b49, type: 3}
+  hazardData:
+    playerSpawn: {fileID: 0}
+    objectsToHide: []
+    objectsToShow: []
 --- !u!95 &3802324923179816101
 Animator:
   serializedVersion: 3

@@ -2,46 +2,46 @@ using UnityEngine;
 
 public class SimpleAI_Controller : MonoBehaviour
 {
-    [SerializeField] private CharacterController2D m_CharacterController;
+    #region Members and Children
+    [Header("Members and Children")]
+    [SerializeField] protected CharacterController2D m_CharacterController;
+    [Space]
+    #endregion
 
     #region Move Direction
     [Header("Move Direction")]
     public bool startWithRightDirection = true;
     public bool isMovingRight { get; private set; }
-    private enum MoveDirection { Right, Left}
-    private Vector2 currentMoveDirection;
+    protected enum MoveDirection { Right, Left}
+    protected Vector2 currentMoveDirection;
     [Space]
     #endregion
 
     #region Wall Checks
     [Header("Wall Checks")]
-    [SerializeField] private float wallCheckThreshold = .5f;
+    [SerializeField] protected float wallCheckThreshold = .5f;
     public LayerMask targetWallMask;
     [Space]
     #endregion
 
     #region Gap Checks
     [Header("Gap Checks")]
-    [SerializeField] private Transform rightGapCheck;
-    [SerializeField] private Transform leftGapCheck;
-    [SerializeField] private float gapThreshold = .5f; //Anything beyond that is considered a gap
-    private Transform activeGapCheck;
-    private LayerMask groundMask;
+    [SerializeField] protected Transform rightGapCheck;
+    [SerializeField] protected Transform leftGapCheck;
+    [SerializeField] protected float gapThreshold = .5f; //Anything beyond that is considered a gap
+    protected Transform activeGapCheck;
+    protected LayerMask groundMask;
     #endregion
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        if(!m_CharacterController)
-        {
-            m_CharacterController = GetComponent<CharacterController2D>();
-        }
         groundMask = m_CharacterController.GetGroundMask();
         isMovingRight = startWithRightDirection;
         InitNewDirection(isMovingRight);
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         CheckForGaps();
         CheckForWalls();

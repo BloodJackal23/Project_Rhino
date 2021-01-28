@@ -3,12 +3,23 @@ using UnityEngine;
 [RequireComponent(typeof(Collider2D))]
 public class StompHitbox : MonoBehaviour
 {
-    private Collider2D m_Collider;
+    #region Delegates
+    public delegate void OnStomp();
+    public OnStomp onStomp;
+    #endregion
 
+    #region Members and Children
+    [Header("Members and Children")]
+    private Collider2D m_Collider;
+    [Space]
+    #endregion
+
+    #region Attributes
+    [Header("Attributes")]
     [SerializeField] private bool affectParent = true;
     [SerializeField] private LayerMask whatCanStompMe;
-
     [SerializeField] private float playerBounceForce = 300f;
+    #endregion
 
     private void Start()
     {
@@ -19,12 +30,13 @@ public class StompHitbox : MonoBehaviour
     {
         if(m_Collider.IsTouchingLayers(whatCanStompMe)) 
         {
-            transform.parent.gameObject.SetActive(!affectParent);
             if(collision.gameObject.tag == "Player" || collision.gameObject.layer == LayerMask.NameToLayer("Player"))
             {
                 CharacterController2D characterController = collision.GetComponent<CharacterController2D>();
                 characterController.AddJumpForceInstant(playerBounceForce);
+                onStomp?.Invoke();
             }
+            transform.parent.gameObject.SetActive(!affectParent);
         }
     }
 }

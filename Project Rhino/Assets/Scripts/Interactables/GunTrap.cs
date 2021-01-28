@@ -11,18 +11,6 @@ public class GunTrap : MonoBehaviour
     [SerializeField] bool gunActive = true;
     [SerializeField] float force = 5f;
 
-    [Serializable]
-    public class HazardData
-    {
-        [SerializeField] Transform playerSpawn;
-        [SerializeField] GameObject[] objectsToHide;
-        [SerializeField] GameObject[] objectsToShow;
-
-        public void SetupHazard(PlayerHazard _hazard)
-        {
-            _hazard.SetHazard(playerSpawn, objectsToHide, objectsToShow);
-        }
-    }
     [SerializeField] HazardData hazardData;
 
     private void OnEnable()

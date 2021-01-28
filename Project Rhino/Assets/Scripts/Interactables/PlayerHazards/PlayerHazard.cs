@@ -19,7 +19,7 @@ public class PlayerHazard : MonoBehaviour
         }
     }
 
-    public void SetHazard(Transform _spawn, GameObject[] _hide, GameObject[] _show)
+    public void SetHazardData(Transform _spawn, GameObject[] _hide, GameObject[] _show)
     {
         playerSpawn = _spawn;
         objectsToHide = _hide;
