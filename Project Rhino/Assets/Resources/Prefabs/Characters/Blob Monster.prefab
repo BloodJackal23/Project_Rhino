@@ -396,6 +396,7 @@ MonoBehaviour:
   gapThreshold: 2
   stompHitbox: {fileID: 2036523423746685846}
   damageBox: {fileID: 5187591056944827769}
+  deathExplosionPrefab: {fileID: 6001341344379662727, guid: deff1358c2f93384f926e6202634c99b, type: 3}
   hitAudioPrefab: {fileID: 1269935984702871542, guid: a71a85b4251453a4b80cb2674d569b49, type: 3}
   hazardData:
     playerSpawn: {fileID: 0}

@@ -4,23 +4,40 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private GameManager gameManager;
-
-    [SerializeField] private CinemachineVirtualCamera virtualCam;
-    [SerializeField] private CharacterController2D m_CharacterController;
-    [SerializeField] private Animator m_Animator;
-    private Vector2 moveInput = Vector2.zero;
-    private bool isJumping = false;
-    private bool canJump = true;
-
-    [SerializeField] private AudioSource jumpAudio;
-    [SerializeField] private AudioSource deathAudio;
-
+    #region Delegates
     public delegate void OnInteractionAvailable();
     public OnInteractionAvailable onInteraction;
 
     public delegate void OnDeath();
     public OnDeath onDeath;
+    #endregion
+
+    #region Members
+    [Header("Members")]
+    [SerializeField] private CinemachineVirtualCamera virtualCam;
+    [SerializeField] private CharacterController2D m_CharacterController;
+    [SerializeField] private Animator m_Animator;
+    [Space]
+    #endregion
+
+    #region Internal Variables
+    private GameManager gameManager;
+    private Vector2 moveInput = Vector2.zero;
+    private bool isJumping = false;
+    private bool canJump = true;
+    #endregion
+
+    #region Sound Effects
+    [Header("Sound Effects")]
+    [SerializeField] private AudioSource jumpAudio;
+    [SerializeField] private AudioSource deathAudio;
+    [Space]
+    #endregion
+
+    #region Particle Effects
+    [Header("Particle Effects")]
+    [SerializeField] private GameObject deathExplosionPrefab;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +53,7 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         onDeath += PlayDeathAudio;
+        onDeath += SpawnDeathParticles;
     }
 
     // Update is called once per frame
@@ -122,5 +140,10 @@ public class PlayerController : MonoBehaviour
     private void PlayDeathAudio()
     {
         deathAudio.Play();
+    }
+
+    private void SpawnDeathParticles()
+    {
+        GameObject deathExplosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
     }
 }

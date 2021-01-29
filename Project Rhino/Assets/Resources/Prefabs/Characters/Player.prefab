@@ -275,6 +275,7 @@ MonoBehaviour:
   m_Animator: {fileID: 2150711251201598397}
   jumpAudio: {fileID: 357809826284908493}
   deathAudio: {fileID: 7393243129372017583}
+  deathExplosionPrefab: {fileID: 6001341344379662727, guid: deff1358c2f93384f926e6202634c99b, type: 3}
 --- !u!50 &2562799911357560566
 Rigidbody2D:
   serializedVersion: 4
@@ -350,7 +351,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 463713735
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 3724249428552016925, guid: e73b1efc75560f54cab63f674a03c285, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

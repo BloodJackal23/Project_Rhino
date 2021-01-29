@@ -9,6 +9,12 @@ public partial class BlobMonsterController : SimpleAI_Controller
     [Space]
     #endregion
 
+    #region Particle Effects
+    [Header("Particle Effects")]
+    [SerializeField] private GameObject deathExplosionPrefab;
+    [Space]
+    #endregion
+
     #region Sound Effects
     [Header("Sound Effects")]
     [SerializeField] private GameObject hitAudioPrefab;
@@ -22,6 +28,7 @@ public partial class BlobMonsterController : SimpleAI_Controller
     private void OnEnable()
     {
         stompHitbox.onStomp += PlayHitAudio;
+        stompHitbox.onStomp += SpawnDeathParticles;
     }
 
     protected override void Start()
@@ -45,5 +52,10 @@ public partial class BlobMonsterController : SimpleAI_Controller
         AudioSource hitAudio = Instantiate(hitAudioPrefab, transform.position, Quaternion.identity).GetComponent<AudioSource>();
         hitAudio.Play();
         Destroy(hitAudio.gameObject, .5f);
+    }
+
+    private void SpawnDeathParticles()
+    {
+        GameObject deathExplosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
     }
 }
