@@ -69,7 +69,15 @@ public class PlayerController : MonoBehaviour
         m_Animator.SetBool("isGrounded", isGrounded);
         if (canJump)
         {
-            PlayerJump(moveInput.y);
+            if(isGrounded)
+            {
+                PlayerJump(moveInput.y);
+            }
+            else
+            {
+                canJump = false;
+            }
+            
         }
         else
         {
