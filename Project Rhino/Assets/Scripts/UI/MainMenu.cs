@@ -11,7 +11,7 @@ public class MainMenu : UI_Panel
         base.Start();
         newGame.onClick.RemoveAllListeners();
         howToPlay.onClick.RemoveAllListeners();
-        newGame.onClick.AddListener(delegate { GameManager.instance.LoadScene(LoadingSystem.Scenes.Level_01); });
-        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene(LoadingSystem.Scenes.Tutorial); });
+        newGame.onClick.AddListener(delegate { GameManager.instance.LoadScene(LoadingSystem.GameScene.Level_01); });
+        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene(LoadingSystem.GameScene.Tutorial); });
     }
 }

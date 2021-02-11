@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class LoadingSystem
 {
-    public enum Scenes 
+    public enum GameScene 
     { 
         MainMenu, 
         Tutorial,

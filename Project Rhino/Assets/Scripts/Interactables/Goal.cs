@@ -3,7 +3,7 @@
 public class Goal : MonoBehaviour
 {
     GameManager gameManager;
-    [SerializeField] LoadingSystem.Scenes newScene;
+    [SerializeField] LoadingSystem.GameScene newScene;
 
     private void Start()
     {

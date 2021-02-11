@@ -1,5 +1,21 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &2462406195666824028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301515428536431801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c197617a1a63b49a6d5507de292585, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_button: {fileID: 6301515428536431807}
+  buttonText: {fileID: 3772254955077009035}
+  clearedColor: {r: 0.48584908, g: 1, b: 0.8507955, a: 1}
+  unclearedColor: {r: 1, g: 0.30980393, b: 0.47058827, a: 1}
 --- !u!1001 &24719971261353808
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101,3 +117,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0cf881f0c8e9e04eac2a23cccb177b4, type: 3}
+--- !u!1 &6301515428536431801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6279328824453413865, guid: b0cf881f0c8e9e04eac2a23cccb177b4, type: 3}
+  m_PrefabInstance: {fileID: 24719971261353808}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6301515428536431807 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6279328824453413871, guid: b0cf881f0c8e9e04eac2a23cccb177b4, type: 3}
+  m_PrefabInstance: {fileID: 24719971261353808}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301515428536431801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3772254955077009035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3751057911425954267, guid: b0cf881f0c8e9e04eac2a23cccb177b4, type: 3}
+  m_PrefabInstance: {fileID: 24719971261353808}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

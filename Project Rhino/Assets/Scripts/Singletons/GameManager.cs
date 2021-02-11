@@ -5,19 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    #region Game Settings Variables
+    #region Game Data
     public GameSettings gameSettings { get; private set; }
+    [SerializeField] private LevelManager levelManager;
     #endregion
 
     #region Audio Variables
     [Header("Audio")]
-    [SerializeField] AudioMixer audioMixer;
-    [SerializeField] AudioSource musicSource;
+    [SerializeField] private AudioMixer audioMixer;
+    [SerializeField] private AudioSource musicSource;
     public enum AudioChannels { MasterVol, MusicVol, FX_Vol }
     [Space]
     #endregion
 
-    SceneSettings sceneSettings;
+    private SceneSettings sceneSettings;
 
     #region Loading System
     [Header("Loading System")]
@@ -58,6 +59,7 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Start Called!");
         InitSceneSettings();
         InitGameSettings();
+        levelManager.SetTrackerDefaults();
     }
 
     private void Update()
@@ -85,7 +87,7 @@ public class GameManager : Singleton<GameManager>
     }
 
     #region Scene Management
-    public void LoadScene(LoadingSystem.Scenes _scene)
+    public void LoadScene(LoadingSystem.GameScene _scene)
     {      
         AsyncOperation operation = SceneManager.LoadSceneAsync(_scene.ToString());
         StartCoroutine(LoadingSystem.LoadNextScene(operation));
@@ -93,7 +95,7 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadMainMenuScene()
     {
-        LoadScene(LoadingSystem.Scenes.MainMenu);
+        LoadScene(LoadingSystem.GameScene.MainMenu);
     }
 
     void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)
