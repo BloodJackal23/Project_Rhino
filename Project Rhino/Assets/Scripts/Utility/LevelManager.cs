@@ -7,63 +7,64 @@ public class LevelManager : Singleton<LevelManager>
     [Serializable]
     public class GameLevel
     {
-        [SerializeField] private LevelData.LevelScene levelScene = LevelData.LevelScene.Level_01;
-        [SerializeField] private string levelName = "01";
-        [SerializeField] private bool isCleared = false;
-        public LevelData.LevelScene LevelScene { get => levelScene; }
-        public string LevelName { get => levelName; }
-        public bool IsCleared { get => isCleared; }
+        [SerializeField] private int leveIndex = 1;
+        [SerializeField] private bool isUnlocked = false;
+        public int LevelIndex { get => leveIndex; }
+        public bool IsUnlocked { get => isUnlocked; }
 
-        public GameLevel(LevelData _levelData, bool _isAccessable, bool _isCleared)
+        public GameLevel(LevelData _levelData, bool _isUnlocked)
         {
-            levelScene = _levelData.LvlScene;
-            levelName = _levelData.LevelName;
-            isCleared = _isCleared;
+            leveIndex = _levelData.LevelIndex;
+            isUnlocked = _isUnlocked;
         }
 
-        public void SetLevelClearance(bool _value)
+        public void SetLevelLock(bool _value)
         {
-            isCleared = _value;
+            isUnlocked = !_value;
         }
     }
     [SerializeField] private LevelData[] gameLevelsData;
     private GameLevel[] gameLevels;
+    private List<GameLevel> unlockedLevels = new List<GameLevel>();
     public GameLevel[] GameLevels { get => gameLevels; }
-    [SerializeField] private List<GameLevel> accessibleLevels = new List<GameLevel>();
-    public List<GameLevel> AccessibleLevels { get => accessibleLevels; }
+    public List<GameLevel> UnlockedLevels { get => unlockedLevels; }
 
-    public void SetTrackerDefaults()
+    public void SetLevelsDefaultStatus()
     {
         gameLevels = new GameLevel[gameLevelsData.Length];
-        gameLevels[0] = new GameLevel(gameLevelsData[0], true, false);
-        AddToAccessibleLevels(gameLevels[0]);
+        gameLevels[0] = new GameLevel(gameLevelsData[0], true);
+        unlockedLevels.Add(gameLevels[0]);
         if (gameLevels.Length > 1)
         {
             for(int i = 1; i < gameLevelsData.Length; i++)
             {
-                gameLevels[i] = new GameLevel(gameLevelsData[i], false, false);
+                gameLevels[i] = new GameLevel(gameLevelsData[i], false);
             }
         }
     }
 
-    public bool IsLevelAccessible(GameLevel _level)
+    public void AddToUnlockedLevels(GameLevel _level)
     {
-        if (accessibleLevels.Contains(_level))
+        if(!_level.IsUnlocked)
         {
-            return true;
-        }
-        return false;
-    }
-
-    public void AddToAccessibleLevels(GameLevel _level)
-    {
-        if(!accessibleLevels.Contains(_level))
-        {
-            accessibleLevels.Add(_level);
+            _level.SetLevelLock(false);
+            unlockedLevels.Add(_level);
         }
         else
         {
-            Debug.LogWarning("Level scene of name " + _level.LevelName + " is already accessible!");
+            Debug.LogWarning("Level scene of name " + _level.LevelIndex.ToString("00") + " is already accessible!");
         }
+    }
+
+    public GameLevel GetGameLevel(SceneLoadingSystem.GameScene _levelScene)
+    {
+        foreach(GameLevel level in gameLevels)
+        {
+            if("Level_" + level.LevelIndex.ToString("00") == _levelScene.ToString())
+            {
+                return level;
+            }
+        }
+        return null;
     }
 }

@@ -3,7 +3,7 @@
 public class Goal : MonoBehaviour
 {
     GameManager gameManager;
-    [SerializeField] LoadingSystem.GameScene newScene;
+    [SerializeField] SceneLoadingSystem.GameScene newScene;
 
     private void Start()
     {
@@ -14,6 +14,12 @@ public class Goal : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            LevelManager levelManager = LevelManager.instance;
+            LevelManager.GameLevel newLevel = levelManager.GetGameLevel(newScene);
+            if(newLevel != null)
+            {
+                levelManager.AddToUnlockedLevels(newLevel);
+            }
             gameManager.LoadScene(newScene);
         }
     }

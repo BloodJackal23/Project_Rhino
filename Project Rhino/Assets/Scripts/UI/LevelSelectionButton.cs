@@ -8,23 +8,20 @@ public class LevelSelectionButton : MonoBehaviour
     #region Graphical Data
     [SerializeField] private Button m_button;
     [SerializeField] private TMP_Text buttonText;
-    [SerializeField] private Color clearedColor = Color.green;
-    [SerializeField] private Color unclearedColor = Color.red;
     #endregion
 
     public void InitButton(LevelManager.GameLevel _level)
     {
-        buttonText.text = _level.LevelName;
+        buttonText.text = _level.LevelIndex.ToString("00");
         ColorBlock buttonColorBlock = m_button.colors;
-        
-        if(_level.IsCleared)
-        {
-            buttonColorBlock.normalColor = clearedColor;
-        }
-        else
-        {
-            buttonColorBlock.normalColor = unclearedColor;
-        }
+        m_button.interactable = _level.IsUnlocked;
         m_button.colors = buttonColorBlock;
+        LoadSelectedLevel(_level);
+    }
+
+    private void LoadSelectedLevel(LevelManager.GameLevel _level)
+    {
+        GameManager gameManager = GameManager.instance;
+        m_button.onClick.AddListener(delegate { gameManager.LoadScene("Level_" + _level.LevelIndex.ToString("00")); });
     }
 }
