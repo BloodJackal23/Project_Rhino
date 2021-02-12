@@ -12,37 +12,34 @@ public partial class LevelManager : Singleton<LevelManager>
     private void InitGameLevels()
     {
         gameLevels = new GameLevel[gameLevelsData.Length];
-        gameLevels[0] = new GameLevel(gameLevelsData[0].LevelIndex, true);
+        LevelData levelData = gameLevelsData[0];
+        gameLevels[0] = new GameLevel(levelData.LevelScene, levelData.LevelIndex, true);
         unlockedLevels.Add(gameLevels[0]);
         if (gameLevels.Length > 1)
         {
             for (int i = 1; i < gameLevelsData.Length; i++)
             {
-                gameLevels[i] = new GameLevel(gameLevelsData[i].LevelIndex, false);
+                levelData = gameLevelsData[i];
+                gameLevels[i] = new GameLevel(levelData.LevelScene, levelData.LevelIndex, false);
             }
         }
     }
 
-    public void SetGameLevels()
+    public void GetUnlockedLevelsFromSaveFile()
     {
         SaveFile saveFile = SaveSystem.LoadFile(SaveSystem.Path);
         InitGameLevels();
         if (saveFile != null)
         {
-            GetUnlockedLevelsFromSaveFile(saveFile);
-        }
-    }
-
-    private void GetUnlockedLevelsFromSaveFile(SaveFile _file)
-    {
-        for(int i = 0; i < gameLevels.Length; i++)
-        {
-            for(int j = 0; j < _file.levelIndeces.Length; j++)
+            for (int i = 0; i < gameLevels.Length; i++)
             {
-                if(gameLevels[i].LevelIndex == _file.levelIndeces[j])
+                for (int j = 0; j < saveFile.levelIndeces.Length; j++)
                 {
-                    AddToUnlockedLevels(gameLevels[i]);
-                    break;
+                    if (gameLevels[i].LevelIndex == saveFile.levelIndeces[j])
+                    {
+                        AddToUnlockedLevels(gameLevels[i]);
+                        break;
+                    }
                 }
             }
         }

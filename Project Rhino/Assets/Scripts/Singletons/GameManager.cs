@@ -60,16 +60,13 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Start Called!");
         InitSceneSettings();
         InitGameSettings();
-        levelManager.SetGameLevels();
+        levelManager.GetUnlockedLevelsFromSaveFile();
+        SaveSystem.onSaveFileDeleted += levelManager.GetUnlockedLevelsFromSaveFile;
     }
 
     private void Update()
     {
         onPauseCommand?.Invoke();
-        if(Input.GetKeyDown(KeyCode.T))
-        {
-            SaveGame(levelManager.UnlockedLevels.ToArray());
-        }
     }
 
     private void OnDestroy()
@@ -78,7 +75,9 @@ public class GameManager : Singleton<GameManager>
         SceneManager.sceneLoaded -= OnSceneLoaded;
         SceneLoadingSystem.onLoadStart -= ActivateLoadingScreen;
         SceneLoadingSystem.onLoadStart -= loadingBar.ResetBar;
-        SceneLoadingSystem.whileLoading -= loadingBar.UpdateBar;        
+        SceneLoadingSystem.whileLoading -= loadingBar.UpdateBar;
+
+        SaveSystem.onSaveFileDeleted -= levelManager.GetUnlockedLevelsFromSaveFile;
     }
 
     void ActivateLoadingScreen()
@@ -355,9 +354,4 @@ public class GameManager : Singleton<GameManager>
         }
     }
     #endregion
-
-    public void SaveGame(GameLevel[] _unlockedLevels)
-    {
-        SaveSystem.SaveGame(_unlockedLevels);
-    }
 }

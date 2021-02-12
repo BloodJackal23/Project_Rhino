@@ -48,3 +48,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: bebf1a92274a11b47a5d16df4877a73a, type: 2}
   - {fileID: 11400000, guid: 12fc5569da73632468311da6766e390e, type: 2}
   - {fileID: 11400000, guid: 580371b00ede8bf41be59188403d551b, type: 2}
+  levelScenes:
+  - {fileID: 102900000, guid: 3fa59a1c7160328498a196a5978cd0ce, type: 3}
+  - {fileID: 102900000, guid: 3c9f8954d845032438e8e5515f66bdc4, type: 3}
+  - {fileID: 102900000, guid: de754d6d57a329c44af9f2fce2bbf827, type: 3}
+  - {fileID: 102900000, guid: 0837783be33089e41a9a71df0a8a40e1, type: 3}

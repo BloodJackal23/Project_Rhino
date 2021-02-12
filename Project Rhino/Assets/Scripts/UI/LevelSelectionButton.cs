@@ -16,12 +16,6 @@ public class LevelSelectionButton : MonoBehaviour
         ColorBlock buttonColorBlock = m_button.colors;
         m_button.interactable = _level.IsUnlocked;
         m_button.colors = buttonColorBlock;
-        LoadSelectedLevel(_level);
-    }
-
-    private void LoadSelectedLevel(GameLevel _level)
-    {
-        GameManager gameManager = GameManager.instance;
-        m_button.onClick.AddListener(delegate { gameManager.LoadScene("Level_" + _level.LevelIndex.ToString("00")); });
+        m_button.onClick.AddListener(delegate { GameManager.instance.LoadScene(_level.Scene.name); });
     }
 }
