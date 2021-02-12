@@ -1,44 +1,49 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager : Singleton<LevelManager>
+public partial class LevelManager : Singleton<LevelManager>
 {
-    [Serializable]
-    public class GameLevel
-    {
-        [SerializeField] private int leveIndex = 1;
-        [SerializeField] private bool isUnlocked = false;
-        public int LevelIndex { get => leveIndex; }
-        public bool IsUnlocked { get => isUnlocked; }
-
-        public GameLevel(LevelData _levelData, bool _isUnlocked)
-        {
-            leveIndex = _levelData.LevelIndex;
-            isUnlocked = _isUnlocked;
-        }
-
-        public void SetLevelLock(bool _value)
-        {
-            isUnlocked = !_value;
-        }
-    }
     [SerializeField] private LevelData[] gameLevelsData;
     private GameLevel[] gameLevels;
     private List<GameLevel> unlockedLevels = new List<GameLevel>();
     public GameLevel[] GameLevels { get => gameLevels; }
     public List<GameLevel> UnlockedLevels { get => unlockedLevels; }
 
-    public void SetLevelsDefaultStatus()
+    private void InitGameLevels()
     {
         gameLevels = new GameLevel[gameLevelsData.Length];
-        gameLevels[0] = new GameLevel(gameLevelsData[0], true);
+        gameLevels[0] = new GameLevel(gameLevelsData[0].LevelIndex, true);
         unlockedLevels.Add(gameLevels[0]);
         if (gameLevels.Length > 1)
         {
-            for(int i = 1; i < gameLevelsData.Length; i++)
+            for (int i = 1; i < gameLevelsData.Length; i++)
             {
-                gameLevels[i] = new GameLevel(gameLevelsData[i], false);
+                gameLevels[i] = new GameLevel(gameLevelsData[i].LevelIndex, false);
+            }
+        }
+    }
+
+    public void SetGameLevels()
+    {
+        SaveFile saveFile = SaveSystem.LoadFile(SaveSystem.Path);
+        InitGameLevels();
+        if (saveFile != null)
+        {
+            GetUnlockedLevelsFromSaveFile(saveFile);
+        }
+    }
+
+    private void GetUnlockedLevelsFromSaveFile(SaveFile _file)
+    {
+        for(int i = 0; i < gameLevels.Length; i++)
+        {
+            for(int j = 0; j < _file.levelIndeces.Length; j++)
+            {
+                if(gameLevels[i].LevelIndex == _file.levelIndeces[j])
+                {
+                    AddToUnlockedLevels(gameLevels[i]);
+                    break;
+                }
             }
         }
     }

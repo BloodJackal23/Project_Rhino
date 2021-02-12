@@ -19,7 +19,7 @@ public class LevelDisplay : MonoBehaviour
         }
     }
 
-    private void CreateLevelButton(LevelManager.GameLevel _gameLevel)
+    private void CreateLevelButton(GameLevel _gameLevel)
     {
         LevelSelectionButton selectionButton = Instantiate(levelSelectionButtonPrefab, content).GetComponent<LevelSelectionButton>();
         selectionButton.InitButton(_gameLevel);

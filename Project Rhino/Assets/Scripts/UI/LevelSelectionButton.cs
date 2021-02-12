@@ -10,7 +10,7 @@ public class LevelSelectionButton : MonoBehaviour
     [SerializeField] private TMP_Text buttonText;
     #endregion
 
-    public void InitButton(LevelManager.GameLevel _level)
+    public void InitButton(GameLevel _level)
     {
         buttonText.text = _level.LevelIndex.ToString("00");
         ColorBlock buttonColorBlock = m_button.colors;
@@ -19,7 +19,7 @@ public class LevelSelectionButton : MonoBehaviour
         LoadSelectedLevel(_level);
     }
 
-    private void LoadSelectedLevel(LevelManager.GameLevel _level)
+    private void LoadSelectedLevel(GameLevel _level)
     {
         GameManager gameManager = GameManager.instance;
         m_button.onClick.AddListener(delegate { gameManager.LoadScene("Level_" + _level.LevelIndex.ToString("00")); });

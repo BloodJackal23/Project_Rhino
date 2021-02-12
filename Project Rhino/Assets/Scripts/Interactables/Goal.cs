@@ -15,10 +15,11 @@ public class Goal : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             LevelManager levelManager = LevelManager.instance;
-            LevelManager.GameLevel newLevel = levelManager.GetGameLevel(newScene);
+            GameLevel newLevel = levelManager.GetGameLevel(newScene);
             if(newLevel != null)
             {
                 levelManager.AddToUnlockedLevels(newLevel);
+                SaveSystem.SaveGame(levelManager.UnlockedLevels.ToArray());
             }
             gameManager.LoadScene(newScene);
         }

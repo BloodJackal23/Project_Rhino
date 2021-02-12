@@ -42,7 +42,8 @@ public class GameManager : Singleton<GameManager>
     {
         dontDestroyOnLoad = true;
         gamePaused = false;
-        base.Awake();      
+        base.Awake();
+        SaveSystem.CreateSaveFolder();
     }
 
     private void OnEnable()
@@ -59,12 +60,16 @@ public class GameManager : Singleton<GameManager>
         Debug.Log("Start Called!");
         InitSceneSettings();
         InitGameSettings();
-        levelManager.SetLevelsDefaultStatus();
+        levelManager.SetGameLevels();
     }
 
     private void Update()
     {
         onPauseCommand?.Invoke();
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            SaveGame(levelManager.UnlockedLevels.ToArray());
+        }
     }
 
     private void OnDestroy()
@@ -350,4 +355,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
     #endregion
+
+    public void SaveGame(GameLevel[] _unlockedLevels)
+    {
+        SaveSystem.SaveGame(_unlockedLevels);
+    }
 }
