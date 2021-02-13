@@ -50,9 +50,9 @@ public class GameManager : Singleton<GameManager>
     {
         Debug.Log("OnEnable Called!");
         SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneLoadingSystem.onLoadStart += ActivateLoadingScreen;
-        SceneLoadingSystem.onLoadStart += loadingBar.ResetBar;
-        SceneLoadingSystem.whileLoading += loadingBar.UpdateBar;        
+        SceneSystem.onLoadStart += ActivateLoadingScreen;
+        SceneSystem.onLoadStart += loadingBar.ResetBar;
+        SceneSystem.whileLoading += loadingBar.UpdateBar;        
     }
 
     private void Start()
@@ -73,9 +73,9 @@ public class GameManager : Singleton<GameManager>
     {
         onPauseCommand = null;
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        SceneLoadingSystem.onLoadStart -= ActivateLoadingScreen;
-        SceneLoadingSystem.onLoadStart -= loadingBar.ResetBar;
-        SceneLoadingSystem.whileLoading -= loadingBar.UpdateBar;
+        SceneSystem.onLoadStart -= ActivateLoadingScreen;
+        SceneSystem.onLoadStart -= loadingBar.ResetBar;
+        SceneSystem.whileLoading -= loadingBar.UpdateBar;
 
         SaveSystem.onSaveFileDeleted -= levelManager.GetUnlockedLevelsFromSaveFile;
     }
@@ -91,21 +91,21 @@ public class GameManager : Singleton<GameManager>
     }
 
     #region Scene Management
-    public void LoadScene(SceneLoadingSystem.GameScene _scene)
+    public void LoadScene(SceneSystem.GameScene _scene)
     {      
         AsyncOperation operation = SceneManager.LoadSceneAsync(_scene.ToString());
-        StartCoroutine(SceneLoadingSystem.LoadNextScene(operation));
+        StartCoroutine(SceneSystem.LoadNextScene(operation));
     }
 
     public void LoadScene(string _scene)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(_scene);
-        StartCoroutine(SceneLoadingSystem.LoadNextScene(operation));
+        StartCoroutine(SceneSystem.LoadNextScene(operation));
     }
 
     public void LoadMainMenuScene()
     {
-        LoadScene(SceneLoadingSystem.GameScene.MainMenu);
+        LoadScene(SceneSystem.GameScene.MainMenu);
     }
 
     void OnSceneLoaded(Scene _scene, LoadSceneMode _mode)

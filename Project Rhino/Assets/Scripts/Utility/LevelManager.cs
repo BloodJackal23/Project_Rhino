@@ -58,7 +58,7 @@ public partial class LevelManager : Singleton<LevelManager>
         }
     }
 
-    public GameLevel GetGameLevel(SceneLoadingSystem.GameScene _levelScene)
+    public GameLevel GetGameLevel(SceneSystem.GameScene _levelScene)
     {
         foreach(GameLevel level in gameLevels)
         {

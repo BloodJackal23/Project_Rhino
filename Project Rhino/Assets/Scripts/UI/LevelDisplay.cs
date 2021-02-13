@@ -1,16 +1,26 @@
 using UnityEngine;
 
-public class LevelDisplay : MonoBehaviour
+public class LevelDisplay : UI_Panel
 {
     [SerializeField] private GameObject levelSelectionButtonPrefab;
     [SerializeField] private Transform content;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    private void OnEnable()
+    {
+        DisplayGameLevels();
+    }
 
     private void OnDisable()
     {
         ClearLevelButtons();
     }
 
-    private void DisplayGameLevels() //Called by the animator
+    private void DisplayGameLevels()
     {
         LevelManager levelManager = LevelManager.instance;
         for(int i = 0; i < levelManager.GameLevels.Length; i++)

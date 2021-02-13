@@ -1,18 +1,40 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MainMenu : UI_Panel
 {
-    [SerializeField] Button newGame;
-    [SerializeField] Button howToPlay;
+    #region Buttons
+    [Header("Buttons")]
+    [SerializeField] private Button newGame;
+    [SerializeField] private Button howToPlay;
+    [Space]
+    #endregion
+
+    #region Other Panels
+    [Header("Other Panels")]
+    [SerializeField] private GameObject saveWarningPanel;
+    #endregion
 
     protected override void Start()
     {
         base.Start();
         newGame.onClick.RemoveAllListeners();
         howToPlay.onClick.RemoveAllListeners();
-        newGame.onClick.AddListener(delegate { GameManager.instance.LoadScene(SceneLoadingSystem.GameScene.Level_01); });
-        newGame.onClick.AddListener(delegate { SaveSystem.DeleteSaveFile(SaveSystem.Path); });
-        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene(SceneLoadingSystem.GameScene.Tutorial); });
+
+        newGame.onClick.AddListener(delegate { CheckForSaveFileBeforeNewGame(); });
+        howToPlay.onClick.AddListener(delegate { GameManager.instance.LoadScene(SceneSystem.GameScene.Tutorial); });
+    }
+
+    private void CheckForSaveFileBeforeNewGame()
+    {
+        if (File.Exists(SaveSystem.Path))
+        {
+            saveWarningPanel.SetActive(true);
+        }
+        else
+        {
+            GameManager.instance.LoadScene(SceneSystem.GameScene.Level_01);
+        }
     }
 }

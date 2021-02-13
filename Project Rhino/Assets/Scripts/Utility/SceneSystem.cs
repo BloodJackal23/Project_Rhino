@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public static class SceneLoadingSystem
+public static class SceneSystem
 {
     public enum GameScene 
     { 

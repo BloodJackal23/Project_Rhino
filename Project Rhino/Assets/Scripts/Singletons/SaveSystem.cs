@@ -47,7 +47,7 @@ public static class SaveSystem
             onSaveFileLoaded?.Invoke();
             return loadedFile;
         }
-        Debug.LogError("Save file not found in " + _path);
+        Debug.LogWarning("No save file found in " + _path);
         return null;
     }
 
