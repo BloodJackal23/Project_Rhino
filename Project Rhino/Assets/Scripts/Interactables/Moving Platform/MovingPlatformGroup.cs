@@ -55,6 +55,7 @@ public class MovingPlatformGroup : MonoBehaviour
             pointIndex++;
             if (pointIndex >= pathPoints.Length)
                 pointIndex = 0;
+            platformRb.velocity = Vector2.zero;
             yield return new WaitForSeconds(waitTime);
         }
     }

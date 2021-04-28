@@ -2,17 +2,15 @@ using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour
 {
-    [SerializeField] private LayerMask targetMask;
-    private void OnCollisionEnter2D(Collision2D collision)
+    private Rigidbody2D rb;
+
+    private void Awake()
     {
-        if(Physics2D.IsTouchingLayers(GetComponent<Collider2D>(), targetMask)) 
-        {
-            collision.transform.SetParent(transform);
-        }
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        collision.transform.SetParent(null);
+        collision.transform.Translate(new Vector2(rb.velocity.x, 0) * Time.deltaTime, transform);
     }
 }
