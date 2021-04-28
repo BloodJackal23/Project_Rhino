@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class MovingPlatformGroup : MonoBehaviour
@@ -7,12 +6,15 @@ public class MovingPlatformGroup : MonoBehaviour
     [SerializeField] private Transform m_platform;
     private Rigidbody2D platformRb;
     private Transform[] pathPoints;
-    IEnumerator activeCoroutine;
 
     [Header("Attributes")]
     [SerializeField, Range(1f, 5f)] private float moveSpeed = 2f;
     [SerializeField] private float pointProximetyThreshold = .2f;
     [SerializeField] private float waitTime = 1.5f;
+
+    private bool isMoving = false;
+    private float waitTimer = 0;
+    private int pointIndex = 0;
 
     void Start()
     {
@@ -20,8 +22,33 @@ public class MovingPlatformGroup : MonoBehaviour
             m_platform = transform.Find("Platform");
         platformRb = m_platform.GetComponent<Rigidbody2D>();
         GetPath();
-        activeCoroutine = PlatformMovementLoop();
-        StartCoroutine(activeCoroutine);
+    }
+
+    private void FixedUpdate()
+    {
+        if(isMoving)
+        {
+            if (ReachedDestination(m_platform.position, pathPoints[pointIndex].position, pointProximetyThreshold))
+            {
+                platformRb.velocity = Vector2.zero;
+                isMoving = false;
+            }
+        }
+        else
+        {
+            if (waitTimer < waitTime)
+                waitTimer += Time.fixedDeltaTime;
+            else
+            {
+                if (pointIndex < pathPoints.Length - 1)
+                    pointIndex++;
+                else
+                    pointIndex = 0;
+                platformRb.velocity = SetPlatformDirection(pointIndex) * moveSpeed;
+                isMoving = true;
+                waitTimer = 0;
+            }
+        }
     }
 
     private void GetPath()
@@ -35,28 +62,17 @@ public class MovingPlatformGroup : MonoBehaviour
         }
     }
 
-    private IEnumerator PlatformMovementLoop()
+    private bool ReachedDestination(Vector2 _from, Vector2 _to, float _threshold)
     {
-        float distance = 0;
-        int pointIndex = 0;
-        Vector2 dir;
-        while (pointIndex < pathPoints.Length)
-        {
-            dir = pathPoints[pointIndex].position - m_platform.position;
-            dir.Normalize();
-            do
-            {
-                distance = Vector2.Distance(m_platform.position, pathPoints[pointIndex].position);
-                platformRb.velocity = dir * moveSpeed;
-                //m_platform.Translate(dir * moveSpeed * Time.fixedDeltaTime, transform);
-                yield return new WaitForFixedUpdate();
-            }
-            while (distance > pointProximetyThreshold);
-            pointIndex++;
-            if (pointIndex >= pathPoints.Length)
-                pointIndex = 0;
-            platformRb.velocity = Vector2.zero;
-            yield return new WaitForSeconds(waitTime);
-        }
+        if (Vector2.Distance(_from, _to) > _threshold)
+            return false;
+        return true;
+    }
+
+    private Vector2 SetPlatformDirection(int _pointIndex)
+    {
+        Vector2 dir = pathPoints[pointIndex].position - m_platform.position;
+        dir.Normalize();
+        return dir;
     }
 }
