@@ -20,7 +20,7 @@ public class MovingPlatformGroup : MonoBehaviour
     {
         if (!m_platform)
         {
-            m_platform = GetTransform("Platform");
+            m_platform = GetPlatform("Platform");
         }
             
         platformRb = m_platform.GetComponent<Rigidbody2D>();
@@ -52,7 +52,7 @@ public class MovingPlatformGroup : MonoBehaviour
         }
     }
 
-    private Transform GetTransform(string _tag)
+    private Transform GetPlatform(string _tag)
     {
         for (int i = 0; i < transform.childCount; i++)
         {
@@ -87,5 +87,20 @@ public class MovingPlatformGroup : MonoBehaviour
         Vector2 dir = pathPoints[pointIndex].position - m_platform.position;
         dir.Normalize();
         return dir;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Transform path = transform.Find("Path");
+        for(int i = 0; i < path.childCount; i++)
+        {
+            if (i < path.childCount - 1)
+                Gizmos.DrawLine(path.GetChild(i).position, path.GetChild(i + 1).position);
+            else
+            {
+                Gizmos.DrawLine(path.GetChild(i).position, path.GetChild(0).position);
+            }
+        }
     }
 }
