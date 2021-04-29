@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class MovingPlatformGroup : MonoBehaviour
 {
-    [SerializeField] private Transform m_path;
-    [SerializeField] private Transform m_platform;
+    private Transform m_path;
+    private Transform m_platform;
     private Rigidbody2D platformRb;
     private Transform[] pathPoints;
 
@@ -16,10 +16,13 @@ public class MovingPlatformGroup : MonoBehaviour
     private float waitTimer = 0;
     private int pointIndex = 0;
 
-    void Start()
+    void Awake()
     {
         if (!m_platform)
-            m_platform = transform.Find("Platform");
+        {
+            m_platform = GetTransform("Platform");
+        }
+            
         platformRb = m_platform.GetComponent<Rigidbody2D>();
         GetPath();
     }
@@ -40,15 +43,25 @@ public class MovingPlatformGroup : MonoBehaviour
                 waitTimer += Time.fixedDeltaTime;
             else
             {
-                if (pointIndex < pathPoints.Length - 1)
-                    pointIndex++;
-                else
-                    pointIndex = 0;
+                pointIndex++;
+                pointIndex %=  pathPoints.Length;
                 platformRb.velocity = SetPlatformDirection(pointIndex) * moveSpeed;
                 isMoving = true;
                 waitTimer = 0;
             }
         }
+    }
+
+    private Transform GetTransform(string _tag)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            if (child.gameObject.tag == _tag)
+                return child;
+        }
+        Debug.LogError("Platform not found! Check that the platform object has the " + _tag + " tag assigned to it");
+        return null;
     }
 
     private void GetPath()

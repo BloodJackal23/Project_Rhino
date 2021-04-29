@@ -8,6 +8,7 @@ TagManager:
   - PauseMenu
   - Music Source
   - FX Source
+  - Platform
   layers:
   - Default
   - TransparentFX
