@@ -1180,16 +1180,16 @@ TextureImporter:
     second: industrial.v2_391
   - first:
       213: -5765212839288467257
-    second: industrial.v2_392
+    second: RoboBoss_1
   - first:
       213: 3265948589152614136
-    second: industrial.v2_393
+    second: RoboBoss_2
   - first:
       213: -6697414267929852648
-    second: industrial.v2_394
+    second: RoboBoss_3
   - first:
       213: 3406713591301609877
-    second: industrial.v2_395
+    second: RoboBoss_4
   - first:
       213: -7412531682080824255
     second: Monster_1
@@ -9580,7 +9580,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_392
+      name: RoboBoss_1
       rect:
         serializedVersion: 2
         x: 0
@@ -9601,7 +9601,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_393
+      name: RoboBoss_2
       rect:
         serializedVersion: 2
         x: 16
@@ -9622,7 +9622,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_394
+      name: RoboBoss_3
       rect:
         serializedVersion: 2
         x: 32
@@ -9643,7 +9643,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_395
+      name: RoboBoss_4
       rect:
         serializedVersion: 2
         x: 48
