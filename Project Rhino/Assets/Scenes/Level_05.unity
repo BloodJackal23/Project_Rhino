@@ -2999,7 +2999,7 @@ MonoBehaviour:
   m_spriteRenderer: {fileID: 989664838}
   moveSpeed: 250
   movementSmoothing: 0.05
-  lastMoveLeft: 0
+  minFollowDistance: 3.5
 --- !u!50 &989664841
 Rigidbody2D:
   serializedVersion: 4
