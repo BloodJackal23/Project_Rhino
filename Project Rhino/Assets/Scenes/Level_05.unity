@@ -530,6 +530,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720532168}
+  - component: {fileID: 720532170}
+  - component: {fileID: 720532169}
   m_Layer: 0
   m_Name: AI Components
   m_TagString: Untagged
@@ -552,6 +554,32 @@ Transform:
   m_Father: {fileID: 989664839}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &720532169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720532167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccac1c65149ffc049b3eb9d6694306cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCombatAction: 0
+--- !u!114 &720532170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720532167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b47649b02bdf20b45a8f15985d15b7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetDetected: 0
 --- !u!1 &733858075
 GameObject:
   m_ObjectHideFlags: 0
@@ -2996,7 +3024,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rb: {fileID: 989664841}
-  m_spriteRenderer: {fileID: 989664838}
   moveSpeed: 250
   movementSmoothing: 0.05
   minFollowDistance: 3.5
@@ -3322,7 +3349,6 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 256
-  target: {fileID: 0}
   sensorRadius: 4
 --- !u!1 &1254290013
 GameObject:

@@ -1,10 +1,9 @@
 using UnityEngine;
 
-public class Boss_AI: MonoBehaviour
+public class BossAI_Controller: MonoBehaviour
 {
     [Header("Memebers")]
     [SerializeField] private Rigidbody2D m_rb;
-    [SerializeField] private SpriteRenderer m_spriteRenderer;
     [Space]
 
     [Header("Attributes")]
@@ -22,8 +21,6 @@ public class Boss_AI: MonoBehaviour
     {
         if (!m_rb)
             m_rb = GetComponent<Rigidbody2D>();
-        if (!m_spriteRenderer)
-            m_spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void Start()
     {
