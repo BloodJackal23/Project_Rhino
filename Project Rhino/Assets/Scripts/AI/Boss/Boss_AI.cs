@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Boss_AI : MonoBehaviour
+public class Boss_AI: MonoBehaviour
 {
     [Header("Memebers")]
     [SerializeField] private Rigidbody2D m_rb;
@@ -13,8 +13,9 @@ public class Boss_AI : MonoBehaviour
 
     #region Private Variables
     private Transform playerTransform;
-    Vector2 targetVelocity;
-    Vector2 currentVelocity = Vector2.zero;
+    private Vector2 targetVelocity;
+    private Vector2 currentVelocity = Vector2.zero;
+    [SerializeField] private bool lastMoveLeft;
     #endregion
 
     private void Awake()
@@ -36,23 +37,30 @@ public class Boss_AI : MonoBehaviour
 
     private void FollowPlayerX()
     {
-        float currentSpeed = Mathf.Lerp(0, moveSpeed * Time.deltaTime, PlayerDistanceX());
-        float xDirection = PlayerRelativePosX();
-        targetVelocity = new Vector2(currentSpeed * xDirection, 0);
-        if (xDirection < 0)
-            m_spriteRenderer.flipX = true;
-        else
-            m_spriteRenderer.flipX = false;
+        float xMaxSpeed = moveSpeed * Time.deltaTime, xDir = playerTransform.position.x - transform.position.x, xVelocity = Mathf.Lerp(-xMaxSpeed, xMaxSpeed, xDir);
+        bool currentlyMovingLeft = IsMovingLeft(xDir, lastMoveLeft);
+        targetVelocity = new Vector2(xVelocity, 0);
+
+        if(lastMoveLeft != currentlyMovingLeft)
+        {
+            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
+            lastMoveLeft = currentlyMovingLeft;
+        }
+
+        //if (xDir < 0)
+        //    m_spriteRenderer.flipX = true;
+        //else
+        //    m_spriteRenderer.flipX = false;
         m_rb.velocity = Vector2.SmoothDamp(m_rb.velocity, targetVelocity, ref currentVelocity, movementSmoothing);
     }
 
-    private float PlayerDistanceX()
+    private bool IsMovingLeft(float _xDir, bool _lastValue)
     {
-        return Mathf.Abs(transform.position.x - playerTransform.position.x);
-    }
-
-    private float PlayerRelativePosX()
-    {
-        return Mathf.Sign(playerTransform.position.x - transform.position.x);
+        bool l = _lastValue;
+        if (_xDir < 0)
+            return true;
+        else if(_xDir > 0)
+            return false;
+        return l;
     }
 }
