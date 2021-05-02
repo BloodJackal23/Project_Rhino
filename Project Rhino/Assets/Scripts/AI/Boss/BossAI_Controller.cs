@@ -10,6 +10,7 @@ public class BossAI_Controller: MonoBehaviour
     [SerializeField, Range(1f, 1000f)] private float moveSpeed = 250f;
     [SerializeField] private float movementSmoothing = 0.05f;
     [SerializeField, Range(0.1f, 5f)] private float minFollowDistance = 3f;
+    public bool huntingPlayer = false;
 
     #region Private Variables
     private Transform playerTransform;
@@ -22,16 +23,26 @@ public class BossAI_Controller: MonoBehaviour
         if (!m_rb)
             m_rb = GetComponent<Rigidbody2D>();
     }
-    void Start()
+
+    private void Update()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        if (huntingPlayer)
+        {
+            if(!playerTransform)
+                SearchForPlayer();
+        }
+        else
+            playerTransform = null;
     }
 
     void FixedUpdate()
     {
         if(playerTransform)
-        {
             FollowPlayer();
+        else
+        {
+            if (m_rb.velocity != Vector2.zero)
+                m_rb.velocity = Vector2.zero;
         }
     }
 
@@ -55,5 +66,10 @@ public class BossAI_Controller: MonoBehaviour
         MoveToTargetX(xDir);
         SetLookByScale(signedX);
         lastDirX = signedX;
+    }
+
+    private void SearchForPlayer()
+    {
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }

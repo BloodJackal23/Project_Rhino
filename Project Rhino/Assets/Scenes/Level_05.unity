@@ -566,6 +566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccac1c65149ffc049b3eb9d6694306cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_sensor: {fileID: 0}
   currentCombatAction: 0
 --- !u!114 &720532170
 MonoBehaviour:
@@ -3027,6 +3028,7 @@ MonoBehaviour:
   moveSpeed: 250
   movementSmoothing: 0.05
   minFollowDistance: 3.5
+  huntingPlayer: 0
 --- !u!50 &989664841
 Rigidbody2D:
   serializedVersion: 4
@@ -4890,7 +4892,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 1.32, y: 0, z: 1}
+  - {x: 1.32, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
