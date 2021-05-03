@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class LaserBeam : PlayerHazard
@@ -16,12 +17,12 @@ public class LaserBeam : PlayerHazard
     [SerializeField] private LayerMask whatToHit;
     [SerializeField, Range(-180f, 180f)] private float startAngle = -60f, endAngle = -30f;
     [SerializeField, Range(0.1f, 50f)] private float rotSpeed = 5f;
+    [SerializeField, Range(0.1f, 5f)] private float fireDelay = 1.5f;
     [SerializeField] private float maxDistance = 100f;
-    [SerializeField] private string targetTag = "Player";
     [Space]
 
     [Header("Debugging")]
-    [SerializeField] private bool fireLaser;
+    [SerializeField] private bool startLaser;
 
     private Quaternion startRot, endRot, currentRot;
     private Vector2 laserHitPoint;
@@ -41,24 +42,17 @@ public class LaserBeam : PlayerHazard
 
     void Update()
     {
-        if (fireLaser)
+        if (startLaser)
         {
             StartLaserBeam();
-        }
-
-        if (currentRot == endRot)
-        {
-            StopLaserBeam();
-            fireLaser = true;
+            startLaser = false;
         }
     }
 
     private void FixedUpdate()
     {
         if(isFiring)
-        {
             LaserFiring();
-        }
     }
 
     private void OnDrawGizmosSelected()
@@ -107,25 +101,41 @@ public class LaserBeam : PlayerHazard
         currentRot = Quaternion.RotateTowards(startRot, endRot, rotationTimer * rotSpeed);
     }
 
-    private void StartLaserBeam()
+    public void StartLaserBeam()
     {
-        currentRot = startRot;
+        StopAllCoroutines();
+        StartCoroutine(FiringSequence());
+    }
+
+    private IEnumerator FiringSequence()
+    {
+        float delayTimer = 0;
+        while(delayTimer < fireDelay)
+        {
+            delayTimer += Time.deltaTime;
+            yield return null;
+        }
         isFiring = true;
-        fireLaser = false;
     }
 
     private void LaserFiring()
     {
         GetLaserDirection();
-        RaycastLaser(GetDirectionFromRotation(currentRot, Vector2.right, transform.parent.localScale));
-        if(laserHitPoint != Vector2.zero)
-            RenderLaser();
+        if (currentRot != endRot)
+        {
+            RaycastLaser(GetDirectionFromRotation(currentRot, Vector2.right, transform.parent.localScale));
+            if (laserHitPoint != Vector2.zero)
+                RenderLaser();
+        }
+        else
+            StopLaserBeam();
     }   
 
     private void StopLaserBeam()
     {
         m_lineRenderer.SetPosition(1, Vector2.zero);
         rotationTimer = 0;
+        currentRot = startRot;
         isFiring = false;
     }
 }

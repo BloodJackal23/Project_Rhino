@@ -4,6 +4,10 @@ public class BossAI_DecisionMaker : MonoBehaviour
 {
     [Header("Members")]
     [SerializeField] private BossAI_ProximitySensor m_sensor;
+    [Space]
+
+    [Header("Boss Weapons")]
+    [SerializeField] private LaserBeam m_laserBeam;
 
     public enum CombatAction { None, FireBombs, FireLaser}
     public CombatAction currentCombatAction = CombatAction.None;
@@ -24,7 +28,8 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     private void OnTargetDetected()
     {
-        SelectRandomCombatAction();
+        FireLaserBeam();
+        //SelectRandomCombatAction();
     }
 
     private void OnTargetLost()
@@ -42,8 +47,14 @@ public class BossAI_DecisionMaker : MonoBehaviour
                 currentCombatAction = CombatAction.FireBombs;
                 break;
             case 1:
-                currentCombatAction = CombatAction.FireLaser;
+                FireLaserBeam();
                 break;
         }
+    }
+
+    private void FireLaserBeam()
+    {
+        currentCombatAction = CombatAction.FireLaser;
+        m_laserBeam.StartLaserBeam();
     }
 }

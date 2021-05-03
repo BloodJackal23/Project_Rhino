@@ -530,7 +530,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 720532168}
-  - component: {fileID: 720532170}
   - component: {fileID: 720532169}
   m_Layer: 0
   m_Name: AI Components
@@ -566,21 +565,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccac1c65149ffc049b3eb9d6694306cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sensor: {fileID: 0}
+  m_sensor: {fileID: 1231287129}
+  m_laserBeam: {fileID: 2137497174}
   currentCombatAction: 0
---- !u!114 &720532170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 720532167}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b47649b02bdf20b45a8f15985d15b7a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetDetected: 0
 --- !u!1 &733858075
 GameObject:
   m_ObjectHideFlags: 0
@@ -3028,7 +3015,7 @@ MonoBehaviour:
   moveSpeed: 250
   movementSmoothing: 0.05
   minFollowDistance: 3.5
-  huntingPlayer: 1
+  huntingPlayer: 0
 --- !u!50 &989664841
 Rigidbody2D:
   serializedVersion: 4
@@ -5083,6 +5070,9 @@ MonoBehaviour:
   startAngle: -75
   endAngle: -40
   rotSpeed: 38.2
+  fireDelay: 1.5
   maxDistance: 100
   targetTag: Player
-  fireLaser: 1
+  startLaser: 0
+  rotationTimer: 0
+  isFiring: 0
