@@ -3351,7 +3351,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 256
-  sensorRadius: 4
+  sensorRadius: 7
 --- !u!1 &1254290013
 GameObject:
   m_ObjectHideFlags: 0
@@ -4829,6 +4829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2137497172}
   - component: {fileID: 2137497173}
+  - component: {fileID: 2137497174}
   m_Layer: 0
   m_Name: Laser Emitter
   m_TagString: Untagged
@@ -4948,3 +4949,25 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 0
   m_Loop: 0
+--- !u!114 &2137497174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137497171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a3a9686c3fed9942a067964dd1fa240, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_lineRenderer: {fileID: 2137497173}
+  whatToHit:
+    serializedVersion: 2
+    m_Bits: 1281
+  startVector: {x: 0.34620252, y: -0.9381598}
+  endVector: {x: 0.7672524, y: -0.6413453}
+  startAngle: 60
+  endAngle: 30
+  maxDistance: 100
+  targetTag: Player
