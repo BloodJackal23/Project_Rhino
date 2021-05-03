@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LaserBeam : MonoBehaviour
+public class LaserBeam : PlayerHazard
 {
     public delegate void OnLaserStart();
     public OnLaserStart onLaserStart;
@@ -14,11 +14,19 @@ public class LaserBeam : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private LayerMask whatToHit;
-    [SerializeField] private Vector2 startVector = Vector2.down, endVector = Vector2.right;
-    [SerializeField] private float startAngle = 60f, endAngle = 30f, maxDistance = 100f;
+    [SerializeField, Range(-180f, 180f)] private float startAngle = -60f, endAngle = -30f;
+    [SerializeField, Range(0.1f, 50f)] private float rotSpeed = 5f;
+    [SerializeField] private float maxDistance = 100f;
     [SerializeField] private string targetTag = "Player";
+    [Space]
 
-    private Quaternion startRot, endRot;
+    [Header("Debugging")]
+    [SerializeField] private bool fireLaser;
+
+    private Quaternion startRot, endRot, currentRot;
+    private Vector2 laserHitPoint;
+    private float rotationTimer = 0;
+    private bool isFiring;
 
     private void Awake()
     {
@@ -28,39 +36,96 @@ public class LaserBeam : MonoBehaviour
 
     void Start()
     {
-        startRot = Quaternion.Euler(0, 0, -startAngle);
-        endRot = Quaternion.Euler(0, 0, -endAngle);
-        transform.rotation = startRot;
+        SetLimitDirections();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (fireLaser)
+        {
+            StartLaserBeam();
+        }
+
+        if (currentRot == endRot)
+        {
+            StopLaserBeam();
+            fireLaser = true;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(isFiring)
+        {
+            LaserFiring();
+        }
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        startRot = Quaternion.Euler(0, 0, -startAngle);
-        endRot = Quaternion.Euler(0, 0, -endAngle);
 
-        float sinStart = Mathf.Sin(-startAngle * Mathf.Deg2Rad), cosStart = Mathf.Cos(-startAngle * Mathf.Deg2Rad), sinEnd = Mathf.Sin(-endAngle * Mathf.Deg2Rad), cosEnd = Mathf.Cos(-endAngle * Mathf.Deg2Rad);
-        Vector2 startDir = new Vector2(-cosStart * (1 / sinStart), sinStart * (1 / cosStart));
-        Vector2 endDir = new Vector2(-cosEnd * (1 / sinEnd), sinEnd * (1 / cosEnd));
-
-        Gizmos.DrawLine(transform.position, startDir * maxDistance);
-        Gizmos.DrawLine(transform.position, endDir * maxDistance);
-
-        Gizmos.color = Color.blue;
-        Vector2 startPerp = Vector2.Perpendicular(startDir);
-
-        Gizmos.DrawLine(transform.position, startPerp * maxDistance);
-
+        SetLimitDirections();
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + GetDirectionFromRotation(startRot, Vector2.right, transform.parent.localScale) * maxDistance);
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + GetDirectionFromRotation(endRot, Vector2.right, transform.parent.localScale) * maxDistance);
     }
 
-    private void RaycastStart()
+    private Vector2 GetDirectionFromRotation(Quaternion _rotation, Vector2 _from, Vector2 _parentScale)
     {
-        
+        Vector2 newScale = new Vector2(Mathf.Sign(_parentScale.x), Mathf.Sign(_parentScale.y));
+        return _rotation * _from * newScale;
+    }
+
+    private void SetLimitDirections()
+    {
+        startRot = Quaternion.Euler(0, 0, startAngle);
+        endRot = Quaternion.Euler(0, 0, endAngle);
+    }
+
+    private void RaycastLaser(Vector2 _dir)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, _dir, maxDistance, whatToHit); 
+        if (hit.collider)
+        {
+            laserHitPoint = hit.point;
+            KillPlayerButNotReally(hit.collider);
+        }
+        else
+            laserHitPoint = Vector2.zero;
+    }
+
+    private void RenderLaser()
+    {
+        Vector2 hitLocalPos = laserHitPoint - (Vector2)transform.position;
+        hitLocalPos = new Vector2(hitLocalPos.x, hitLocalPos.y) / transform.parent.localScale; //Scaling the line renderer to the parent transform's scale
+        m_lineRenderer.SetPosition(1, hitLocalPos);
+    }
+
+    private void GetLaserDirection()
+    {
+        rotationTimer += Time.deltaTime;
+        currentRot = Quaternion.RotateTowards(startRot, endRot, rotationTimer * rotSpeed);
+    }
+
+    private void StartLaserBeam()
+    {
+        currentRot = startRot;
+        isFiring = true;
+        fireLaser = false;
+    }
+
+    private void LaserFiring()
+    {
+        GetLaserDirection();
+        RaycastLaser(GetDirectionFromRotation(currentRot, Vector2.right, transform.parent.localScale));
+        if(laserHitPoint != Vector2.zero)
+            RenderLaser();
+    }   
+
+    private void StopLaserBeam()
+    {
+        m_lineRenderer.SetPosition(1, Vector2.zero);
+        rotationTimer = 0;
+        isFiring = false;
     }
 }

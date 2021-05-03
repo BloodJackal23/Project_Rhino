@@ -8,15 +8,7 @@ public class PlayerHazard : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") 
-        {
-            Debug.Log("Player Hit!");
-            PlayerController playerController = collision.GetComponent<PlayerController>();
-            playerController.onDeath?.Invoke();
-            SendPlayerToNewSpawn(collision.transform);
-            HideObjects();
-            ShowObjects();
-        }
+        KillPlayerButNotReally(collision);
     }
 
     public void SetHazardData(Transform _spawn, GameObject[] _hide, GameObject[] _show)
@@ -56,6 +48,19 @@ public class PlayerHazard : MonoBehaviour
                     _gameObject.SetActive(true);
                 }
             }
+        }
+    }
+
+    protected void KillPlayerButNotReally(Collider2D _hitCollider)
+    {
+        if (_hitCollider.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Hit!");
+            PlayerController playerController = _hitCollider.GetComponent<PlayerController>();
+            playerController.onDeath?.Invoke();
+            SendPlayerToNewSpawn(_hitCollider.transform);
+            HideObjects();
+            ShowObjects();
         }
     }
 }
