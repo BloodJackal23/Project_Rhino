@@ -13,7 +13,7 @@ public class BossAI_DecisionMaker : MonoBehaviour
     [Header("Attributes")]
     [SerializeField] private float actionCooldownTime = 2f;
 
-    private bool targetInRange, takingAction, actionCooldown;
+    private bool targetInRange, takingAction, waitForCooldown = true;
     private float actionCooldownTimer = 0;
     public enum CombatAction { None, FireBombs, FireLaser}
     public CombatAction currentCombatAction = CombatAction.None;
@@ -39,11 +39,11 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     private void Update()
     {
-        if (actionCooldown)
+        if (waitForCooldown)
             WaitForActionCooldown();
         else
         {
-            if(targetInRange && !takingAction)
+            if (targetInRange && !takingAction)
                 FireLaserBeam();
         }
     }
@@ -51,14 +51,14 @@ public class BossAI_DecisionMaker : MonoBehaviour
     private void OnTargetDetected()
     {
         targetInRange = true;
-        FireLaserBeam();
+        //FireLaserBeam();
         //SelectRandomCombatAction();
     }
 
     private void OnTargetLost()
     {
         targetInRange = false;
-        currentCombatAction = CombatAction.None;
+        //currentCombatAction = CombatAction.None;
     }
 
     private void SelectRandomCombatAction()
@@ -85,7 +85,8 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     private void OnLaserBeamEnd()
     {
-        actionCooldown = true;
+        waitForCooldown = true;
+        actionCooldownTimer = 0;
         takingAction = false;
         currentCombatAction = CombatAction.None;
     }
@@ -95,10 +96,6 @@ public class BossAI_DecisionMaker : MonoBehaviour
         if(actionCooldownTimer < actionCooldownTime)
             actionCooldownTimer += Time.deltaTime;
         else
-        {
-            actionCooldownTimer = 0;
-            currentCombatAction = CombatAction.None;
-            actionCooldown = false;
-        }
+            waitForCooldown = false;
     }
 }

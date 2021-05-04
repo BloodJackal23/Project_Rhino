@@ -130,6 +130,7 @@ public class LaserBeam : PlayerHazard
 
     private void LaserFiring()
     {
+        chargeUpFX.Stop();
         GetLaserDirection();
         if (currentRot != endRot)
         {
@@ -144,7 +145,6 @@ public class LaserBeam : PlayerHazard
     private void StopLaserBeam()
     {
         onLaserEnd?.Invoke();
-        chargeUpFX.Stop();
         m_lineRenderer.SetPosition(1, Vector2.zero);
         rotationTimer = 0;
         currentRot = startRot;
