@@ -11,12 +11,13 @@ public class LaserBeam : PlayerHazard
 
     [Header("Members")]
     [SerializeField] private LineRenderer m_lineRenderer;
+    [SerializeField] private ParticleSystem chargeUpFX;
     [Space]
 
     [Header("Attributes")]
     [SerializeField] private LayerMask whatToHit;
     [SerializeField, Range(-180f, 180f)] private float startAngle = -60f, endAngle = -30f;
-    [SerializeField, Range(0.1f, 50f)] private float rotSpeed = 5f;
+    [SerializeField, Range(0.1f, 100f)] private float rotSpeed = 5f;
     [SerializeField, Range(0.1f, 5f)] private float fireDelay = 1.5f;
     [SerializeField] private float maxDistance = 100f;
     [Space]
@@ -38,6 +39,7 @@ public class LaserBeam : PlayerHazard
     void Start()
     {
         SetLimitDirections();
+        chargeUpFX.Stop();
     }
 
     void Update()
@@ -53,6 +55,12 @@ public class LaserBeam : PlayerHazard
     {
         if(isFiring)
             LaserFiring();
+    }
+
+    private void OnDisable()
+    {
+        onLaserStart = null;
+        onLaserEnd = null;
     }
 
     private void OnDrawGizmosSelected()
@@ -104,6 +112,8 @@ public class LaserBeam : PlayerHazard
     public void StartLaserBeam()
     {
         StopAllCoroutines();
+        onLaserStart?.Invoke();
+        chargeUpFX.Play();
         StartCoroutine(FiringSequence());
     }
 
@@ -133,6 +143,8 @@ public class LaserBeam : PlayerHazard
 
     private void StopLaserBeam()
     {
+        onLaserEnd?.Invoke();
+        chargeUpFX.Stop();
         m_lineRenderer.SetPosition(1, Vector2.zero);
         rotationTimer = 0;
         currentRot = startRot;

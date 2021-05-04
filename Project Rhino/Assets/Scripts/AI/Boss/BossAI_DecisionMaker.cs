@@ -8,9 +8,20 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     [Header("Boss Weapons")]
     [SerializeField] private LaserBeam m_laserBeam;
+    [Space]
 
+    [Header("Attributes")]
+    [SerializeField] private float actionCooldownTime = 2f;
+
+    private bool targetInRange, takingAction, actionCooldown;
+    private float actionCooldownTimer = 0;
     public enum CombatAction { None, FireBombs, FireLaser}
     public CombatAction currentCombatAction = CombatAction.None;
+
+    private void Start()
+    {
+        m_laserBeam.onLaserEnd += OnLaserBeamEnd;
+    }
 
     private void OnEnable()
     {
@@ -26,14 +37,27 @@ public class BossAI_DecisionMaker : MonoBehaviour
         m_sensor.onTargetLost -= OnTargetLost;
     }
 
+    private void Update()
+    {
+        if (actionCooldown)
+            WaitForActionCooldown();
+        else
+        {
+            if(targetInRange && !takingAction)
+                FireLaserBeam();
+        }
+    }
+
     private void OnTargetDetected()
     {
+        targetInRange = true;
         FireLaserBeam();
         //SelectRandomCombatAction();
     }
 
     private void OnTargetLost()
     {
+        targetInRange = false;
         currentCombatAction = CombatAction.None;
     }
 
@@ -55,6 +79,26 @@ public class BossAI_DecisionMaker : MonoBehaviour
     private void FireLaserBeam()
     {
         currentCombatAction = CombatAction.FireLaser;
+        takingAction = true;
         m_laserBeam.StartLaserBeam();
+    }
+
+    private void OnLaserBeamEnd()
+    {
+        actionCooldown = true;
+        takingAction = false;
+        currentCombatAction = CombatAction.None;
+    }
+
+    private void WaitForActionCooldown()
+    {
+        if(actionCooldownTimer < actionCooldownTime)
+            actionCooldownTimer += Time.deltaTime;
+        else
+        {
+            actionCooldownTimer = 0;
+            currentCombatAction = CombatAction.None;
+            actionCooldown = false;
+        }
     }
 }
