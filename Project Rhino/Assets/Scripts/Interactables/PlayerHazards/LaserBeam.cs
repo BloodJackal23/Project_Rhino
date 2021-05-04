@@ -11,7 +11,8 @@ public class LaserBeam : PlayerHazard
 
     [Header("Members")]
     [SerializeField] private LineRenderer m_lineRenderer;
-    [SerializeField] private ParticleSystem chargeUpFX;
+    [SerializeField] private ParticleSystem chargeUpFX, laserImpactFX;
+    [SerializeField] private AudioSource laserChargingAudio, laserFiringAudio;
     [Space]
 
     [Header("Attributes")]
@@ -39,7 +40,9 @@ public class LaserBeam : PlayerHazard
     void Start()
     {
         SetLimitDirections();
+        laserImpactFX.Stop();
         chargeUpFX.Stop();
+        laserFiringAudio.Stop();
     }
 
     void Update()
@@ -90,6 +93,7 @@ public class LaserBeam : PlayerHazard
         if (hit.collider)
         {
             laserHitPoint = hit.point;
+            laserImpactFX.transform.position = laserHitPoint;
             KillPlayerButNotReally(hit.collider);
         }
         else
@@ -101,6 +105,7 @@ public class LaserBeam : PlayerHazard
         Vector2 hitLocalPos = laserHitPoint - (Vector2)transform.position;
         hitLocalPos = new Vector2(hitLocalPos.x, hitLocalPos.y) / transform.parent.localScale; //Scaling the line renderer to the parent transform's scale
         m_lineRenderer.SetPosition(1, hitLocalPos);
+        laserImpactFX.Play();
     }
 
     private void GetLaserDirection()
@@ -120,11 +125,14 @@ public class LaserBeam : PlayerHazard
     private IEnumerator FiringSequence()
     {
         float delayTimer = 0;
+        laserChargingAudio.Play();
         while(delayTimer < fireDelay)
         {
             delayTimer += Time.deltaTime;
             yield return null;
         }
+        laserChargingAudio.Stop();
+        laserFiringAudio.Play();
         isFiring = true;
     }
 
@@ -144,6 +152,8 @@ public class LaserBeam : PlayerHazard
 
     private void StopLaserBeam()
     {
+        laserImpactFX.Stop();
+        laserFiringAudio.Stop();
         onLaserEnd?.Invoke();
         m_lineRenderer.SetPosition(1, Vector2.zero);
         rotationTimer = 0;
