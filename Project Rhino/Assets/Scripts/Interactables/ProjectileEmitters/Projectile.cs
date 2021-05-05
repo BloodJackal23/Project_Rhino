@@ -17,7 +17,7 @@ public class Projectile : PlayerHazard
         }
     }
 
-    public void Init() //Initialized by the gun that fires this projectile
+    public void Init(Vector2 _direction, float _force) //Initialized by the gun that fires this projectile
     {
         Destroy(gameObject, lifeSpan);
         if(!rigidbody)
@@ -25,9 +25,10 @@ public class Projectile : PlayerHazard
             rigidbody = GetComponent<Rigidbody2D>();
         }
         collider = GetComponent<Collider2D>();
+        AddForce(_direction, _force);
     }
 
-    public void AddForce(Vector2 _direction, float _force)
+    private void AddForce(Vector2 _direction, float _force)
     {
         rigidbody.AddForce(_direction * _force, ForceMode2D.Impulse);
     }
