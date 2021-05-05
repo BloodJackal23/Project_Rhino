@@ -3,7 +3,7 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class Projectile : PlayerHazard
 {
-    Rigidbody2D rigidbody;
+    public Rigidbody2D rigidbody { get; private set; }
     Collider2D collider;
     [SerializeField] protected float lifeSpan = 5f;
     [SerializeField] protected bool destroyOnImpact = true;
@@ -12,7 +12,7 @@ public class Projectile : PlayerHazard
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
-        if(collider.IsTouchingLayers(targetLayers))
+        if(destroyOnImpact && collider.IsTouchingLayers(targetLayers))
         {
             Destroy(gameObject);
         }

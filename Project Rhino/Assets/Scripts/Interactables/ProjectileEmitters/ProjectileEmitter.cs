@@ -13,8 +13,10 @@ public class ProjectileEmitter : MonoBehaviour
     [SerializeField] protected float fireRate = 1f;
     [SerializeField] protected bool canFire = true;
     [SerializeField] protected float force = 5f;
+    [SerializeField, Range(0, 2.5f)] protected float randomSpinForce = 0;
     [SerializeField, Range(-180f, 180f)] private float startAngle = -60f, endAngle = -30f;
 
+    protected Projectile spawnedProjectile;
     protected Quaternion startRot, endRot, currentRot;
 
     protected virtual void Awake()
@@ -23,14 +25,15 @@ public class ProjectileEmitter : MonoBehaviour
             m_AudioSource = GetComponent<AudioSource>();
     }
 
-    protected Projectile CreateProjectile(bool _useScatterAngles, int _prefabIndex)
+    protected virtual void CreateProjectile(Vector2 _direction, int _prefabIndex)
     {
-        Projectile projectile = Instantiate(projectilePrefabs[_prefabIndex], m_emitter.position, m_emitter.rotation).GetComponent<Projectile>();
-        if(_useScatterAngles)
-            projectile.Init(GetRandomScatterDirection(), force);
-        else
-            projectile.Init(m_emitter.right, force);
-        return projectile;
+        spawnedProjectile = Instantiate(projectilePrefabs[_prefabIndex], m_emitter.position, m_emitter.rotation).GetComponent<Projectile>();
+        spawnedProjectile.Init(_direction, force);
+        //if(_useScatterAngles)
+        //    projectile.Init(GetRandomScatterDirection(), force);
+        //else
+        //    projectile.Init(m_emitter.right, force);
+        //return projectile;
     }
 
     protected Vector2 GetDirectionFromRotation(Quaternion _rotation, Vector2 _from, Vector2 _parentScale)

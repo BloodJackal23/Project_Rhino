@@ -12,7 +12,10 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     [Header("Attributes")]
     [SerializeField] private float actionCooldownTime = 2f;
+    [Space]
 
+    [Header("Debugging")]
+    [SerializeField] private bool runDM = true;
     private bool targetInRange, takingAction, waitForCooldown = true;
     private float actionCooldownTimer = 0;
     public enum CombatAction { None, FireBombs, FireLaser}
@@ -39,12 +42,15 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     private void Update()
     {
-        if (waitForCooldown)
-            WaitForActionCooldown();
-        else
+        if(runDM)
         {
-            if (targetInRange && !takingAction)
-                FireLaserBeam();
+            if (waitForCooldown)
+                WaitForActionCooldown();
+            else
+            {
+                if (targetInRange && !takingAction)
+                    FireLaserBeam();
+            }
         }
     }
 
