@@ -26,7 +26,7 @@ public class GunTrap : ProjectileEmitter
     //Mainly used by the animator component
     public void Shoot()
     {
-        hazardData.SetupHazard(CreateProjectile(false));
+        hazardData.SetupHazard(CreateProjectile(false, 0));
         m_AudioSource.Play();
     }
 }

@@ -100,10 +100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_emitter: {fileID: 9205634327471852593}
   m_AudioSource: {fileID: 2403611135777379632}
-  projectilePrefab: {fileID: 3288023980794408668, guid: 95f3ace0c5bc173489eabb068ca8a52e, type: 3}
+  projectilePrefabs:
+  - {fileID: 3288023980794408668, guid: 95f3ace0c5bc173489eabb068ca8a52e, type: 3}
   fireRate: 1
   canFire: 1
   force: 5
+  startAngle: -60
+  endAngle: -30
   m_Animator: {fileID: 1276770808}
   hazardData:
     playerSpawn: {fileID: 0}

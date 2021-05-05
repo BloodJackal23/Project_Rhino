@@ -5,7 +5,8 @@ public class Projectile : PlayerHazard
 {
     Rigidbody2D rigidbody;
     Collider2D collider;
-    [SerializeField] float lifeSpan = 5f;
+    [SerializeField] protected float lifeSpan = 5f;
+    [SerializeField] protected bool destroyOnImpact = true;
     [SerializeField] LayerMask targetLayers;
 
     protected override void OnTriggerEnter2D(Collider2D collision)

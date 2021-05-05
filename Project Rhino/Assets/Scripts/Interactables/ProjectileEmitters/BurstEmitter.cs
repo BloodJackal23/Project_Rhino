@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BurstEmitter : ProjectileEmitter
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [Header("Burst Attributes")]
+    [SerializeField] protected int burstCount = 4;
 
-    // Update is called once per frame
-    void Update()
+    private int burstCounter = 0;
+
+    private void OnDrawGizmosSelected()
     {
-        
+        Gizmos.color = Color.red;
+
+        SetLimitDirections();
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + GetDirectionFromRotation(startRot, Vector2.right, transform.parent.localScale) * 100);
+        Gizmos.DrawLine(transform.position, (Vector2)transform.position + GetDirectionFromRotation(endRot, Vector2.right, transform.parent.localScale) * 100);
     }
 }
