@@ -2,13 +2,15 @@
 
 public class PlayerHazard : MonoBehaviour
 {
+    [SerializeField] protected bool killPlayerOnTouch = true;
     [SerializeField] protected Transform playerSpawn;
     [SerializeField] protected GameObject[] objectsToHide;
     [SerializeField] protected GameObject[] objectsToShow;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        KillPlayerButNotReally(collision);
+        if(killPlayerOnTouch && collision.gameObject.tag == "Player")
+            KillPlayerButNotReally(collision);
     }
 
     public void SetHazardData(Transform _spawn, GameObject[] _hide, GameObject[] _show)
@@ -18,40 +20,21 @@ public class PlayerHazard : MonoBehaviour
         objectsToShow = _show;
     }
 
-    private void HideObjects()
+    private void SetObjectsActivationStatus(GameObject[] _objects, bool _active)
     {
-        if(objectsToHide.Length > 0)
+        foreach(GameObject _gameObject in _objects)
         {
-            foreach (GameObject _gameObject in objectsToHide)
-            {
-                if(_gameObject)
-                    _gameObject.SetActive(false);
-            }
-        }
-    }
-
-    private void ShowObjects()
-    {
-        if(objectsToShow.Length > 0)
-        {
-            foreach (GameObject _gameObject in objectsToShow)
-            {
-                if(_gameObject)
-                    _gameObject.SetActive(true);
-            }
+            if (_gameObject)
+                _gameObject.SetActive(_active);
         }
     }
 
     public void KillPlayerButNotReally(Collider2D _hitCollider)
     {
-        if (_hitCollider.gameObject.tag == "Player")
-        {
-            Debug.Log("Player Hit!");
-            PlayerController playerController = _hitCollider.GetComponent<PlayerController>();
-            playerController.onDeath?.Invoke();
-            playerController.transform.position = playerSpawn.position;
-            HideObjects();
-            ShowObjects();
-        }
+        PlayerController playerController = _hitCollider.GetComponent<PlayerController>();
+        playerController.onDeath?.Invoke();
+        playerController.transform.position = playerSpawn.position;
+        SetObjectsActivationStatus(objectsToHide, false);
+        SetObjectsActivationStatus(objectsToShow, true);
     }
 }
