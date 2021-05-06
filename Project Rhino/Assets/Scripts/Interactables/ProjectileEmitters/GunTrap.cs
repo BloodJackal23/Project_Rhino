@@ -12,9 +12,7 @@ public class GunTrap : ProjectileEmitter
     {
         base.Awake();
         if (!m_Animator)
-        {
             m_Animator = GetComponent<Animator>();
-        }
         m_Animator.speed = fireRate;
     }
 
@@ -26,9 +24,9 @@ public class GunTrap : ProjectileEmitter
     //Mainly used by the animator component
     public void Shoot()
     {
-        CreateProjectile(m_emitter.right, 0);
-        hazardData.SetupHazard(spawnedProjectile);
-        m_AudioSource.Play();
-        spawnedProjectile = null;
+        Projectile spawnedProjectile = FireProjectile(0);
+        spawnedProjectile.Init(m_emitter.right, force);
+        if (spawnedProjectile.PlayerHazard)
+            hazardData.SetHazard(spawnedProjectile.PlayerHazard);
     }
 }

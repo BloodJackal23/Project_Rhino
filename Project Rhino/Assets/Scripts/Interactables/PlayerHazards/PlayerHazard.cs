@@ -18,11 +18,6 @@ public class PlayerHazard : MonoBehaviour
         objectsToShow = _show;
     }
 
-    void SendPlayerToNewSpawn(Transform _playerTransform)
-    {
-        _playerTransform.position = playerSpawn.position;
-    }
-
     void HideObjects()
     {
         if(objectsToHide.Length > 0)
@@ -30,9 +25,7 @@ public class PlayerHazard : MonoBehaviour
             foreach (GameObject _gameObject in objectsToHide)
             {
                 if(_gameObject)
-                {
                     _gameObject.SetActive(false);
-                }
             }
         }
     }
@@ -44,9 +37,7 @@ public class PlayerHazard : MonoBehaviour
             foreach (GameObject _gameObject in objectsToShow)
             {
                 if(_gameObject)
-                {
                     _gameObject.SetActive(true);
-                }
             }
         }
     }
@@ -58,7 +49,7 @@ public class PlayerHazard : MonoBehaviour
             Debug.Log("Player Hit!");
             PlayerController playerController = _hitCollider.GetComponent<PlayerController>();
             playerController.onDeath?.Invoke();
-            SendPlayerToNewSpawn(_hitCollider.transform);
+            playerController.transform.position = playerSpawn.position;
             HideObjects();
             ShowObjects();
         }

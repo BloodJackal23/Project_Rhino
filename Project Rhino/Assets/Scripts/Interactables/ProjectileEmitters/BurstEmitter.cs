@@ -14,9 +14,8 @@ public class BurstEmitter : ProjectileEmitter
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            CreateProjectile(GetRandomScatterDirection(), Random.Range(0, 2));
-            spawnedProjectile.rigidbody.AddTorque(Random.Range(-randomSpinForce, randomSpinForce), ForceMode2D.Impulse);
-            spawnedProjectile = null;
+            Projectile spawnedProjectile = FireProjectile(Random.Range(0, 2));
+            spawnedProjectile.Init(GetRandomScatterDirection(), force, randomSpinForce);
         }
     }
 

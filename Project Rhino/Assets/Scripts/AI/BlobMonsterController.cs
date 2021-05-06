@@ -45,7 +45,7 @@ public partial class BlobMonsterController : SimpleAI_Controller
         groundMask = m_CharacterController.GetGroundMask();
         isMovingRight = startWithRightDirection;
         InitNewDirection(isMovingRight);
-        hazardData.SetupHazard(damageBox);
+        hazardData.SetHazard(damageBox);
     }
 
     protected override void FixedUpdate()
