@@ -24,11 +24,16 @@ public class ProjectileEmitter : MonoBehaviour
             m_AudioSource = GetComponent<AudioSource>();
     }
 
-    protected virtual Projectile FireProjectile(int _prefabIndex)
+    protected virtual int GetProjectileIndex()
+    {
+        return 0;
+    }
+
+    protected virtual Projectile FireProjectile()
     {
         if(m_AudioSource)
             m_AudioSource.Play();
-        return Instantiate(projectilePrefabs[_prefabIndex], m_emitter.position, m_emitter.rotation).GetComponent<Projectile>();
+        return Instantiate(projectilePrefabs[GetProjectileIndex()], m_emitter.position, m_emitter.rotation).GetComponent<Projectile>();
     }
 
     protected Vector2 GetDirectionFromRotation(Quaternion _rotation, Vector2 _from, Vector2 _parentScale)

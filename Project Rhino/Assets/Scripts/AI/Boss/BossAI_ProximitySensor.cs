@@ -19,7 +19,6 @@ public class BossAI_ProximitySensor : MonoBehaviour
     private void OnEnable()
     {
         onTargetDetected += DebugOnTargetDetected;
-        whileTargetDetected += DebugWhileTargetDetected;
         onTargetLost += DebugOnTargetLost;
     }
 
@@ -75,11 +74,6 @@ public class BossAI_ProximitySensor : MonoBehaviour
     void DebugOnTargetDetected()
     {
         Debug.Log(Target.gameObject.name + " has been detected!");
-    }
-
-    void DebugWhileTargetDetected()
-    {
-        Debug.Log(Target.gameObject.name + " is still detected!");
     }
 
     void DebugOnTargetLost()

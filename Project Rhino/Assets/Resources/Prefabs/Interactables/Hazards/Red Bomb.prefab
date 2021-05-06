@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77fec5715d7cb034489deebcf58be2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  killPlayerOnTouch: 0
+  killPlayerOnTriggerEnter: 1
   playerSpawn: {fileID: 0}
   objectsToHide: []
   objectsToShow: []
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_playerHazard: {fileID: 8659416624942441351}
   m_rigidbody: {fileID: 7357664176608884794}
   m_collider: {fileID: 1271788774283140180}
-  lifeSpan: 5
+  lifeSpan: 3
   destroyOnImpact: 0
   targetLayers:
     serializedVersion: 2

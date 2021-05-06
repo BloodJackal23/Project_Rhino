@@ -8,6 +8,7 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     [Header("Boss Weapons")]
     [SerializeField] private LaserBeam m_laserBeam;
+    [SerializeField] private BombBurstGun m_bombBurstGun;
     [Space]
 
     [Header("Attributes")]
@@ -23,7 +24,8 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     private void Start()
     {
-        m_laserBeam.onLaserEnd += OnLaserBeamEnd;
+        m_laserBeam.onLaserEnd += OnCombatActionEnd;
+        m_bombBurstGun.onBurstEnd += OnCombatActionEnd;
     }
 
     private void OnEnable()
@@ -49,7 +51,10 @@ public class BossAI_DecisionMaker : MonoBehaviour
             else
             {
                 if (targetInRange && !takingAction)
-                    FireLaserBeam();
+                {
+                    takingAction = true;
+                    SelectRandomCombatAction();
+                }
             }
         }
     }
@@ -57,24 +62,20 @@ public class BossAI_DecisionMaker : MonoBehaviour
     private void OnTargetDetected()
     {
         targetInRange = true;
-        //FireLaserBeam();
-        //SelectRandomCombatAction();
     }
 
     private void OnTargetLost()
     {
         targetInRange = false;
-        //currentCombatAction = CombatAction.None;
     }
 
     private void SelectRandomCombatAction()
     {
         int rand = Random.Range(0, 2);
-
         switch(rand)
         {
             case 0:
-                currentCombatAction = CombatAction.FireBombs;
+                FireBombsBurst();
                 break;
             case 1:
                 FireLaserBeam();
@@ -85,11 +86,16 @@ public class BossAI_DecisionMaker : MonoBehaviour
     private void FireLaserBeam()
     {
         currentCombatAction = CombatAction.FireLaser;
-        takingAction = true;
         m_laserBeam.StartLaserBeam();
     }
 
-    private void OnLaserBeamEnd()
+    private void FireBombsBurst()
+    {
+        currentCombatAction = CombatAction.FireBombs;
+        m_bombBurstGun.FireBurst();
+    }
+
+    private void OnCombatActionEnd()
     {
         waitForCooldown = true;
         actionCooldownTimer = 0;

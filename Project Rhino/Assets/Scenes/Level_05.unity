@@ -751,8 +751,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sensor: {fileID: 1231287129}
   m_laserBeam: {fileID: 2137497174}
+  m_bombBurstGun: {fileID: 2091504238}
   actionCooldownTime: 2
-  runDM: 0
+  runDM: 1
   currentCombatAction: 0
 --- !u!1 &733858075
 GameObject:
@@ -10072,7 +10073,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2091504236}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22794dcf116ed94449b434c56e0bfc37, type: 3}
+  m_Script: {fileID: 11500000, guid: 857ab9d2ebd1a88438122b4368e13288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_emitter: {fileID: 2091504237}
@@ -10080,10 +10081,10 @@ MonoBehaviour:
   projectilePrefabs:
   - {fileID: 3288023980794408668, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
   - {fileID: 3342017547793331475, guid: 9dacbce1c3940904d8b16e2b73f5b34b, type: 3}
-  fireRate: 1
+  fireRate: 2
   canFire: 1
   force: 10
-  randomSpinForce: 1
+  randomSpinForce: 0
   startAngle: 70
   endAngle: 25
   burstCount: 4
@@ -10091,7 +10092,8 @@ MonoBehaviour:
     playerSpawn: {fileID: 1592685909}
     objectsToHide: []
     objectsToShow: []
-  fire: 0
+  redBombPercentage: 0.9
+  blueBombPercentage: 0.100000024
 --- !u!1 &2137497171
 GameObject:
   m_ObjectHideFlags: 0
@@ -10254,6 +10256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3a9686c3fed9942a067964dd1fa240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  killPlayerOnTriggerEnter: 1
   playerSpawn: {fileID: 1592685909}
   objectsToHide: []
   objectsToShow: []

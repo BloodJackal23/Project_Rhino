@@ -94,7 +94,8 @@ public class LaserBeam : PlayerHazard
         {
             laserHitPoint = hit.point;
             laserImpactFX.transform.position = laserHitPoint;
-            KillPlayerButNotReally(hit.collider);
+            if(hit.collider.gameObject.tag == "Player")
+                KillPlayerButNotReally(hit.collider);
         }
         else
             laserHitPoint = Vector2.zero;

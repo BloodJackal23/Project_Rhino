@@ -2,14 +2,14 @@
 
 public class PlayerHazard : MonoBehaviour
 {
-    [SerializeField] protected bool killPlayerOnTouch = true;
+    [SerializeField] protected bool killPlayerOnTriggerEnter = true;
     [SerializeField] protected Transform playerSpawn;
     [SerializeField] protected GameObject[] objectsToHide;
     [SerializeField] protected GameObject[] objectsToShow;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(killPlayerOnTouch && collision.gameObject.tag == "Player")
+        if(killPlayerOnTriggerEnter && collision.gameObject.tag == "Player")
             KillPlayerButNotReally(collision);
     }
 

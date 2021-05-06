@@ -24,7 +24,7 @@ public class GunTrap : ProjectileEmitter
     //Mainly used by the animator component
     public void Shoot()
     {
-        Projectile spawnedProjectile = FireProjectile(0);
+        Projectile spawnedProjectile = FireProjectile();
         spawnedProjectile.Init(m_emitter.right, force);
         if (spawnedProjectile.PlayerHazard)
             hazardData.SetHazard(spawnedProjectile.PlayerHazard);
