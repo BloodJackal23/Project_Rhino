@@ -10087,6 +10087,10 @@ MonoBehaviour:
   startAngle: 70
   endAngle: 25
   burstCount: 4
+  hazardData:
+    playerSpawn: {fileID: 1592685909}
+    objectsToHide: []
+    objectsToShow: []
   fire: 0
 --- !u!1 &2137497171
 GameObject:

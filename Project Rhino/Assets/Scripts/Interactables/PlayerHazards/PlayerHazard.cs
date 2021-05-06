@@ -18,7 +18,7 @@ public class PlayerHazard : MonoBehaviour
         objectsToShow = _show;
     }
 
-    void HideObjects()
+    private void HideObjects()
     {
         if(objectsToHide.Length > 0)
         {
@@ -30,7 +30,7 @@ public class PlayerHazard : MonoBehaviour
         }
     }
 
-    void ShowObjects()
+    private void ShowObjects()
     {
         if(objectsToShow.Length > 0)
         {
@@ -42,7 +42,7 @@ public class PlayerHazard : MonoBehaviour
         }
     }
 
-    protected void KillPlayerButNotReally(Collider2D _hitCollider)
+    public void KillPlayerButNotReally(Collider2D _hitCollider)
     {
         if (_hitCollider.gameObject.tag == "Player")
         {
