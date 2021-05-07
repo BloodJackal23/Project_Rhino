@@ -2,12 +2,18 @@ using UnityEngine;
 
 public class ExplosiveProjectile : Projectile
 {
+    [Header("Prefabs")]
+    [SerializeField] private GameObject explosionEffectPrefab;
+    [Space]
+
+    [Header("Attributes")]
     [SerializeField] private float explosionRadius = 3f;
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
         KillPlayerWithExplosion();
+        SpawnExplosionEffectOnExplosion();
     }
 
     private void KillPlayerWithExplosion()
@@ -28,5 +34,11 @@ public class ExplosiveProjectile : Projectile
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, explosionRadius);
+    }
+
+    private void SpawnExplosionEffectOnExplosion()
+    {
+        GameObject fx = Instantiate(explosionEffectPrefab, transform.position, Quaternion.identity);
+        Destroy(fx, 1.5f);
     }
 }

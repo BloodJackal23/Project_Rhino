@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1016905367312282499, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 7d6709cd20631de47aeeb7d9e1d1b545, type: 2}
     - target: {fileID: 3288023980638924908, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3288023980794408668, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
       propertyPath: m_Name
-      value: Blue Bomb
+      value: Blue Bomb Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
