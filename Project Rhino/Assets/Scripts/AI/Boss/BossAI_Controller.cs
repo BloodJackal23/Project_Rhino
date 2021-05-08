@@ -13,9 +13,8 @@ public class BossAI_Controller: MonoBehaviour
     public bool huntingPlayer = false;
 
     #region Private Variables
-    private Transform playerTransform;
+    private Transform targetTransform;
     private Vector2 targetVelocity, currentVelocity = Vector2.zero;
-    private float lastDirX = 0;
     #endregion
 
     private void Awake()
@@ -28,17 +27,17 @@ public class BossAI_Controller: MonoBehaviour
     {
         if (huntingPlayer)
         {
-            if(!playerTransform)
-                SearchForPlayer();
+            if(!targetTransform)
+                targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
         }
         else
-            playerTransform = null;
+            targetTransform = null;
     }
 
     void FixedUpdate()
     {
-        if(playerTransform)
-            FollowPlayer();
+        if(targetTransform)
+            MoveToTargetX(targetTransform.position.x - transform.position.x);
         else
         {
             if (m_rb.velocity != Vector2.zero)
@@ -49,27 +48,9 @@ public class BossAI_Controller: MonoBehaviour
     private void MoveToTargetX(float _xDir)
     {
         float lerpedSpeedX = Mathf.Lerp(0, moveSpeed * Time.deltaTime, Mathf.Abs(_xDir) - minFollowDistance);
-        targetVelocity = new Vector2(lerpedSpeedX * Mathf.Sign(_xDir), 0);
+        float signedX = Mathf.Sign(_xDir);
+        transform.localScale = new Vector2(signedX * Mathf.Abs(transform.localScale.x), transform.localScale.y);
+        targetVelocity = new Vector2(lerpedSpeedX * signedX, 0);
         m_rb.velocity = Vector2.SmoothDamp(m_rb.velocity, targetVelocity, ref currentVelocity, movementSmoothing);
-    }
-
-    private void SetLookByScale(float _xDir)
-    {
-        if (lastDirX != _xDir)
-            transform.localScale = new Vector2(-transform.localScale.x, transform.localScale.y);
-    }
-
-    private void FollowPlayer()
-    {
-        float xDir = playerTransform.position.x - transform.position.x;
-        float signedX = Mathf.Sign(xDir);
-        MoveToTargetX(xDir);
-        SetLookByScale(signedX);
-        lastDirX = signedX;
-    }
-
-    private void SearchForPlayer()
-    {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 }
