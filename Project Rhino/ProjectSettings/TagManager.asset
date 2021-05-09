@@ -9,6 +9,7 @@ TagManager:
   - Music Source
   - FX Source
   - Platform
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -24,7 +25,7 @@ TagManager:
   - Interactable
   - Enemy
   - Hitbox
-  - 
+  - Boss Trigger
   - 
   - 
   - 

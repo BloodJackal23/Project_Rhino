@@ -27,7 +27,7 @@ public class GunTrap : ProjectileEmitter
         Projectile spawnedProjectile = FireProjectile(projectilePrefab);
         spawnedProjectile.Init(m_emitter.right, force);
         if (spawnedProjectile.PlayerHazard)
-            hazardData.SetHazard(spawnedProjectile.PlayerHazard);
+            spawnedProjectile.PlayerHazard.SetHazardData(hazardData);
     }
 
     protected override Projectile FireProjectile(GameObject _prefab)

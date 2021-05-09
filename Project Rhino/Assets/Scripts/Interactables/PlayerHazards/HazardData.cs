@@ -8,8 +8,7 @@ public class HazardData
     [SerializeField] private GameObject[] objectsToHide;
     [SerializeField] private GameObject[] objectsToShow;
 
-    public void SetHazard(PlayerHazard _hazard)
-    {
-        _hazard.SetHazardData(playerSpawn, objectsToHide, objectsToShow);
-    }
+    public Transform PlayerTransform { get { return playerSpawn; } }
+    public GameObject[] ObjectsToHide { get { return objectsToHide; } }
+    public GameObject[] ObjectsToShow { get { return objectsToShow; } }
 }

@@ -112,4 +112,11 @@ public class BossAI_DecisionMaker : MonoBehaviour
         else
             waitForCooldown = false;
     }
+
+    public void SetNewHazardData(HazardData _laser, HazardData _redBomb, HazardData _blueBomb)
+    {
+        m_laserBeam.SetHazardData(_laser);
+        m_bombGun.SetRedBombHazardData(_redBomb);
+        m_bombGun.SetBlueBombHazardData(_blueBomb);
+    }
 }

@@ -13,11 +13,11 @@ public class PlayerHazard : MonoBehaviour
             KillPlayerButNotReally(collision);
     }
 
-    public void SetHazardData(Transform _spawn, GameObject[] _hide, GameObject[] _show)
+    public void SetHazardData(HazardData _hazardData)
     {
-        playerSpawn = _spawn;
-        objectsToHide = _hide;
-        objectsToShow = _show;
+        playerSpawn = _hazardData.PlayerTransform;
+        objectsToHide = _hazardData.ObjectsToHide;
+        objectsToShow = _hazardData.ObjectsToShow;
     }
 
     private void SetObjectsActivationStatus(GameObject[] _objects, bool _active)

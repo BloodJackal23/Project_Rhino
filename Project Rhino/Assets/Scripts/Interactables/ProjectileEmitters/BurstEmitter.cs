@@ -31,8 +31,7 @@ public class BurstEmitter : ProjectileEmitter
     {
         Projectile spawnedProjectile = FireProjectile(_prefab);
         spawnedProjectile.Init(GetRandomScatterDirection(), force, randomSpinForce);
-        if (spawnedProjectile.PlayerHazard)
-            _hazardData.SetHazard(spawnedProjectile.PlayerHazard);
+        spawnedProjectile.PlayerHazard.SetHazardData(_hazardData);
     }
 
     private IEnumerator FireSequence()

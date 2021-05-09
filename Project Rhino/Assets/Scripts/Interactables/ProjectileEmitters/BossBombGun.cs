@@ -16,4 +16,14 @@ public class BossBombGun : BurstEmitter
         else
             base.FireOneProjectile(altBombPrefab, altHazardData);
     }
+
+    public void SetRedBombHazardData(HazardData _hazardData)
+    {
+        hazardData = _hazardData;
+    }
+
+    public void SetBlueBombHazardData(HazardData _hazardData)
+    {
+        altHazardData = _hazardData;
+    }
 }
