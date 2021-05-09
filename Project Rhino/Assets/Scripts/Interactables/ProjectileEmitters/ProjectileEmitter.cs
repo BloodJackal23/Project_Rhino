@@ -7,7 +7,7 @@ public class ProjectileEmitter : MonoBehaviour
     [SerializeField] protected AudioSource m_AudioSource;
     [Space]
 
-    [SerializeField] protected GameObject[] projectilePrefabs;
+    [SerializeField] protected GameObject projectilePrefab;
 
     [Header("Attributes")]
     [SerializeField] protected float fireRate = 1f;
@@ -24,16 +24,9 @@ public class ProjectileEmitter : MonoBehaviour
             m_AudioSource = GetComponent<AudioSource>();
     }
 
-    protected virtual int GetProjectileIndex()
+    protected virtual Projectile FireProjectile(GameObject _prefab)
     {
-        return 0;
-    }
-
-    protected virtual Projectile FireProjectile()
-    {
-        if(m_AudioSource)
-            m_AudioSource.Play();
-        return Instantiate(projectilePrefabs[GetProjectileIndex()], m_emitter.position, m_emitter.rotation).GetComponent<Projectile>();
+        return Instantiate(_prefab, m_emitter.position, m_emitter.rotation).GetComponent<Projectile>();
     }
 
     protected Vector2 GetDirectionFromRotation(Quaternion _rotation, Vector2 _from, Vector2 _parentScale)

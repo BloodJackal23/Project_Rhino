@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -705427541
-  m_SortingLayer: 8
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 8896940391256670327, guid: e73b1efc75560f54cab63f674a03c285, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -100,11 +100,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_emitter: {fileID: 9205634327471852593}
   m_AudioSource: {fileID: 2403611135777379632}
-  projectilePrefabs:
-  - {fileID: 3288023980794408668, guid: 95f3ace0c5bc173489eabb068ca8a52e, type: 3}
+  projectilePrefab: {fileID: 3288023980794408668, guid: 95f3ace0c5bc173489eabb068ca8a52e, type: 3}
   fireRate: 1
   canFire: 1
   force: 5
+  randomSpinForce: 0
   startAngle: -60
   endAngle: -30
   m_Animator: {fileID: 1276770808}

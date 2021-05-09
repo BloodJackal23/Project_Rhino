@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6126388263537479417
 Transform:
   m_ObjectHideFlags: 0
@@ -46,8 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_emitter: {fileID: 6126388263537479417}
   m_AudioSource: {fileID: 5598892660172438972}
-  projectilePrefabs:
-  - {fileID: 3342017547793331475, guid: 9dacbce1c3940904d8b16e2b73f5b34b, type: 3}
+  projectilePrefab: {fileID: 3342017547793331475, guid: 9dacbce1c3940904d8b16e2b73f5b34b, type: 3}
   fireRate: 2
   canFire: 1
   force: 10
@@ -296,9 +295,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_sensor: {fileID: 9015264462392697366}
   m_laserBeam: {fileID: 9015264461553585945}
-  m_redBombGun: {fileID: 5843321177604888478}
-  m_blueBombGun: {fileID: 912156313804232334}
+  m_bombGun: {fileID: 5967839218152019518}
   actionCooldownTime: 2
+  redBombProbability: 0.9
+  blueBombProbability: 0.1
   runDM: 1
   currentCombatAction: 0
 --- !u!1 &9015264461252246733
@@ -437,10 +437,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9015264461515424546}
-  - component: {fileID: 5843321177604888478}
+  - component: {fileID: 5967839218152019518}
   - component: {fileID: 9015264461515424544}
   m_Layer: 12
-  m_Name: Red Bomb Emitter
+  m_Name: Bomb Emitter
   m_TagString: Untagged
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -460,7 +460,7 @@ Transform:
   m_Father: {fileID: 9015264460536825608}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5843321177604888478
+--- !u!114 &5967839218152019518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -469,17 +469,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 9015264461515424547}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22794dcf116ed94449b434c56e0bfc37, type: 3}
+  m_Script: {fileID: 11500000, guid: c6f7c623fe0aaf242b4d9ae32881d248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_emitter: {fileID: 9015264461515424546}
   m_AudioSource: {fileID: 9015264461515424544}
-  projectilePrefabs:
-  - {fileID: 3288023980794408668, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
+  projectilePrefab: {fileID: 3288023980794408668, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
   fireRate: 2
   canFire: 1
   force: 10
-  randomSpinForce: 0
+  randomSpinForce: 1
   startAngle: 85
   endAngle: 50
   burstCount: 4
@@ -487,6 +486,12 @@ MonoBehaviour:
     playerSpawn: {fileID: 0}
     objectsToHide: []
     objectsToShow: []
+  altBombPrefab: {fileID: 3342017547793331475, guid: 9dacbce1c3940904d8b16e2b73f5b34b, type: 3}
+  altHazardData:
+    playerSpawn: {fileID: 0}
+    objectsToHide: []
+    objectsToShow: []
+  blueBombProbability: 0.1
 --- !u!82 &9015264461515424544
 AudioSource:
   m_ObjectHideFlags: 0

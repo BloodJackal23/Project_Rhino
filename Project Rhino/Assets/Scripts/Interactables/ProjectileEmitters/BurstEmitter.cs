@@ -27,17 +27,12 @@ public class BurstEmitter : ProjectileEmitter
         Gizmos.DrawLine(transform.position, (Vector2)transform.position + GetDirectionFromRotation(endRot, Vector2.right, transform.parent.localScale) * 100);
     }
 
-    protected override int GetProjectileIndex()
+    protected virtual void FireOneProjectile(GameObject _prefab, HazardData _hazardData)
     {
-        return Random.Range(0, projectilePrefabs.Length);
-    }
-
-    private void FireOneProjectile()
-    {
-        Projectile spawnedProjectile = FireProjectile();
+        Projectile spawnedProjectile = FireProjectile(_prefab);
         spawnedProjectile.Init(GetRandomScatterDirection(), force, randomSpinForce);
         if (spawnedProjectile.PlayerHazard)
-            hazardData.SetHazard(spawnedProjectile.PlayerHazard);
+            _hazardData.SetHazard(spawnedProjectile.PlayerHazard);
     }
 
     private IEnumerator FireSequence()
@@ -55,7 +50,7 @@ public class BurstEmitter : ProjectileEmitter
             }
             fireRateTimer = 0;
             burstCounter++;
-            FireOneProjectile();
+            FireOneProjectile(projectilePrefab, hazardData);
         }
         while (burstCounter < burstCount);
         isFiring = false;

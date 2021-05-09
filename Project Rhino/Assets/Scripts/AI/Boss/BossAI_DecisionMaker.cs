@@ -8,7 +8,7 @@ public class BossAI_DecisionMaker : MonoBehaviour
 
     [Header("Boss Weapons")]
     [SerializeField] private LaserBeam m_laserBeam;
-    [SerializeField] private BurstEmitter m_redBombGun, m_blueBombGun;
+    [SerializeField] private BossBombGun m_bombGun;
     [Space]
 
     [Header("Attributes")]
@@ -26,8 +26,7 @@ public class BossAI_DecisionMaker : MonoBehaviour
     private void Start()
     {
         m_laserBeam.onLaserEnd += OnCombatActionEnd;
-        m_redBombGun.onBurstEnd += OnCombatActionEnd;
-        m_blueBombGun.onBurstEnd += OnCombatActionEnd;
+        m_bombGun.onBurstEnd += OnCombatActionEnd;
     }
 
     private void OnEnable()
@@ -95,10 +94,7 @@ public class BossAI_DecisionMaker : MonoBehaviour
     {
         currentCombatAction = CombatAction.FireBombs;
         float rand = Random.Range(0f, 1f);
-        if (rand < blueBombProbability)
-            m_blueBombGun.FireBurst();
-        else
-            m_redBombGun.FireBurst();
+        m_bombGun.FireBurst();
     }
 
     private void OnCombatActionEnd()

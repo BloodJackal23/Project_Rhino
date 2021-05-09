@@ -5232,6 +5232,18 @@ PrefabInstance:
       propertyPath: hazardData.playerSpawn
       value: 
       objectReference: {fileID: 1592685909}
+    - target: {fileID: 5967839218152019518, guid: ab7415b4ae4896641af4d141f31f26f4, type: 3}
+      propertyPath: hazardData.playerSpawn
+      value: 
+      objectReference: {fileID: 1592685909}
+    - target: {fileID: 5967839218152019518, guid: ab7415b4ae4896641af4d141f31f26f4, type: 3}
+      propertyPath: altHazardData.playerSpawn
+      value: 
+      objectReference: {fileID: 1476366330}
+    - target: {fileID: 5967839218152019518, guid: ab7415b4ae4896641af4d141f31f26f4, type: 3}
+      propertyPath: altPlayerHazard.playerSpawn
+      value: 
+      objectReference: {fileID: 1476366330}
     - target: {fileID: 9015264460536825608, guid: ab7415b4ae4896641af4d141f31f26f4, type: 3}
       propertyPath: m_RootOrder
       value: 7
