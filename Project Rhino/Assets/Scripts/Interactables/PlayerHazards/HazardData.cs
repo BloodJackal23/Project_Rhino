@@ -11,4 +11,11 @@ public class HazardData
     public Transform PlayerTransform { get { return playerSpawn; } }
     public GameObject[] ObjectsToHide { get { return objectsToHide; } }
     public GameObject[] ObjectsToShow { get { return objectsToShow; } }
+
+    public void ClearAllData()
+    {
+        playerSpawn = null;
+        objectsToHide = new GameObject[0];
+        objectsToShow = new GameObject[0];
+    }
 }

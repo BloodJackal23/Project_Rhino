@@ -4,16 +4,20 @@ public class BossAI_Controller: MonoBehaviour
 {
     [Header("Memebers")]
     [SerializeField] private Rigidbody2D m_rb;
+    [SerializeField] private BossAI_DecisionMaker m_bossDM;
     [Space]
 
     [Header("Attributes")]
     [SerializeField, Range(1f, 1000f)] private float moveSpeed = 250f;
     [SerializeField] private float movementSmoothing = 0.05f;
     [SerializeField, Range(0.1f, 5f)] private float minFollowDistance = 3f;
-    public bool huntingPlayer = false;
+    [HideInInspector] public bool followTarget = false;
+
+
+    [HideInInspector] public Transform targetTransform;
+    public BossAI_DecisionMaker BossDM { get { return m_bossDM; } }
 
     #region Private Variables
-    private Transform targetTransform;
     private Vector2 targetVelocity, currentVelocity = Vector2.zero;
     #endregion
 
@@ -21,17 +25,6 @@ public class BossAI_Controller: MonoBehaviour
     {
         if (!m_rb)
             m_rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Update()
-    {
-        if (huntingPlayer)
-        {
-            if(!targetTransform)
-                targetTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        }
-        else
-            targetTransform = null;
     }
 
     void FixedUpdate()

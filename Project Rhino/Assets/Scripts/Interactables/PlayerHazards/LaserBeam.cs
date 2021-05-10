@@ -118,14 +118,14 @@ public class LaserBeam : PlayerHazard
     public void StartLaserBeam()
     {
         StopAllCoroutines();
-        onLaserStart?.Invoke();
-        chargeUpFX.Play();
         StartCoroutine(FiringSequence());
     }
 
     private IEnumerator FiringSequence()
     {
         float delayTimer = 0;
+        onLaserStart?.Invoke();
+        chargeUpFX.Play();
         laserChargingAudio.Play();
         while(delayTimer < fireDelay)
         {

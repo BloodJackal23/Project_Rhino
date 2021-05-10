@@ -123,6 +123,84 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &94251306
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2007277863}
+    m_Modifications:
+    - target: {fileID: 955698411062288852, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: followPlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288852, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: laserHazardData.playerSpawn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288852, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: redBombHazardData.playerSpawn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288852, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: blueBombHazardData.playerSpawn
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 53.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 955698411062288854, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+      propertyPath: m_Name
+      value: Boss Activation Trigger_2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+--- !u!4 &94251307 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 955698411062288853, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
+  m_PrefabInstance: {fileID: 94251306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &120183134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5354,7 +5432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2007277863}
   m_Layer: 0
-  m_Name: Boss Hazard Changers
+  m_Name: Boss Activation Triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5372,6 +5450,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2010079202}
+  - {fileID: 94251307}
   m_Father: {fileID: 1895267067}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5445,7 +5524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 955698411062288854, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}
       propertyPath: m_Name
-      value: Boss Hazard Changer_1
+      value: Boss Activation Trigger_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b71313874a38eec44a2b361ad87e0ad0, type: 3}

@@ -16,8 +16,9 @@ public class BossAI_DecisionMaker : MonoBehaviour
     [SerializeField, Range(0f, 1f)] private float redBombProbability = 0.9f, blueBombProbability = 0.1f;
     [Space]
 
-    [Header("Debugging")]
-    [SerializeField] private bool runDM = true;
+    [Header("Activation")]
+    public bool runDM = true;
+
     private bool targetInRange, takingAction, waitForCooldown = true;
     private float actionCooldownTimer = 0;
     public enum CombatAction { None, FireBombs, FireLaser}
