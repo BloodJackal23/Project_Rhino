@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_rb: {fileID: 9015264460536825606}
   m_bossDM: {fileID: 9015264460806235014}
-  moveSpeed: 250
+  moveSpeed: 400
   movementSmoothing: 0.05
   minFollowDistance: 3.5
   followTarget: 0
@@ -324,10 +324,10 @@ MonoBehaviour:
   projectilePrefab: {fileID: 3288023980794408668, guid: 518937dced5bf82469f5b978d56cab0e, type: 3}
   fireRate: 2
   canFire: 1
-  force: 10
+  force: 12
   randomSpinForce: 1
-  startAngle: 85
-  endAngle: 50
+  startAngle: 65
+  endAngle: 20
   burstCount: 4
   hazardData:
     playerSpawn: {fileID: 0}
@@ -704,7 +704,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9015264462392697368}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.3, z: 0}
+  m_LocalPosition: {x: 0, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 9015264460806235015}
@@ -725,7 +725,7 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 256
-  sensorRadius: 7
+  sensorRadius: 5
 --- !u!1 &9015264462428134386
 GameObject:
   m_ObjectHideFlags: 0

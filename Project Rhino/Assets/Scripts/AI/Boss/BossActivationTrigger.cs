@@ -10,7 +10,7 @@ public class BossActivationTrigger : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            BossAI_Controller bossCtrl = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossAI_Controller>();         
+            BossAI_Controller bossCtrl = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossAI_Controller>();
             if (followPlayer)
             {
                 bossCtrl.targetTransform = collision.transform;
