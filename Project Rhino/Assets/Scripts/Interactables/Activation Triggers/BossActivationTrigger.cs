@@ -1,14 +1,14 @@
 using UnityEngine;
 
-public class BossActivationTrigger : MonoBehaviour
+public class BossActivationTrigger : ActivationTrigger
 {
-    [SerializeField] private bool destroyOnActivation = true, followPlayer = true;
+    [SerializeField] private bool followPlayer = true;
     [SerializeField] HazardData laserHazardData, redBombHazardData, blueBombHazardData;
     [SerializeField] private LayerMask targetMask;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             BossAI_Controller bossCtrl = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossAI_Controller>();
             if (followPlayer)
@@ -21,11 +21,10 @@ public class BossActivationTrigger : MonoBehaviour
             {
                 bossCtrl.targetTransform = null;
                 bossCtrl.BossDM.runDM = false;
-            }     
+            }
 
             Debug.Log("Player in the field");
-            if(destroyOnActivation)
-                Destroy(gameObject);
+            base.OnTriggerEnter2D(collision);
         }
     }
 

@@ -21,7 +21,7 @@ public class Gate : MonoBehaviour
         }
         else
         {
-            Debug.LogError(gameObject.name + "is not subscribed to any switches! This means that this interactable can't be controlled");
+            Debug.LogError(gameObject.name + " is not subscribed to any switches! This means that this interactable can't be controlled");
         }
 
         OperateGate();

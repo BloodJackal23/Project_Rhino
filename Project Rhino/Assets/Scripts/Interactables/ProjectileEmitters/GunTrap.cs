@@ -35,4 +35,9 @@ public class GunTrap : ProjectileEmitter
         m_AudioSource.Play();
         return base.FireProjectile(_prefab);
     }
+
+    public void SetActive(bool _isActive)
+    {
+        canFire = _isActive;
+    }
 }
