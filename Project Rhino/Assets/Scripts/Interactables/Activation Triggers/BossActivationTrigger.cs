@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BossActivationTrigger : ActivationTrigger
 {
+    [SerializeField] private BossAI_Controller bossCtrl;
     [SerializeField] private bool followPlayer = true;
     [SerializeField] HazardData laserHazardData, redBombHazardData, blueBombHazardData;
     [SerializeField] private LayerMask targetMask;
@@ -10,7 +11,9 @@ public class BossActivationTrigger : ActivationTrigger
     {
         if (collision.gameObject.tag == "Player")
         {
-            BossAI_Controller bossCtrl = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossAI_Controller>();
+            if (!bossCtrl)
+                bossCtrl = GameObject.FindGameObjectWithTag("Boss").GetComponent<BossAI_Controller>();
+            bossCtrl.gameObject.SetActive(true);
             if (followPlayer)
             {
                 bossCtrl.targetTransform = collision.transform;

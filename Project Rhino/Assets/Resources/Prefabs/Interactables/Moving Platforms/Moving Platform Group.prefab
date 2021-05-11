@@ -110,7 +110,7 @@ MonoBehaviour:
   moveSpeed: 4
   pointProximetyThreshold: 0.1
   waitTime: 1.5
-  startOnGameStart: 0
+  startOnGameStart: 1
 --- !u!1 &8352737618521886464
 GameObject:
   m_ObjectHideFlags: 0
