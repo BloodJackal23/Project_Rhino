@@ -11,6 +11,7 @@ public class MovingPlatformGroup : MonoBehaviour
     [SerializeField, Range(1f, 5f)] private float moveSpeed = 2f;
     [SerializeField] private float pointProximetyThreshold = .2f;
     [SerializeField] private float waitTime = 1.5f;
+    [SerializeField] private bool startOnGameStart = false;
 
     private bool isMoving = false;
     private float waitTimer = 0;
@@ -19,12 +20,13 @@ public class MovingPlatformGroup : MonoBehaviour
     void Awake()
     {
         if (!m_platform)
-        {
             m_platform = GetPlatform("Platform");
-        }
             
         platformRb = m_platform.GetComponent<Rigidbody2D>();
         GetPath();
+        m_platform.position = pathPoints[0].position;
+        if (startOnGameStart)
+            StartPlatformLoop();
     }
 
     private void FixedUpdate()
@@ -70,9 +72,7 @@ public class MovingPlatformGroup : MonoBehaviour
             m_path = transform.Find("Path");
         pathPoints = new Transform[m_path.childCount];
         for (int i = 0; i < pathPoints.Length; i++)
-        {
             pathPoints[i] = m_path.GetChild(i);
-        }
     }
 
     private bool ReachedDestination(Vector2 _from, Vector2 _to, float _threshold)
@@ -98,9 +98,20 @@ public class MovingPlatformGroup : MonoBehaviour
             if (i < path.childCount - 1)
                 Gizmos.DrawLine(path.GetChild(i).position, path.GetChild(i + 1).position);
             else
-            {
                 Gizmos.DrawLine(path.GetChild(i).position, path.GetChild(0).position);
-            }
         }
+    }
+
+    public void StartPlatformLoop()
+    {
+        isMoving = true;
+    }
+
+    public void StopPlatformLoop()
+    {
+        isMoving = false;
+        pointIndex = 0;
+        waitTimer = 0;
+        m_platform.position = pathPoints[0].position;
     }
 }
