@@ -4,7 +4,7 @@ public class BossActivationTrigger : ActivationTrigger
 {
     [SerializeField] private BossAI_Controller bossCtrl;
     [SerializeField] private bool followPlayer = true;
-    [SerializeField] HazardData laserHazardData, redBombHazardData, blueBombHazardData;
+    [SerializeField] HazardData laserHazardData, redBombHazardData;
     [SerializeField] private LayerMask targetMask;
 
     protected override void OnTriggerEnter2D(Collider2D collision)
@@ -18,7 +18,7 @@ public class BossActivationTrigger : ActivationTrigger
             {
                 bossCtrl.targetTransform = collision.transform;
                 bossCtrl.BossDM.runDM = true;
-                bossCtrl.BossDM.SetNewHazardData(laserHazardData, redBombHazardData, blueBombHazardData);
+                bossCtrl.BossDM.SetNewHazardData(laserHazardData, redBombHazardData);
             }
             else
             {
@@ -37,7 +37,6 @@ public class BossActivationTrigger : ActivationTrigger
         {
             laserHazardData.ClearAllData();
             redBombHazardData.ClearAllData();
-            blueBombHazardData.ClearAllData();
         }
     }
 }
