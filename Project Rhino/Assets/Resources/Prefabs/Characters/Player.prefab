@@ -247,7 +247,7 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 5121
+    m_Bits: 5633
   m_GroundCheck: {fileID: 2562799910317055759}
   m_CeilingCheck: {fileID: 2562799910657529492}
   m_CrouchDisableCollider: {fileID: 0}
@@ -350,9 +350,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 463713735
-  m_SortingLayer: 7
-  m_SortingOrder: 0
+  m_SortingLayerID: -1907436905
+  m_SortingLayer: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 3724249428552016925, guid: e73b1efc75560f54cab63f674a03c285, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

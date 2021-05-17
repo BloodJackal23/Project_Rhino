@@ -2,60 +2,39 @@
 
 public class PlayerHazard : MonoBehaviour
 {
+    [SerializeField] protected bool killPlayerOnTriggerEnter = true;
     [SerializeField] protected Transform playerSpawn;
     [SerializeField] protected GameObject[] objectsToHide;
     [SerializeField] protected GameObject[] objectsToShow;
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player") 
+        if(killPlayerOnTriggerEnter && collision.gameObject.tag == "Player")
+            KillPlayerButNotReally(collision);
+    }
+
+    public void SetHazardData(HazardData _hazardData)
+    {
+        playerSpawn = _hazardData.PlayerTransform;
+        objectsToHide = _hazardData.ObjectsToHide;
+        objectsToShow = _hazardData.ObjectsToShow;
+    }
+
+    private void SetObjectsActivationStatus(GameObject[] _objects, bool _active)
+    {
+        foreach(GameObject _gameObject in _objects)
         {
-            Debug.Log("Player Hit!");
-            PlayerController playerController = collision.GetComponent<PlayerController>();
-            playerController.onDeath?.Invoke();
-            SendPlayerToNewSpawn(collision.transform);
-            HideObjects();
-            ShowObjects();
+            if (_gameObject)
+                _gameObject.SetActive(_active);
         }
     }
 
-    public void SetHazardData(Transform _spawn, GameObject[] _hide, GameObject[] _show)
+    public void KillPlayerButNotReally(Collider2D _hitCollider)
     {
-        playerSpawn = _spawn;
-        objectsToHide = _hide;
-        objectsToShow = _show;
-    }
-
-    void SendPlayerToNewSpawn(Transform _playerTransform)
-    {
-        _playerTransform.position = playerSpawn.position;
-    }
-
-    void HideObjects()
-    {
-        if(objectsToHide.Length > 0)
-        {
-            foreach (GameObject _gameObject in objectsToHide)
-            {
-                if(_gameObject)
-                {
-                    _gameObject.SetActive(false);
-                }
-            }
-        }
-    }
-
-    void ShowObjects()
-    {
-        if(objectsToShow.Length > 0)
-        {
-            foreach (GameObject _gameObject in objectsToShow)
-            {
-                if(_gameObject)
-                {
-                    _gameObject.SetActive(true);
-                }
-            }
-        }
+        PlayerController playerController = _hitCollider.GetComponent<PlayerController>();
+        playerController.onDeath?.Invoke();
+        playerController.transform.position = playerSpawn.position;
+        SetObjectsActivationStatus(objectsToHide, false);
+        SetObjectsActivationStatus(objectsToShow, true);
     }
 }

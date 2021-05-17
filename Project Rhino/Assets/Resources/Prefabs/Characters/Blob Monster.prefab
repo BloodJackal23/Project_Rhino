@@ -195,7 +195,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 0.25}
+  m_Size: {x: 0.9, y: 0.25}
   m_EdgeRadius: 0
 --- !u!114 &2036523423746685846
 MonoBehaviour:
@@ -386,16 +386,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_CharacterController: {fileID: 6641295998510781830}
-  startWithRightDirection: 1
   wallCheckThreshold: 0.5
   targetWallMask:
     serializedVersion: 2
     m_Bits: 1025
+  stompHitbox: {fileID: 2036523423746685846}
+  damageBox: {fileID: 5187591056944827769}
+  startWithRightDirection: 1
   rightGapCheck: {fileID: 5211394151241393799}
   leftGapCheck: {fileID: 1233513147035150970}
   gapThreshold: 2
-  stompHitbox: {fileID: 2036523423746685846}
-  damageBox: {fileID: 5187591056944827769}
   deathExplosionPrefab: {fileID: 6001341344379662727, guid: deff1358c2f93384f926e6202634c99b, type: 3}
   hitAudioPrefab: {fileID: 1269935984702871542, guid: a71a85b4251453a4b80cb2674d569b49, type: 3}
   hazardData:

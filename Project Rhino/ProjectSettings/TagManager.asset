@@ -8,6 +8,8 @@ TagManager:
   - PauseMenu
   - Music Source
   - FX Source
+  - Platform
+  - Boss
   layers:
   - Default
   - TransparentFX
@@ -23,7 +25,7 @@ TagManager:
   - Interactable
   - Enemy
   - Hitbox
-  - 
+  - Activation Trigger
   - 
   - 
   - 
@@ -48,26 +50,23 @@ TagManager:
   - name: Background
     uniqueID: 2296367387
     locked: 0
-  - name: Middleground
-    uniqueID: 1557351747
-    locked: 0
   - name: Spawn
     uniqueID: 1472745351
     locked: 0
   - name: Interactable
     uniqueID: 742504657
     locked: 0
-  - name: SpeechBubble
-    uniqueID: 1928333015
-    locked: 0
   - name: Character
     uniqueID: 2387530391
     locked: 0
-  - name: Player
-    uniqueID: 463713735
-    locked: 0
   - name: Traps
     uniqueID: 3589539755
+    locked: 0
+  - name: Middleground
+    uniqueID: 1557351747
+    locked: 0
+  - name: SpeechBubble
+    uniqueID: 1928333015
     locked: 0
   - name: Foreground
     uniqueID: 920188967

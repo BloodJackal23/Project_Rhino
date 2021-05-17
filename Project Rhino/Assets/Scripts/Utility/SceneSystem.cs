@@ -11,6 +11,7 @@ public static class SceneSystem
         Level_02,
         Level_03,
         Level_04,
+        Level_05,
         EndOfDemo
     }
 

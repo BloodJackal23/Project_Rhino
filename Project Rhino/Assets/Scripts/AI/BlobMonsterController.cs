@@ -6,17 +6,26 @@ public partial class BlobMonsterController : SimpleAI_Controller
     [Header("Members and Children")]
     [SerializeField] private StompHitbox stompHitbox;
     [SerializeField] private PlayerHazard damageBox;
+    [SerializeField] protected bool startWithRightDirection = true;
+    [Space]
+    #endregion
+
+    #region Gap Checks
+    [Header("Gap Checks")]
+    [SerializeField] protected Transform rightGapCheck;
+    [SerializeField] protected Transform leftGapCheck;
+    [SerializeField] protected float gapThreshold = .5f; //Anything beyond that is considered a gap
+    protected Transform activeGapCheck;
+    protected LayerMask groundMask;
     [Space]
     #endregion
 
     #region Particle Effects
-    [Header("Particle Effects")]
+    [Header("Effects")]
     [SerializeField] private GameObject deathExplosionPrefab;
-    [Space]
     #endregion
 
     #region Sound Effects
-    [Header("Sound Effects")]
     [SerializeField] private GameObject hitAudioPrefab;
     [Space]
     #endregion
@@ -31,20 +40,50 @@ public partial class BlobMonsterController : SimpleAI_Controller
         stompHitbox.onStomp += SpawnDeathParticles;
     }
 
-    protected override void Start()
+    private void Start()
     {
-        base.Start();
-        hazardData.SetupHazard(damageBox);
+        groundMask = m_CharacterController.GetGroundMask();
+        isMovingRight = startWithRightDirection;
+        InitNewDirection(isMovingRight);
+        damageBox.SetHazardData(hazardData);
     }
 
     protected override void FixedUpdate()
     {
+        CheckForGaps();
         base.FixedUpdate();
     }
 
     private void OnDisable()
     {
         stompHitbox.onStomp = null;
+    }
+
+    private void SetActiveGapCheck(bool _isMovingRIght)
+    {
+        if (_isMovingRIght)
+        {
+            activeGapCheck = rightGapCheck;
+        }
+        else
+        {
+            activeGapCheck = leftGapCheck;
+        }
+    }
+
+    protected override void InitNewDirection(bool _isMovingRIght)
+    {
+        SetActiveGapCheck(_isMovingRIght);
+        base.InitNewDirection(_isMovingRIght);
+    }
+
+    private void CheckForGaps()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(activeGapCheck.position, Vector2.down, gapThreshold, groundMask);
+        if (hit.collider == null)
+        {
+            SwitchDirection();
+        }
     }
 
     private void PlayHitAudio()
@@ -56,6 +95,6 @@ public partial class BlobMonsterController : SimpleAI_Controller
 
     private void SpawnDeathParticles()
     {
-        GameObject deathExplosion = Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
+        Instantiate(deathExplosionPrefab, transform.position, Quaternion.identity);
     }
 }

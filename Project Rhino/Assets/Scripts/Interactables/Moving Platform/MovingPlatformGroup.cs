@@ -1,0 +1,117 @@
+using UnityEngine;
+
+public class MovingPlatformGroup : MonoBehaviour
+{
+    private Transform m_path;
+    private Transform m_platform;
+    private Rigidbody2D platformRb;
+    private Transform[] pathPoints;
+
+    [Header("Attributes")]
+    [SerializeField, Range(1f, 5f)] private float moveSpeed = 2f;
+    [SerializeField] private float pointProximetyThreshold = .2f;
+    [SerializeField] private float waitTime = 1.5f;
+    [SerializeField] private bool startOnGameStart = false;
+
+    private bool isMoving = false;
+    private float waitTimer = 0;
+    private int pointIndex = 0;
+
+    void Awake()
+    {
+        if (!m_platform)
+            m_platform = GetPlatform("Platform");
+            
+        platformRb = m_platform.GetComponent<Rigidbody2D>();
+        GetPath();
+        m_platform.position = pathPoints[0].position;
+        if (startOnGameStart)
+            StartPlatformLoop();
+    }
+
+    private void FixedUpdate()
+    {
+        if(isMoving)
+        {
+            if (ReachedDestination(m_platform.position, pathPoints[pointIndex].position, pointProximetyThreshold))
+            {
+                platformRb.velocity = Vector2.zero;
+                isMoving = false;
+            }
+        }
+        else
+        {
+            if (waitTimer < waitTime)
+                waitTimer += Time.fixedDeltaTime;
+            else
+            {
+                pointIndex++;
+                pointIndex %=  pathPoints.Length;
+                platformRb.velocity = SetPlatformDirection(pointIndex) * moveSpeed;
+                isMoving = true;
+                waitTimer = 0;
+            }
+        }
+    }
+
+    private Transform GetPlatform(string _tag)
+    {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            if (child.gameObject.tag == _tag)
+                return child;
+        }
+        Debug.LogError("Platform not found! Check that the platform object has the " + _tag + " tag assigned to it");
+        return null;
+    }
+
+    private void GetPath()
+    {
+        if (!m_path)
+            m_path = transform.Find("Path");
+        pathPoints = new Transform[m_path.childCount];
+        for (int i = 0; i < pathPoints.Length; i++)
+            pathPoints[i] = m_path.GetChild(i);
+    }
+
+    private bool ReachedDestination(Vector2 _from, Vector2 _to, float _threshold)
+    {
+        if (Vector2.Distance(_from, _to) > _threshold)
+            return false;
+        return true;
+    }
+
+    private Vector2 SetPlatformDirection(int _pointIndex)
+    {
+        Vector2 dir = pathPoints[pointIndex].position - m_platform.position;
+        dir.Normalize();
+        return dir;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        Transform path = transform.Find("Path");
+        for(int i = 0; i < path.childCount; i++)
+        {
+            if (i < path.childCount - 1)
+                Gizmos.DrawLine(path.GetChild(i).position, path.GetChild(i + 1).position);
+            else
+                Gizmos.DrawLine(path.GetChild(i).position, path.GetChild(0).position);
+        }
+    }
+
+    public void StartPlatformLoop()
+    {
+        isMoving = true;
+    }
+
+    public void StopPlatformLoop()
+    {
+        isMoving = false;
+        pointIndex = 0;
+        waitTimer = 0;
+        m_platform.position = pathPoints[0].position;
+    }
+}
