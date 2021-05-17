@@ -163,16 +163,16 @@ TextureImporter:
     second: industrial.v2_52
   - first:
       213: -2348566726361057662
-    second: industrial.v2_53
+    second: S_PipeCorner_1
   - first:
       213: -8636689210093790394
-    second: industrial.v2_54
+    second: S_Pipe_1
   - first:
       213: 7664180852340496546
-    second: industrial.v2_55
+    second: S_PipeTee_1
   - first:
       213: -8785539094539342198
-    second: industrial.v2_56
+    second: S_PipeCorner_2
   - first:
       213: -1898080511295699099
     second: industrial.v2_57
@@ -232,25 +232,25 @@ TextureImporter:
     second: industrial.v2_75
   - first:
       213: -8192746195810574879
-    second: industrial.v2_76
+    second: S_Pipe_2
   - first:
       213: -4415520743547661300
-    second: industrial.v2_77
+    second: S_PipeTee_2
   - first:
       213: 8302513947282175140
-    second: industrial.v2_78
+    second: S_PipeTee_3
   - first:
       213: -1089936039490215789
-    second: industrial.v2_79
+    second: S_PipeTee_4
   - first:
       213: -7234888759978822319
     second: industrial.v2_80
   - first:
       213: -8283787504665285459
-    second: industrial.v2_81
+    second: SteelFrame_7
   - first:
       213: 4617749745133422349
-    second: industrial.v2_82
+    second: SteelFrame_8
   - first:
       213: 3497547061263585196
     second: industrial.v2_83
@@ -298,16 +298,16 @@ TextureImporter:
     second: industrial.v2_97
   - first:
       213: -5284893593145155602
-    second: industrial.v2_98
+    second: S_PipeCorner_3
   - first:
       213: -5487703874031394647
-    second: industrial.v2_99
+    second: S_Pipe_3
   - first:
       213: -7194172084588123956
-    second: industrial.v2_100
+    second: S_PipeCorner_4
   - first:
       213: -5412396782797734920
-    second: industrial.v2_101
+    second: S_Cauldron
   - first:
       213: -8875330023102325175
     second: industrial.v2_102
@@ -322,13 +322,13 @@ TextureImporter:
     second: industrial.v2_105
   - first:
       213: 4718666817707342809
-    second: industrial.v2_106
+    second: ArrowSign_1
   - first:
       213: -2742115474557099827
     second: industrial.v2_107
   - first:
       213: -1586758277305494202
-    second: industrial.v2_108
+    second: ArrowSign_4
   - first:
       213: 1943571894034733062
     second: industrial.v2_109
@@ -379,13 +379,13 @@ TextureImporter:
     second: industrial.v2_124
   - first:
       213: -860776289180673420
-    second: industrial.v2_125
+    second: ArrowSign_2
   - first:
       213: 2046924118537183853
     second: industrial.v2_126
   - first:
       213: 7966692666983788586
-    second: industrial.v2_127
+    second: ArrowSign_5
   - first:
       213: 1326206932692463248
     second: industrial.v2_128
@@ -439,7 +439,7 @@ TextureImporter:
     second: industrial.v2_144
   - first:
       213: -1123786376244456066
-    second: industrial.v2_145
+    second: ArrowSign_3
   - first:
       213: 4967322625782151713
     second: industrial.v2_146
@@ -487,7 +487,7 @@ TextureImporter:
     second: industrial.v2_160
   - first:
       213: 902349542306461213
-    second: industrial.v2_161
+    second: Sign_1
   - first:
       213: -2528080830003945106
     second: Pipe_1
@@ -2461,7 +2461,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_53
+      name: S_PipeCorner_1
       rect:
         serializedVersion: 2
         x: 128
@@ -2482,7 +2482,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_54
+      name: S_Pipe_1
       rect:
         serializedVersion: 2
         x: 144
@@ -2503,7 +2503,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_55
+      name: S_PipeTee_1
       rect:
         serializedVersion: 2
         x: 160
@@ -2524,7 +2524,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_56
+      name: S_PipeCorner_2
       rect:
         serializedVersion: 2
         x: 176
@@ -2944,7 +2944,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_76
+      name: S_Pipe_2
       rect:
         serializedVersion: 2
         x: 128
@@ -2965,7 +2965,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_77
+      name: S_PipeTee_2
       rect:
         serializedVersion: 2
         x: 144
@@ -2986,7 +2986,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_78
+      name: S_PipeTee_3
       rect:
         serializedVersion: 2
         x: 160
@@ -3007,7 +3007,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_79
+      name: S_PipeTee_4
       rect:
         serializedVersion: 2
         x: 176
@@ -3049,7 +3049,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_81
+      name: SteelFrame_7
       rect:
         serializedVersion: 2
         x: 208
@@ -3070,7 +3070,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_82
+      name: SteelFrame_8
       rect:
         serializedVersion: 2
         x: 224
@@ -3406,7 +3406,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_98
+      name: S_PipeCorner_3
       rect:
         serializedVersion: 2
         x: 128
@@ -3427,7 +3427,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_99
+      name: S_Pipe_3
       rect:
         serializedVersion: 2
         x: 144
@@ -3448,7 +3448,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_100
+      name: S_PipeCorner_4
       rect:
         serializedVersion: 2
         x: 160
@@ -3469,7 +3469,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_101
+      name: S_Cauldron
       rect:
         serializedVersion: 2
         x: 176
@@ -3574,7 +3574,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_106
+      name: ArrowSign_1
       rect:
         serializedVersion: 2
         x: 256
@@ -3616,7 +3616,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_108
+      name: ArrowSign_4
       rect:
         serializedVersion: 2
         x: 288
@@ -3973,7 +3973,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_125
+      name: ArrowSign_2
       rect:
         serializedVersion: 2
         x: 256
@@ -4015,7 +4015,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_127
+      name: ArrowSign_5
       rect:
         serializedVersion: 2
         x: 288
@@ -4393,7 +4393,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_145
+      name: ArrowSign_3
       rect:
         serializedVersion: 2
         x: 256
@@ -4729,7 +4729,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: industrial.v2_161
+      name: Sign_1
       rect:
         serializedVersion: 2
         x: 176
